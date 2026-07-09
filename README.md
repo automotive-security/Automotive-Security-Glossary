@@ -1,3 +1,7 @@
+# Automotive Security Glossary
+
+**Automotive Security Glossary** is a glossary of automotive cybersecurity terminology that provides clear and concise definitions of automotive security concepts. It is designed to serve as a practical reference for security researchers, engineers, students, and automotive professionals, promoting a consistent understanding of automotive security terminology and best practices.
+
 ## 0-9
 
 ### 0-Day
@@ -9,37 +13,9 @@ Unknown vulnerability being actively exploited before patch availability.
 **Category:** Reverse Engineering
 Single-line debug/communication interface used in some ECUs.
 
-### 4G/5G Modem Gateway
-**Category:** Connectivity
-A module providing cellular connectivity between vehicle systems and cloud services.
-
-### 5G Vehicle Connectivity
-**Category:** Connectivity
-Use of 5G networks for V2X and cloud-connected vehicle services.
-
 ### 9008 EDL Mode
 **Category:** Reverse Engineering
 Qualcomm Emergency Download Mode used for low-level firmware flashing and recovery.
-
-### Type-1 Hypervisor
-**Category:** Virtualization
-A bare-metal hypervisor running directly on hardware without a host OS, used in automotive domain controllers for mixed-criticality workload isolation (e.g., ACRN, PikeOS).
-**Related:** Hypervisor, ACRN, PikeOS
-
-### Type-2 Hypervisor
-**Category:** Virtualization
-A hosted hypervisor running on top of a host OS, used in automotive development for ECU virtualization with lower isolation than Type-1 hypervisors.
-**Related:** Hypervisor, Type-1 Hypervisor
-
-### ARM Cortex-R52
-**Category:** Hardware Security
-An ARMv8-R real-time processor for safety-critical automotive applications with hardware virtualization, enabling multiple ASIL-level partitions with hardware-enforced isolation on a single core.
-**Related:** ASIL, Hypervisor, TEE
-
-### ARM Exception Levels (EL0-EL3)
-**Category:** Hardware Security
-The ARM privilege hierarchy: EL0 (user), EL1 (OS kernel), EL2 (hypervisor), EL3 (secure monitor), forming the hardware foundation for trusted execution and isolation in automotive SoCs.
-**Related:** ARM TrustZone, TEE, Hypervisor
 
 ## A
 
@@ -70,6 +46,19 @@ Data authenticated but not encrypted in authenticated encryption algorithms such
 **Category:** Security Architecture
 A modeling language used to describe embedded system architectures, including software, hardware, timing, and safety properties.
 **Related:** AUTOSAR, SysML
+
+### AAOS (Android Automotive OS)
+**Category:** Android
+Google's Android-based operating system designed specifically for in-vehicle infotainment systems.
+
+### ABAC (Attribute-Based Access Control)
+**Category:** IAM
+An authorization model that evaluates attributes of users, resources, and environments to make access decisions.
+
+### ABE (Attribute-Based Encryption)
+**Category:** Cryptography
+**Related:** Decryption, Encryption
+An encryption scheme where decryption depends on attributes rather than individual identities.
 
 ### ABI
 **Full Name:** Application Binary Interface
@@ -109,40 +98,14 @@ An Auto-ISAC attack technique where an adversary exploits or abuses the elevatio
 An Auto-ISAC attack technique where an adversary abuses standard automotive diagnostic protocols (e.g., UDS, KWP2000) to execute unauthorized diagnostic sessions, read/write memory, or perform security access operations on ECUs.
 **Related:** UDS, KWP2000, Diagnostic Security Access, Diagnostic Session
 
+### ACC (Adaptive Cruise Control)
+**Category:** ADAS
+A driver assistance function that automatically adjusts vehicle speed to maintain a safe distance from preceding vehicles.
+
 ### Access Control
 **Category:** Security
 The process of restricting access to vehicle resources according to identities, permissions, or security policies.
 **Related:** RBAC, ACL
-
-### ACDP (Access Control Decision Point)
-**Category:** IAM
-A logical entity that evaluates access requests based on policies and attributes.
-
-### ACEP (Access Control Enforcement Point)
-**Category:** IAM
-A system component that enforces access control decisions in runtime.
-
-### ACL (Access Control List)
-**Category:** IAM
-A list defining which users, devices, or applications are permitted to access specific resources.
-
-### Activity
-**Category:** Android
-A user interface component representing a single application screen.
-
-### Adversarial Machine Learning
-**Category:** AI
-An Auto-ISAC attack technique where an adversary crafts adversarial inputs to deceive in-vehicle ML models used in ADAS perception, object detection, driver monitoring, or traffic sign recognition, causing misclassification or unsafe decisions.
-**Related:** Machine Learning, ADAS, Perception System
-
-### Aftermarket Customer or Dealer Equipment
-**Category:** Attack
-An Auto-ISAC attack technique where an adversary uses aftermarket devices (e.g., third-party dongles, OBD-II accessories, dealer diagnostic tools) as an attack vector to gain unauthorized access to vehicle networks or extract sensitive data.
-**Related:** OBD-II, Diagnostic Port, Supply Chain Attack, Attack Vector
-
-### AP (Access Point)
-**Category:** Connectivity
-A wireless networking device providing Wi-Fi connectivity.
 
 ### Access Token
 **Category:** IAM
@@ -154,10 +117,22 @@ A credential representing successful authentication and authorization to access 
 **Related:** Authentication
 A security mechanism that temporarily disables authentication after repeated failed login attempts.
 
+### ACDP (Access Control Decision Point)
+**Category:** IAM
+A logical entity that evaluates access requests based on policies and attributes.
+
+### ACEP (Access Control Enforcement Point)
+**Category:** IAM
+A system component that enforces access control decisions in runtime.
+
 ### ACK
 **Full Name:** Acknowledgment
 **Category:** Network
 A message confirming successful reception of transmitted data.
+
+### ACL (Access Control List)
+**Category:** IAM
+A list defining which users, devices, or applications are permitted to access specific resources.
 
 ### Acoustic Attack
 **Category:** Attack
@@ -184,9 +159,9 @@ A diagnostic communication session currently established between a tester and an
 **Category:** Vehicle Architecture
 Technologies designed to prevent accidents, such as ABS, ESC, and AEB.
 
-### ACC (Adaptive Cruise Control)
-**Category:** ADAS
-A driver assistance function that automatically adjusts vehicle speed to maintain a safe distance from preceding vehicles.
+### Activity
+**Category:** Android
+A user interface component representing a single application screen.
 
 ### Adaptive Security Architecture
 **Category:** Security Architecture
@@ -212,19 +187,29 @@ A command-line tool for communicating with Android devices for debugging and dev
 **Category:** Hardware Security
 A hardware component converting analog signals into digital values.
 
-### ASLR (Address Space Layout Randomization)
-**Category:** Hardware Security
-A security technique that randomizes memory layout to increase resistance against memory corruption attacks.
-
 ### Address Translation
 **Category:** Hardware Security
 The mapping between virtual and physical memory addresses used in embedded and ECU systems.
+
+### Adversarial Machine Learning
+**Category:** AI
+An Auto-ISAC attack technique where an adversary crafts adversarial inputs to deceive in-vehicle ML models used in ADAS perception, object detection, driver monitoring, or traffic sign recognition, causing misclassification or unsafe decisions.
+**Related:** Machine Learning, ADAS, Perception System
+
+### Adversarial Patch
+**Category:** AI
+A physical-world adversarial attack technique where a carefully crafted pattern (printed on a physical object such as a sign or sticker) causes ML-based perception systems to misclassify targets; demonstrated against traffic sign recognition (stop sign classified as speed limit) and object detection in automotive ADAS.
+**Related:** Adversarial Machine Learning, Object Detection, Semantic Segmentation, AI Safety
 
 ### AEAD
 **Full Name:** Authenticated Encryption with Associated Data
 **Category:** Cryptography
 **Related:** Encryption
 An encryption method providing confidentiality, integrity, and authenticity.
+
+### AEB (Automatic Emergency Braking)
+**Category:** ECU
+An advanced driver assistance feature that automatically applies braking to reduce or avoid collisions.
 
 ### AER
 **Full Name:** Advanced Error Reporting
@@ -236,6 +221,10 @@ A mechanism in PCIe systems for reporting and handling hardware errors, useful i
 **Category:** Cryptography
 **Related:** Encryption
 A symmetric encryption algorithm widely used for securing automotive communication and stored data.
+
+### AES (Autonomous Emergency Steering)
+**Category:** ADAS
+A vehicle safety feature that automatically performs steering maneuvers to avoid collisions when braking alone is insufficient.
 
 ### AES-CBC
 **Category:** Cryptography
@@ -286,6 +275,26 @@ A coverage-guided fuzzing framework widely used for vulnerability discovery.
 **Category:** Penetration Testing
 An enhanced version of AFL with improved instrumentation, mutation strategies, and performance.
 
+### Aftermarket Customer or Dealer Equipment
+**Category:** Attack
+An Auto-ISAC attack technique where an adversary uses aftermarket devices (e.g., third-party dongles, OBD-II accessories, dealer diagnostic tools) as an attack vector to gain unauthorized access to vehicle networks or extract sensitive data.
+**Related:** OBD-II, Diagnostic Port, Supply Chain Attack, Attack Vector
+
+### AGL (Automotive Grade Linux)
+**Category:** Operating System
+**Related:** Linux
+An open-source Linux platform developed specifically for automotive infotainment and digital cockpit systems.
+
+### AI Accelerator
+**Category:** AI
+A dedicated hardware component (NPU, TPU, GPU) designed to accelerate machine learning inference and training workloads; increasingly integrated into automotive SoCs for real-time ADAS perception and autonomous driving processing.
+**Related:** NPU (Neural Processing Unit), GPU (Graphics Processing Unit), Edge AI, Deep Learning
+
+### AI Safety
+**Category:** AI
+The discipline ensuring that AI systems operate safely within defined parameters, particularly critical for autonomous driving functions where perception errors, corner cases, or distribution shift can lead to hazardous behavior; encompasses robustness, specification alignment, and fail-safe mechanisms.
+**Related:** Autonomous Driving, ADAS, Functional Safety, ISO 26262
+
 ### Air Gap
 **Category:** Security
 A security measure physically isolating systems from external networks.
@@ -303,6 +312,15 @@ An electronic control unit responsible for monitoring crash sensors and deployin
 **Category:** Security Tool
 A suite of tools for auditing wireless networks (802.11 a/b/g), including packet capture, WEP/WPA cracking, and evil twin attack capabilities; used in automotive Wi-Fi penetration testing.
 **Related:** Evil Twin Attack, WPA2, BSSID, ESSID, WiFi Pineapple
+
+### AKI (Authority Key Identifier)
+**Category:** Cryptography
+**Related:** Certificate
+An X.509 certificate extension identifying the public key corresponding to the certificate issuer.
+
+### ALG (Application Layer Gateway)
+**Category:** Network
+A network component that understands and manages specific application-layer protocols.
 
 ### Algorithm Agility
 **Category:** Cryptography
@@ -322,6 +340,10 @@ A standardized autonomous driving function that maintains lane position without 
 **Category:** Security
 A list of explicitly permitted applications, commands, devices, or communication endpoints.
 
+### ALM (Application Lifecycle Management)
+**Category:** Security Architecture
+The process of managing application development, deployment, update, and retirement.
+
 ### Android Auto
 **Category:** Android
 A smartphone projection technology developed by Google that mirrors Android device functionality onto a vehicle's infotainment display, creating a potential attack surface through USB and Bluetooth connections.
@@ -337,49 +359,40 @@ An application built specifically for Android Automotive OS (AAOS), designed to 
 **Related:** Android Auto
 A virtual environment used to develop and test Android Automotive applications.
 
-### AAOS (Android Automotive OS)
+### Android Automotive Multi-User
 **Category:** Android
-Google's Android-based operating system designed specifically for in-vehicle infotainment systems.
-
-### Android Automotive Wi-Fi
-**Category:** Android
-The Wi-Fi connectivity subsystem in AAOS supporting STA (client mode for hotspot tethering), SoftAP (in-vehicle Wi-Fi hotspot), and Wi-Fi Direct / Wi-Fi Aware for V2X-like proximity services; WPA3-SAE for secure connections, enterprise EAP for fleet Wi-Fi; a potential attack surface for nearby adversary exploitation.
-**Related:** AAOS (Android Automotive OS), Android Automotive Bluetooth, Android Automotive Telephony, T-Box (Telematics Box), Android Automotive OTA
-
-### Android Automotive Testing
-**Category:** Android
-A set of testing frameworks and tools for AAOS app and system validation including the AAOS Test Harness, Android Emulator (with vehicle HAL emulation), VHAL mock providers, and security testing tools (ADB, fuzzing, app vulnerability scanning); used by OEMs and suppliers to validate app security and system integration before deployment.
-**Related:** AAOS (Android Automotive OS), Android Automotive Emulator, ADB, Android Vehicle HAL (VHAL), Android Permission Model
-
-### Android Automotive Telephony
-**Category:** Android
-The telephony and cellular connectivity stack in AAOS enabling eCall, emergency calling, in-vehicle Wi-Fi hotspot, and carrier voice/data services; includes IMS (IP Multimedia Subsystem), carrier configuration via SIM/ eSIM, and modem IPC via HAL; a critical attack surface for remote exploitation via cellular baseband.
-**Related:** AAOS (Android Automotive OS), T-Box (Telematics Box), eCall System, Android Automotive Bluetooth, Android Automotive Wi-Fi
-
-### Android Automotive Security Patch
-**Category:** Android
-Monthly security bulletins and patches released by Google for the Android Automotive OS platform, covering vulnerabilities in the AOSP framework, Linux kernel, Qualcomm/MediaTek SoC drivers, and AAOS-specific services; OEMs are responsible for timely integration and OTA delivery to vehicle fleets.
-**Related:** AAOS (Android Automotive OS), Android Automotive OTA, Android Security Patch Level, AVB (Android Verified Boot)
-
-### Android Automotive Security Model
-**Category:** Android
-The layered security architecture of Android Automotive OS extending the standard Android security model with vehicle-specific controls: application sandboxing via SELinux, permission-based access to VHAL properties, user profile isolation, encrypted storage (File-Based Encryption), verified boot (AVB), and hardware-backed keystore for secure key storage.
-**Related:** AAOS (Android Automotive OS), Android SELinux, Android Permission Model, AVB (Android Verified Boot), Android Hardware-backed Keystore, Android Vehicle HAL (VHAL)
+The user management system in AAOS allowing driver, passenger, and guest profiles with isolated app data, settings, and accounts; supports fast user switching while driving, with security implications for PII isolation, app authorization, and persistent key/credential storage per profile.
+**Related:** AAOS (Android Automotive OS), Android Automotive Security Model, Android Permission Model, Android Activity
 
 ### Android Automotive OTA
 **Category:** Android
 The over-the-air update mechanism for AAOS leveraging AOSP seamless updates (A/B slot partitioning) to deliver system, security patch, and app updates to the IVI head unit; updates are cryptographically verified via AVB (Android Verified Boot), and rollback protection prevents downgrade attacks.
 **Related:** AAOS (Android Automotive OS), AVB (Android Verified Boot), A/B OTA Upgrade, Android Fastboot, OTA Attack, OTA Rollback Attack
 
-### Android Automotive Multi-User
+### Android Automotive Security Model
 **Category:** Android
-The user management system in AAOS allowing driver, passenger, and guest profiles with isolated app data, settings, and accounts; supports fast user switching while driving, with security implications for PII isolation, app authorization, and persistent key/credential storage per profile.
-**Related:** AAOS (Android Automotive OS), Android Automotive Security Model, Android Permission Model, Android Activity
+The layered security architecture of Android Automotive OS extending the standard Android security model with vehicle-specific controls: application sandboxing via SELinux, permission-based access to VHAL properties, user profile isolation, encrypted storage (File-Based Encryption), verified boot (AVB), and hardware-backed keystore for secure key storage.
+**Related:** AAOS (Android Automotive OS), Android SELinux, Android Permission Model, AVB (Android Verified Boot), Android Hardware-backed Keystore, Android Vehicle HAL (VHAL)
 
-### HAL (Hardware Abstraction Layer)
-**Full Name:** Hardware Abstraction Layer
+### Android Automotive Security Patch
 **Category:** Android
-A software layer providing standardized interfaces between Android framework components and hardware.
+Monthly security bulletins and patches released by Google for the Android Automotive OS platform, covering vulnerabilities in the AOSP framework, Linux kernel, Qualcomm/MediaTek SoC drivers, and AAOS-specific services; OEMs are responsible for timely integration and OTA delivery to vehicle fleets.
+**Related:** AAOS (Android Automotive OS), Android Automotive OTA, Android Security Patch Level, AVB (Android Verified Boot)
+
+### Android Automotive Telephony
+**Category:** Android
+The telephony and cellular connectivity stack in AAOS enabling eCall, emergency calling, in-vehicle Wi-Fi hotspot, and carrier voice/data services; includes IMS (IP Multimedia Subsystem), carrier configuration via SIM/ eSIM, and modem IPC via HAL; a critical attack surface for remote exploitation via cellular baseband.
+**Related:** AAOS (Android Automotive OS), T-Box (Telematics Box), eCall System, Android Automotive Bluetooth, Android Automotive Wi-Fi
+
+### Android Automotive Testing
+**Category:** Android
+A set of testing frameworks and tools for AAOS app and system validation including the AAOS Test Harness, Android Emulator (with vehicle HAL emulation), VHAL mock providers, and security testing tools (ADB, fuzzing, app vulnerability scanning); used by OEMs and suppliers to validate app security and system integration before deployment.
+**Related:** AAOS (Android Automotive OS), Android Automotive Emulator, ADB, Android Vehicle HAL (VHAL), Android Permission Model
+
+### Android Automotive Wi-Fi
+**Category:** Android
+The Wi-Fi connectivity subsystem in AAOS supporting STA (client mode for hotspot tethering), SoftAP (in-vehicle Wi-Fi hotspot), and Wi-Fi Direct / Wi-Fi Aware for V2X-like proximity services; WPA3-SAE for secure connections, enterprise EAP for fleet Wi-Fi; a potential attack surface for nearby adversary exploitation.
+**Related:** AAOS (Android Automotive OS), Android Automotive Bluetooth, Android Automotive Telephony, T-Box (Telematics Box), Android Automotive OTA
 
 ### Android Hardware-backed Keystore
 **Category:** Android
@@ -389,130 +402,13 @@ A keystore implementation that stores keys inside secure hardware such as a TEE 
 **Category:** Android
 A secure storage system for cryptographic keys, often backed by hardware security modules.
 
-### AOSP (Android Open Source Project)
-**Category:** Android
-The open-source project providing the base Android operating system.
-
 ### Android Permission Model
 **Category:** Android
 The framework controlling application access to protected system resources.
 
-### AUTOSAR
-**Full Name:** AUTomotive Open System ARchitecture
-**Category:** Operating System
-An open automotive software architecture standard for ECU software development.
-
-### AUTOSAR Adaptive
-**Category:** AUTOSAR
-The high-performance AUTOSAR platform supporting service-oriented architectures and POSIX operating systems.
-
-### AUTOSAR Basic Software (BSW)
-**Category:** AUTOSAR
-A standardized software layer providing hardware abstraction, communication services, memory services, and system functions.
-
-### AUTOSAR Classic
-**Category:** AUTOSAR
-The traditional AUTOSAR platform designed for resource-constrained embedded ECUs and real-time operation.
-
-### AUTOSAR COM
-**Category:** AUTOSAR
-A communication module responsible for signal packing, unpacking, and transmission.
-
-### AUTOSAR Communication Stack (ComStack)
-**Category:** AUTOSAR
-The layered AUTOSAR communication architecture comprising COM, PduR, CanIf, CanTp, LinIf, and EthIf modules, providing standardized signal-oriented and service-oriented communication with security mechanisms including SecOC integration.
-**Related:** AUTOSAR COM, AUTOSAR PDU Router (PduR), AUTOSAR SecOC
-
-### AUTOSAR Crypto Stack
-**Category:** Cryptography
-A collection of standardized AUTOSAR modules providing cryptographic services.
-
-### AUTOSAR E2E Profile 1
-**Category:** AUTOSAR
-An AUTOSAR E2E communication protection profile using CRC (8-bit) with a 1-byte Data ID for low-latency safety-related communication, suitable for sensor data integrity verification with minimal overhead.
-**Related:** AUTOSAR E2E Profile 2, AUTOSAR E2E Profile 4, E2E Communication, CRC, AUTOSAR E2E Profile 5, AUTOSAR E2E Profile 6
-
-### AUTOSAR E2E Profile 2
-**Category:** AUTOSAR
-An AUTOSAR E2E communication protection profile using CRC (16-bit) with a 2-byte Data ID and sequence counter, balancing protection strength and payload overhead for moderate safety-critical signals.
-**Related:** AUTOSAR E2E Profile 1, AUTOSAR E2E Profile 5, E2E Communication, CRC, AUTOSAR E2E Profile 4, AUTOSAR E2E Profile 6
-
-### AUTOSAR E2E Profile 4
-**Category:** AUTOSAR
-An AUTOSAR E2E communication protection profile providing enhanced protection with CRC (16-bit), 2-byte Data ID, sequence counter, and timeout monitoring for high-safety ASIL B/C applications.
-**Related:** AUTOSAR E2E Profile 5, AUTOSAR E2E Profile 6, E2E Communication, ASIL, AUTOSAR E2E Profile 1, AUTOSAR E2E Profile 2
-
-### AUTOSAR E2E Profile 5
-**Category:** AUTOSAR
-An AUTOSAR E2E communication protection profile using CRC (32-bit) with 2-byte Data ID and sequence counter, providing high integrity protection for ASIL D safety-critical in-vehicle communication.
-**Related:** AUTOSAR E2E Profile 1, AUTOSAR E2E Profile 6, E2E Communication, CRC, AUTOSAR E2E Profile 2, AUTOSAR E2E Profile 4
-
-### AUTOSAR E2E Profile 6
-**Category:** AUTOSAR
-An AUTOSAR E2E communication protection profile designed for large payload protection with CRC (32-bit) and Data ID wrapping, suitable for Ethernet/SOME/IP-based safety-critical service communication.
-**Related:** AUTOSAR E2E Profile 4, AUTOSAR E2E Profile 5, E2E Communication, SOME/IP, AUTOSAR E2E Profile 1, AUTOSAR E2E Profile 2
-
-### AUTOSAR ECU Abstraction Layer
-**Category:** AUTOSAR
-A software layer that abstracts ECU-specific hardware devices from upper software components.
-
-### AUTOSAR Key Manager (KeyM)
-**Category:** Cryptography
-An AUTOSAR module responsible for key lifecycle management, including provisioning, storage, and updates.
-
-### AUTOSAR MCAL
-**Full Name:** Microcontroller Abstraction Layer
-**Category:** AUTOSAR
-The lowest AUTOSAR software layer that provides standardized access to microcontroller peripherals.
-
-### AUTOSAR Network Management (NM)
-**Category:** Network
-An AUTOSAR module responsible for coordinating network sleep and wake-up behavior.
-
-### AUTOSAR OS
-**Category:** Operating System
-**Related:** AUTOSAR
-The standardized real-time operating system defined by AUTOSAR Classic Platform.
-
-### AUTOSAR OS Memory Protection
-**Category:** Operating System
-An AUTOSAR OS feature using MPU/MMU hardware to enforce memory access boundaries between OS-Applications, preventing unauthorized read/write/execute and isolating safety-critical from non-critical software.
-**Related:** AUTOSAR OS-Application, AUTOSAR OS, MPU, AUTOSAR
-
-### AUTOSAR OS Trusted Functions
-**Category:** Operating System
-An AUTOSAR OS mechanism allowing non-trusted OS-Applications to call trusted functions running in privileged mode, enabling controlled access to security services (crypto, key storage) without full privilege escalation.
-**Related:** AUTOSAR OS-Application, AUTOSAR OS, TEE, AUTOSAR
-
-### AUTOSAR OS-Application
-**Category:** Operating System
-An AUTOSAR OS concept providing temporal and spatial partitioning by grouping OS objects into applications, enabling memory protection and timing protection boundaries between safety-critical and non-critical software.
-**Related:** AUTOSAR OS, AUTOSAR OS Memory Protection, Hypervisor, AUTOSAR
-
-### AUTOSAR PDU Router (PduR)
-**Category:** AUTOSAR
-A routing module that forwards protocol data units (PDUs) between communication modules.
-
-### AUTOSAR Runtime Environment (RTE)
-**Category:** AUTOSAR
-Middleware that enables communication between AUTOSAR software components and the basic software.
-
-### AUTOSAR Secure Onboard Communication (SecOC)
-**Category:** AUTOSAR
-An AUTOSAR module providing message authentication and freshness protection for in-vehicle communication.
-
-### AUTOSAR Service Discovery (SD)
-**Category:** AUTOSAR
-A SOME/IP-based mechanism that enables ECUs to dynamically discover and advertise services within an in-vehicle network.
-**Related:** SOME/IP, Adaptive AUTOSAR
-
-### AUTOSAR Watchdog Manager (WdgM)
-**Category:** Functional Safety
-A module supervising software execution to detect failures and improve system reliability.
-
-### AVB (Android Verified Boot)
-**Category:** Android
-A boot integrity verification mechanism ensuring only trusted operating system images are loaded.
+### ANN (Artificial Neural Network)
+**Category:** AI
+A computational model inspired by biological neural networks and widely used in autonomous driving applications.
 
 ### Anti-Cloning
 **Category:** Security
@@ -546,6 +442,14 @@ Techniques intended to detect or resist physical or logical tampering.
 **Category:** Vehicle Security
 Electronic systems designed to prevent unauthorized vehicle access or theft.
 
+### AOSP (Android Open Source Project)
+**Category:** Android
+The open-source project providing the base Android operating system.
+
+### AP (Access Point)
+**Category:** Connectivity
+A wireless networking device providing Wi-Fi connectivity.
+
 ### AP Isolation
 **Category:** Connectivity
 A wireless security feature that prevents direct communication between clients connected to the same access point.
@@ -560,6 +464,10 @@ The communication unit exchanged between a smart card and a card reader accordin
 **Category:** Android
 A modular system update format used in Android for delivering low-level system components such as native libraries and runtime modules.
 **Related:** Android OTA, System Update
+
+### API (Application Programming Interface)
+**Category:** Security
+A defined interface enabling software components to communicate with one another.
 
 ### API Abuse
 **Category:** Security
@@ -658,29 +566,13 @@ The process of reducing the attack surface of an application through secure conf
 **Category:** Operating System
 A security mechanism that prevents applications from interfering with each other by enforcing execution boundaries.
 
-### ALG (Application Layer Gateway)
-**Category:** Network
-A network component that understands and manages specific application-layer protocols.
-
 ### Application Layer Security
 **Category:** Network
 Security mechanisms implemented at the application layer such as authentication, encryption, and validation.
 
-### ALM (Application Lifecycle Management)
-**Category:** Security Architecture
-The process of managing application development, deployment, update, and retirement.
-
 ### Application Manifest
 **Category:** Android
 A configuration file describing application components, permissions, and capabilities.
-
-### API (Application Programming Interface)
-**Category:** Security
-A defined interface enabling software components to communicate with one another.
-
-### AST (Application Security Testing)
-**Category:** Penetration Testing
-The practice of evaluating software applications for security vulnerabilities using static, dynamic, or interactive techniques.
 
 ### Application Whitelisting
 **Category:** Security
@@ -690,14 +582,33 @@ A security policy that permits only explicitly approved applications to execute.
 **Category:** Security Architecture
 A defined process requiring authorized review and approval before changes or deployments are accepted.
 
+### AR-HUD (Augmented Reality Head-Up Display)
+**Category:** Vehicle Architecture
+A display system projecting navigation and driving information onto the windshield using augmented reality techniques.
+
 ### Arbitration
 **Category:** Network
 The process by which CAN nodes determine which message gains bus access based on identifier priority.
+
+### Argument Injection
+**Category:** Vulnerability
+A vulnerability where an attacker injects additional arguments into a command-line invocation by supplying crafted input (e.g., "--flag=malicious") that the application passes unsanitized to a shell or exec call; in automotive systems, argument injection in diagnostic tools or OTA update scripts can lead to arbitrary command execution on TCU or IVI platforms.
+**Related:** Command Injection, OS Command Injection, Code Execution, Input Validation Failure
 
 ### Arm CCA (Arm Confidential Compute Architecture)
 **Category:** Attack
 Arm's security architecture providing hardware-enforced realm-based isolation for confidential computing, allowing multiple tenants (e.g., vehicle OEM, third-party apps, diagnostics) to execute in isolated realms with hardware-assured confidentiality and integrity protection against privileged software attacks.
 **Related:** ARM TrustZone, TEE, Hypervisor, Realm Management Extension (RME)
+
+### ARM Cortex-R52
+**Category:** Hardware Security
+An ARMv8-R real-time processor for safety-critical automotive applications with hardware virtualization, enabling multiple ASIL-level partitions with hardware-enforced isolation on a single core.
+**Related:** ASIL, Hypervisor, TEE
+
+### ARM Exception Levels (EL0-EL3)
+**Category:** Hardware Security
+The ARM privilege hierarchy: EL0 (user), EL1 (OS kernel), EL2 (hypervisor), EL3 (secure monitor), forming the hardware foundation for trusted execution and isolation in automotive SoCs.
+**Related:** ARM TrustZone, TEE, Hypervisor
 
 ### ARM TrustZone
 **Category:** Hardware Security
@@ -744,10 +655,6 @@ A validation process ensuring array accesses remain within valid memory boundari
 ### Array Index Out-of-Bounds
 **Category:** Vulnerability
 A programming error in which an array is accessed outside its allocated range.
-
-### ANN (Artificial Neural Network)
-**Category:** AI
-A computational model inspired by biological neural networks and widely used in autonomous driving applications.
 
 ### ARXML
 **Full Name:** AUTOSAR XML
@@ -808,6 +715,10 @@ The highest Automotive Safety Integrity Level defined by ISO 26262.
 **Category:** Functional Safety
 A technique that splits a safety requirement into redundant elements to reduce implementation complexity.
 
+### ASLR (Address Space Layout Randomization)
+**Category:** Hardware Security
+A security technique that randomizes memory layout to increase resistance against memory corruption attacks.
+
 ### ASN.1
 **Full Name:** Abstract Syntax Notation One
 **Category:** Network
@@ -858,6 +769,10 @@ The ability to continuously identify and monitor connected assets.
 ### Assisted Driving
 **Category:** ADAS
 Driving functionality in which the driver remains responsible while automation assists with specific tasks.
+
+### AST (Application Security Testing)
+**Category:** Penetration Testing
+The practice of evaluating software applications for security vulnerabilities using static, dynamic, or interactive techniques.
 
 ### Asymmetric Cryptography
 **Category:** Cryptography
@@ -1005,19 +920,6 @@ A digital certificate that binds authorization attributes or roles to an identit
 **Related:** Authorization Decision
 The process of verifying the correctness and legitimacy of identity attributes before authorization decisions are made.
 
-### ABAC (Attribute-Based Access Control)
-**Category:** IAM
-An authorization model that evaluates attributes of users, resources, and environments to make access decisions.
-
-### ABE (Attribute-Based Encryption)
-**Category:** Cryptography
-**Related:** Decryption, Encryption
-An encryption scheme where decryption depends on attributes rather than individual identities.
-### Adversarial Patch
-**Category:** AI
-A physical-world adversarial attack technique where a carefully crafted pattern (printed on a physical object such as a sign or sticker) causes ML-based perception systems to misclassify targets; demonstrated against traffic sign recognition (stop sign classified as speed limit) and object detection in automotive ADAS.
-**Related:** Adversarial Machine Learning, Object Detection, Semantic Segmentation, AI Safety
-
 ### Audit
 **Category:** Intrusion Detection
 A systematic examination of systems, configurations, processes, or records to verify compliance with security policies, standards, or regulations.
@@ -1042,10 +944,6 @@ A structured entry describing a single audited event.
 ### Auditability
 **Category:** Security Architecture
 The capability of a system to produce sufficient evidence for compliance verification and forensic investigations.
-
-### AR-HUD (Augmented Reality Head-Up Display)
-**Category:** Vehicle Architecture
-A display system projecting navigation and driving information onto the windshield using augmented reality techniques.
 
 ### Authentication
 **Category:** IAM
@@ -1110,11 +1008,6 @@ A cryptographically protected token representing an authenticated identity.
 ### Authentication Vector
 **Category:** Network
 A collection of cryptographic parameters used during subscriber authentication in cellular networks.
-
-### AKI (Authority Key Identifier)
-**Category:** Cryptography
-**Related:** Certificate
-An X.509 certificate extension identifying the public key corresponding to the certificate issuer.
 
 ### Authorization
 **Category:** Security
@@ -1183,10 +1076,6 @@ A protocol that allows connected Ethernet devices to automatically determine com
 **Related:** Certificate, Digital Certificate
 The automated enrollment, renewal, revocation, and lifecycle management of digital certificates.
 
-### AEB (Automatic Emergency Braking)
-**Category:** ECU
-An advanced driver assistance feature that automatically applies braking to reduce or avoid collisions.
-
 ### Automatic Key Rotation
 **Category:** Cryptography
 **Related:** Cryptographic Key
@@ -1208,11 +1097,6 @@ A family of Ethernet technologies designed for high-speed in-vehicle communicati
 **Category:** ECU
 An electronic control unit responsible for routing, filtering, and securing communication between multiple in-vehicle networks.
 
-### AGL (Automotive Grade Linux)
-**Category:** Operating System
-**Related:** Linux
-An open-source Linux platform developed specifically for automotive infotainment and digital cockpit systems.
-
 ### Automotive Security Operation Center (Auto-SOC)
 **Category:** Vehicle Security
 A security operations center dedicated to monitoring, detecting, and responding to cybersecurity events affecting connected vehicles.
@@ -1230,23 +1114,6 @@ Threat intelligence specifically focused on vulnerabilities, attacks, threat act
 **Related:** SAE J3016
 Vehicle operation with varying levels of automated driving capability as defined by SAE J3016.
 
-### AES (Autonomous Emergency Steering)
-**Category:** ADAS
-A vehicle safety feature that automatically performs steering maneuvers to avoid collisions when braking alone is insufficient.
-### AI Accelerator
-**Category:** AI
-A dedicated hardware component (NPU, TPU, GPU) designed to accelerate machine learning inference and training workloads; increasingly integrated into automotive SoCs for real-time ADAS perception and autonomous driving processing.
-**Related:** NPU (Neural Processing Unit), GPU (Graphics Processing Unit), Edge AI, Deep Learning
-
-### AI Safety
-**Category:** AI
-The discipline ensuring that AI systems operate safely within defined parameters, particularly critical for autonomous driving functions where perception errors, corner cases, or distribution shift can lead to hazardous behavior; encompasses robustness, specification alignment, and fail-safe mechanisms.
-**Related:** Autonomous Driving, ADAS, Functional Safety, ISO 26262
-### Argument Injection
-**Category:** Vulnerability
-A vulnerability where an attacker injects additional arguments into a command-line invocation by supplying crafted input (e.g., "--flag=malicious") that the application passes unsanitized to a shell or exec call; in automotive systems, argument injection in diagnostic tools or OTA update scripts can lead to arbitrary command execution on TCU or IVI platforms.
-**Related:** Command Injection, OS Command Injection, Code Execution, Input Validation Failure
-
 ### Autonomous Mode
 **Category:** ADAS
 A driving mode in which automated systems perform some or all driving tasks without continuous driver control.
@@ -1255,31 +1122,127 @@ A driving mode in which automated systems perform some or all driving tasks with
 **Category:** ADAS
 A function that enables a vehicle to perform parking maneuvers with minimal or no driver intervention.
 
-### AV (Autonomous Vehicle)
-**Category:** ADAS
-A vehicle capable of sensing its environment and performing driving tasks with varying levels of automation.
+### AUTOSAR
+**Full Name:** AUTomotive Open System ARchitecture
+**Category:** Operating System
+An open automotive software architecture standard for ECU software development.
 
-### CDD (AUTOSAR Complex Device Driver)
+### AUTOSAR Adaptive
 **Category:** AUTOSAR
-A special software component used when standard AUTOSAR interfaces cannot meet hardware-specific requirements.
+The high-performance AUTOSAR platform supporting service-oriented architectures and POSIX operating systems.
 
-### CSM (AUTOSAR Crypto Service Manager)
+### AUTOSAR Basic Software (BSW)
+**Category:** AUTOSAR
+A standardized software layer providing hardware abstraction, communication services, memory services, and system functions.
+
+### AUTOSAR Classic
+**Category:** AUTOSAR
+The traditional AUTOSAR platform designed for resource-constrained embedded ECUs and real-time operation.
+
+### AUTOSAR COM
+**Category:** AUTOSAR
+A communication module responsible for signal packing, unpacking, and transmission.
+
+### AUTOSAR Communication Stack (ComStack)
+**Category:** AUTOSAR
+The layered AUTOSAR communication architecture comprising COM, PduR, CanIf, CanTp, LinIf, and EthIf modules, providing standardized signal-oriented and service-oriented communication with security mechanisms including SecOC integration.
+**Related:** AUTOSAR COM, AUTOSAR PDU Router (PduR), AUTOSAR SecOC
+
+### AUTOSAR Crypto Stack
 **Category:** Cryptography
-The AUTOSAR module responsible for managing cryptographic operations and key usage.
+A collection of standardized AUTOSAR modules providing cryptographic services.
 
-### DCM (AUTOSAR Diagnostic Communication Manager)
-**Category:** Diagnostics
-**Related:** Diagnostic Service
-An AUTOSAR module implementing Unified Diagnostic Services (UDS).
+### AUTOSAR E2E Profile 1
+**Category:** AUTOSAR
+An AUTOSAR E2E communication protection profile using CRC (8-bit) with a 1-byte Data ID for low-latency safety-related communication, suitable for sensor data integrity verification with minimal overhead.
+**Related:** AUTOSAR E2E Profile 2, AUTOSAR E2E Profile 4, E2E Communication, CRC, AUTOSAR E2E Profile 5, AUTOSAR E2E Profile 6
 
-### SHE (AUTOSAR Secure Hardware Extension)
-**Category:** Hardware Security
-A standardized secure hardware interface supporting secure key storage and cryptographic operations.
+### AUTOSAR E2E Profile 2
+**Category:** AUTOSAR
+An AUTOSAR E2E communication protection profile using CRC (16-bit) with a 2-byte Data ID and sequence counter, balancing protection strength and payload overhead for moderate safety-critical signals.
+**Related:** AUTOSAR E2E Profile 1, AUTOSAR E2E Profile 5, E2E Communication, CRC, AUTOSAR E2E Profile 4, AUTOSAR E2E Profile 6
+
+### AUTOSAR E2E Profile 4
+**Category:** AUTOSAR
+An AUTOSAR E2E communication protection profile providing enhanced protection with CRC (16-bit), 2-byte Data ID, sequence counter, and timeout monitoring for high-safety ASIL B/C applications.
+**Related:** AUTOSAR E2E Profile 5, AUTOSAR E2E Profile 6, E2E Communication, ASIL, AUTOSAR E2E Profile 1, AUTOSAR E2E Profile 2
+
+### AUTOSAR E2E Profile 5
+**Category:** AUTOSAR
+An AUTOSAR E2E communication protection profile using CRC (32-bit) with 2-byte Data ID and sequence counter, providing high integrity protection for ASIL D safety-critical in-vehicle communication.
+**Related:** AUTOSAR E2E Profile 1, AUTOSAR E2E Profile 6, E2E Communication, CRC, AUTOSAR E2E Profile 2, AUTOSAR E2E Profile 4
+
+### AUTOSAR E2E Profile 6
+**Category:** AUTOSAR
+An AUTOSAR E2E communication protection profile designed for large payload protection with CRC (32-bit) and Data ID wrapping, suitable for Ethernet/SOME/IP-based safety-critical service communication.
+**Related:** AUTOSAR E2E Profile 4, AUTOSAR E2E Profile 5, E2E Communication, SOME/IP, AUTOSAR E2E Profile 1, AUTOSAR E2E Profile 2
+
+### AUTOSAR ECU Abstraction Layer
+**Category:** AUTOSAR
+A software layer that abstracts ECU-specific hardware devices from upper software components.
+
+### AUTOSAR Key Manager (KeyM)
+**Category:** Cryptography
+An AUTOSAR module responsible for key lifecycle management, including provisioning, storage, and updates.
+
+### AUTOSAR MCAL
+**Full Name:** Microcontroller Abstraction Layer
+**Category:** AUTOSAR
+The lowest AUTOSAR software layer that provides standardized access to microcontroller peripherals.
+
+### AUTOSAR Network Management (NM)
+**Category:** Network
+An AUTOSAR module responsible for coordinating network sleep and wake-up behavior.
+
+### AUTOSAR OS
+**Category:** Operating System
+**Related:** AUTOSAR
+The standardized real-time operating system defined by AUTOSAR Classic Platform.
+
+### AUTOSAR OS Memory Protection
+**Category:** Operating System
+An AUTOSAR OS feature using MPU/MMU hardware to enforce memory access boundaries between OS-Applications, preventing unauthorized read/write/execute and isolating safety-critical from non-critical software.
+**Related:** AUTOSAR OS-Application, AUTOSAR OS, MPU, AUTOSAR
+
+### AUTOSAR OS Trusted Functions
+**Category:** Operating System
+An AUTOSAR OS mechanism allowing non-trusted OS-Applications to call trusted functions running in privileged mode, enabling controlled access to security services (crypto, key storage) without full privilege escalation.
+**Related:** AUTOSAR OS-Application, AUTOSAR OS, TEE, AUTOSAR
+
+### AUTOSAR OS-Application
+**Category:** Operating System
+An AUTOSAR OS concept providing temporal and spatial partitioning by grouping OS objects into applications, enabling memory protection and timing protection boundaries between safety-critical and non-critical software.
+**Related:** AUTOSAR OS, AUTOSAR OS Memory Protection, Hypervisor, AUTOSAR
+
+### AUTOSAR PDU Router (PduR)
+**Category:** AUTOSAR
+A routing module that forwards protocol data units (PDUs) between communication modules.
+
+### AUTOSAR Runtime Environment (RTE)
+**Category:** AUTOSAR
+Middleware that enables communication between AUTOSAR software components and the basic software.
+
+### AUTOSAR Secure Onboard Communication (SecOC)
+**Category:** AUTOSAR
+An AUTOSAR module providing message authentication and freshness protection for in-vehicle communication.
+
+### AUTOSAR Service Discovery (SD)
+**Category:** AUTOSAR
+A SOME/IP-based mechanism that enables ECUs to dynamically discover and advertise services within an in-vehicle network.
+**Related:** SOME/IP, Adaptive AUTOSAR
+
+### AUTOSAR Watchdog Manager (WdgM)
+**Category:** Functional Safety
+A module supervising software execution to detect failures and improve system reliability.
 
 ### Auxiliary ECU
 **Category:** ECU
 **Related:** Control Unit
 An electronic control unit providing supporting functions rather than primary vehicle control.
+
+### AV (Autonomous Vehicle)
+**Category:** ADAS
+A vehicle capable of sensing its environment and performing driving tasks with varying levels of automation.
 
 ### Availability
 **Category:** Security
@@ -1306,6 +1269,10 @@ An isolated cloud infrastructure designed to improve service availability and fa
 **Full Name:** Audio Video Bridging
 **Category:** Network
 A collection of IEEE standards providing deterministic transmission of time-sensitive audio and video streams.
+
+### AVB (Android Verified Boot)
+**Category:** Android
+A boot integrity verification mechanism ensuring only trusted operating system images are loaded.
 
 ### AVB Stream Reservation Protocol (SRP)
 **Category:** Network
@@ -1428,14 +1395,6 @@ A firmware update strategy where updates are deployed to multiple ECUs or vehicl
 A physical fault injection technique manipulating body-bias voltage of CMOS circuits to alter transistor thresholds, causing timing faults in security-critical operations on advanced SoCs.
 **Related:** EMFI, Voltage Fault Injection, Laser Fault Injection, Fault Injection
 
-### Binder IPC
-**Category:** Android
-Android's primary inter-process communication mechanism used by system services and applications.
-
-### BMS (Battery Management System)
-**Category:** ECU
-A system that monitors and controls battery charging, discharging, temperature, and safety in electric vehicles.
-
 ### BCM (Body Control Module)
 **Category:** ECU
 An ECU that controls body functions such as lighting, windows, door locks, wipers, and climate; a central node often targeted in vehicle security assessments.
@@ -1449,6 +1408,7 @@ A management frame used in Wi-Fi networks to announce the presence of an access 
 **Category:** ECU
 An EV/HEV ECU responsible for managing the high-voltage traction battery pack, including cell balancing, state-of-charge (SoC) estimation, state-of-health (SoH) monitoring, contactor control, and isolation fault detection; critical for battery safety, performance, and longevity.
 **Related:** BMS (Battery Management System), VCU, OBC, HPC, Thermal Management
+
 ### Behavior Prediction
 **Category:** AI
 An AI/ML function in autonomous driving stacks that forecasts the future trajectories and actions of surrounding road users (vehicles, pedestrians, cyclists) based on historical states, map context, and interaction modeling; key input for motion planning and decision-making.
@@ -1470,6 +1430,10 @@ Detection of deviations from established behavioral baselines in vehicle systems
 **Category:** Penetration Testing
 A reference ECU used for performance, security, or compatibility comparison.
 
+### BER (Bit Error Rate)
+**Category:** Network
+A metric measuring the rate of errors in transmitted bits over a communication channel.
+
 ### Bettercap
 **Category:** Security Tool
 A powerful, open-source MITM framework and attack tool for network reconnaissance, packet sniffing, and traffic manipulation over HTTP, HTTPS, TCP, and BLE protocols; used in automotive security testing for wireless interception and in-vehicle network traffic analysis.
@@ -1478,34 +1442,6 @@ A powerful, open-source MITM framework and attack tool for network reconnaissanc
 ### Binary Analysis
 **Category:** Reverse Engineering
 The process of analyzing compiled executables to understand behavior, vulnerabilities, or logic.
-
-### Broadcast Receiver
-**Category:** Android
-A component that receives and processes broadcast messages from the operating system or applications.
-
-### BSM (Basic Safety Message)
-**Category:** Connectivity
-A V2X message type (SAE J2735) for US vehicle safety communication, containing position, speed, brake status, and heading broadcast at 10 Hz for collision avoidance.
-**Related:** CAM, V2X, DSRC, SCMS
-
-### BswM (Basic Software Mode Manager)
-**Category:** AUTOSAR
-An AUTOSAR Basic Software module that manages mode-dependent software behavior, coordinating mode transitions across communication stacks, network management, and application components with security implications for safe state transitions.
-**Related:** EcuM, AUTOSAR Basic Software (BSW), AUTOSAR COM
-
-### Bypass Code Integrity Protections
-**Category:** Attack
-An Auto-ISAC attack technique where an adversary bypasses code integrity verification mechanisms (e.g., secure boot, code signing, DM-Verity) to execute unauthorized or modified code on an ECU or in-vehicle computing platform.
-**Related:** Secure Boot, Code Signing, Platform Firmware
-
-### Bypass Mandatory Access Control
-**Category:** Attack
-An Auto-ISAC attack technique where an adversary circumvents MAC policies (e.g., SELinux, AppArmor, SMACK) in automotive Linux or Android systems to escalate privileges or access restricted resources.
-**Related:** SELinux, Kernel Privilege Escalation, Android Security
-
-### CFG (Binary Control Flow Graph)
-**Category:** Reverse Engineering
-A graph representation of all possible execution paths in a binary.
 
 ### Binary Diff
 **Category:** Reverse Engineering
@@ -1536,6 +1472,10 @@ A method that modifies program execution at runtime for analysis or monitoring.
 **Category:** Security
 Verification of digital signatures attached to executable binaries.
 
+### Binder IPC
+**Category:** Android
+Android's primary inter-process communication mechanism used by system services and applications.
+
 ### BIOS Integrity Check
 **Category:** Boot Security
 A mechanism verifying the integrity of BIOS firmware during system startup.
@@ -1544,10 +1484,6 @@ A mechanism verifying the integrity of BIOS firmware during system startup.
 **Category:** Hardware Security
 A hardware-level self-diagnostic feature that automatically tests components at power-on or during runtime to detect faults before they cause safety-critical failures.
 **Related:** Functional Safety, ISO 26262, FMEA
-
-### BER (Bit Error Rate)
-**Category:** Network
-A metric measuring the rate of errors in transmitted bits over a communication channel.
 
 ### Bit Flipping Attack
 **Category:** Cryptography
@@ -1581,6 +1517,10 @@ Methods used to bypass blacklist-based security filtering.
 **Category:** Security Tool
 An open-source software-defined radio platform (by Nuand) supporting full-duplex 2x2 MIMO operation, used in automotive security testing for creating rogue BTS and cellular network analysis.
 **Related:** SDR, HackRF One, RTL-SDR, USRP, OpenBTS, YateBTS
+
+### BLE (Bluetooth Low Energy)
+**Category:** Connectivity
+A low-power Bluetooth protocol widely used in automotive digital keys and sensors.
 
 ### Blind Attack
 **Category:** Attack
@@ -1636,10 +1576,6 @@ An attack that takes over an active Bluetooth connection between legitimate devi
 **Category:** Attack
 A technique used to identify Bluetooth devices based on unique communication patterns.
 
-### BLE (Bluetooth Low Energy)
-**Category:** Connectivity
-A low-power Bluetooth protocol widely used in automotive digital keys and sensors.
-
 ### Bluetooth Pairing
 **Category:** Connectivity
 The process of establishing a trusted relationship between Bluetooth devices.
@@ -1652,6 +1588,10 @@ A rogue Bluetooth access device that impersonates trusted devices to intercept o
 ### Bluetooth Spoofing
 **Category:** Attack
 An attack where a device impersonates a trusted Bluetooth device.
+
+### BMS (Battery Management System)
+**Category:** ECU
+A system that monitors and controls battery charging, discharging, temperature, and safety in electric vehicles.
 
 ### Boot Anomaly Detection
 **Category:** Intrusion Detection
@@ -1731,6 +1671,7 @@ A mechanism preventing downgrade attacks by blocking older firmware versions.
 **Category:** Boot Security
 **Related:** Secure Boot
 A hardware or software flag indicating whether secure boot enforcement is enabled.
+
 ### Bootloader Vulnerability
 **Category:** Vulnerability
 A security weakness in the bootloader firmware that allows bypassing secure boot, signature verification, or authenticated update checks; common in automotive ECUs where bootloader vulnerabilities enable flashing unsigned firmware, installing backdoors, or permanently compromising the device.
@@ -1753,6 +1694,7 @@ A failure to properly validate input or memory boundaries leading to exploitatio
 ### Brake ECU
 **Category:** ECU
 An ECU responsible for managing braking systems including ABS and ESC.
+
 ### Brake-by-Wire
 **Category:** Vehicle Architecture
 A vehicle technology that replaces traditional hydraulic or mechanical brake linkages with electronic control, where driver brake pedal input is converted to electrical signals transmitted over a redundant in-vehicle network to electromechanical brake actuators; brake-by-wire introduces critical safety and security requirements including fail-operational design, real-time fault tolerance, and protection against network-layer brake manipulation.
@@ -1778,18 +1720,23 @@ A scheme that allows encrypted messages to be securely sent to multiple recipien
 **Category:** Network
 A network frame sent to all nodes in a broadcast domain.
 
+### Broadcast Receiver
+**Category:** Android
+A component that receives and processes broadcast messages from the operating system or applications.
+
 ### Broadcast Storm Control
 **Category:** Network
 A control mechanism that limits excessive broadcast traffic in Ethernet or in-vehicle networks.
-### Broken Authentication
-**Category:** Vulnerability
-A vulnerability in the authentication mechanism that allows an attacker to impersonate legitimate users, bypass login procedures, or escalate privileges; in automotive telematics and V2X systems, broken authentication can lead to unauthorized vehicle access, remote command injection, or session hijacking.
-**Related:** Authentication Bypass, Weak Session Token, Hardcoded Credentials, Session Hijacking
 
 ### Broken Access Control
 **Category:** Vulnerability
 A vulnerability where an application fails to enforce proper access restrictions, allowing users or processes to perform actions beyond their authorized permissions; in automotive cloud platforms and IVI systems, broken access control can expose vehicle telemetry, remote command APIs, or diagnostic interfaces to unauthorized parties.
 **Related:** Authentication Bypass, Overprivileged Service, Misconfiguration, Sensitive Data Exposure
+
+### Broken Authentication
+**Category:** Vulnerability
+A vulnerability in the authentication mechanism that allows an attacker to impersonate legitimate users, bypass login procedures, or escalate privileges; in automotive telematics and V2X systems, broken authentication can lead to unauthorized vehicle access, remote command injection, or session hijacking.
+**Related:** Authentication Bypass, Weak Session Token, Hardcoded Credentials, Session Hijacking
 
 ### Broker (MQTT Broker)
 **Category:** Network
@@ -1810,10 +1757,20 @@ Injection of malicious messages into MQTT or publish-subscribe systems.
 **Related:** Credential
 An attack that attempts all possible combinations to guess credentials or keys.
 
+### BSM (Basic Safety Message)
+**Category:** Connectivity
+A V2X message type (SAE J2735) for US vehicle safety communication, containing position, speed, brake status, and heading broadcast at 10 Hz for collision avoidance.
+**Related:** CAM, V2X, DSRC, SCMS
+
 ### BSSID (Basic Service Set Identifier)
 **Category:** Connectivity
 The MAC address that uniquely identifies each Basic Service Set (BSS) in an 802.11 Wi-Fi network; used for evil twin attacks and wireless reconnaissance of in-vehicle hotspots.
 **Related:** ESSID, Evil Twin Attack, Aircrack-ng, WiFi Pineapple
+
+### BswM (Basic Software Mode Manager)
+**Category:** AUTOSAR
+An AUTOSAR Basic Software module that manages mode-dependent software behavior, coordinating mode transitions across communication stacks, network management, and application components with security implications for safe state transitions.
+**Related:** EcuM, AUTOSAR Basic Software (BSW), AUTOSAR COM
 
 ### BTS (Base Transceiver Station)
 **Category:** Connectivity
@@ -1887,6 +1844,16 @@ A policy allowing personal devices to connect to vehicle or enterprise systems u
 **Category:** Attack
 A multi-stage attack that sequentially bypasses multiple security mechanisms.
 
+### Bypass Code Integrity Protections
+**Category:** Attack
+An Auto-ISAC attack technique where an adversary bypasses code integrity verification mechanisms (e.g., secure boot, code signing, DM-Verity) to execute unauthorized or modified code on an ECU or in-vehicle computing platform.
+**Related:** Secure Boot, Code Signing, Platform Firmware
+
+### Bypass Mandatory Access Control
+**Category:** Attack
+An Auto-ISAC attack technique where an adversary circumvents MAC policies (e.g., SELinux, AppArmor, SMACK) in automotive Linux or Android systems to escalate privileges or access restricted resources.
+**Related:** SELinux, Kernel Privilege Escalation, Android Security
+
 ### Bytecode Injection
 **Category:** Attack
 An attack that injects malicious bytecode into runtime environments such as JVM or ART.
@@ -1902,6 +1869,11 @@ The Chinese Automotive Information Sharing and Analysis Center, China's counterp
 **Category:** Connectivity
 A cellular-based V2X technology standardized by 3GPP supporting direct PC5 sidelink and Uu-based communication for V2V, V2I, and V2N with ultra-reliable low-latency operation.
 **Related:** DSRC, V2X, PC5, SCMS
+
+### CA (Certificate Authority)
+**Category:** Cryptography
+**Related:** Certificate, Digital Certificate
+An entity that issues and manages digital certificates.
 
 ### Cabin Monitoring System
 **Category:** ADAS
@@ -1921,6 +1893,11 @@ Data used to tune ECU behavior.
 A V2X message type (ETSI EN 302 637-2) for periodic broadcasting of vehicle position, speed, heading, and acceleration at 1-10 Hz over ITS-G5 or C-V2X.
 **Related:** DENM, BSM, V2X, C-V2X
 
+### Camera ECU
+**Category:** ECU
+An electronic control unit dedicated to image sensor processing and vision-based perception, typically integrating a CMOS image sensor, ISP (Image Signal Processor), and video serializer (SerDes) for transmitting raw or compressed video to ADAS domain controllers or IVI systems; camera ECUs are critical for ADAS functions (lane keeping, AEB, parking) and present an attack surface for sensor spoofing, blinding attacks, and data injection.
+**Related:** ADAS, SerDes, GMSL (Gigabit Multimedia Serial Link), FPD-Link, MIPI CSI-2
+
 ### Camera Spoofing
 **Category:** ADAS
 Manipulating camera input using light, patterns, or digital injection.
@@ -1934,79 +1911,19 @@ A robust vehicle bus protocol designed for real-time communication between ECUs.
 **Category:** Network
 The process by which ECUs compete for bus access based on message ID priority.
 
-### CAN DoS Attack
-**Category:** Attack
-A denial-of-service attack on the CAN bus that overwhelms the network with high-priority messages, causing collisions, bus-off states of legitimate ECUs, and disruption of critical vehicle functions.
-**Related:** Bus Off Recovery Attack, CAN, DoS
-
-### CANBadger
-**Category:** Security Tool
-A multi-purpose CAN bus security testing tool with dual CAN channels, SD card logging, and isolated power supply, supporting CAN message injection, sniffing, replay, and fuzzing for automotive penetration testing and vulnerability research.
-**Related:** CAN Bus, CANtact, CaringCaribou, Fuzzing, CAN Fuzzing
-
-### CANalyzer (Vector)
-**Category:** Security Tool
-A bus analysis tool by Vector Informatik for monitoring, logging, and analyzing automotive network traffic, commonly used for security analysis, penetration testing, and protocol reverse engineering.
-**Related:** CANoe, CANape, Reverse Engineering
-
-### CANape (Vector)
-**Category:** Security Tool
-An ECU calibration and measurement tool by Vector Informatik for parameter optimization and data logging, relevant to security testing of ECU calibration integrity and diagnostic security.
-**Related:** CANoe, INCA, ECU Flashing
-
-### CanIf (CAN Interface)
-**Category:** AUTOSAR
-An AUTOSAR Basic Software module providing a unified hardware-independent interface between CAN controllers and upper communication layers, handling CAN frame transmission, reception, and controller mode management.
-**Related:** AUTOSAR MCAL, CanTp, CanSM, CAN
-
-### CanNm (CAN Network Management)
-**Category:** AUTOSAR
-An AUTOSAR module implementing coordinated network management over CAN, using ring-based NM messages to synchronize sleep/wake-up states across ECUs, with security considerations for NM message spoofing prevention.
-**Related:** AUTOSAR Network Management (NM), CanIf, CAN
-
-### CANdevStudio
-**Category:** Security Tool
-An open-source CAN bus simulation and testing environment with a GUI for creating virtual CAN networks, generating CAN signals, and replaying CAN traffic; used in automotive security research for reproducible test scenarios and fuzzing campaigns.
-**Related:** CAN Bus, CAN Fuzzing, Python-CAN, SocketCAN, SavvyCAN
-
-### CANoe (Vector)
-**Category:** Security Tool
-A comprehensive development, test, and analysis tool by Vector Informatik for CAN/LIN/FlexRay/MOST/Ethernet networks, widely used in automotive cybersecurity fuzzing, IDS validation, and ECU security testing.
-**Related:** CANalyzer, CANape, Fuzzing
-
-### CanSM (CAN State Manager)
-**Category:** AUTOSAR
-An AUTOSAR Basic Software module managing the CAN controller state machine (Full/Partial/Sleep/Pre-sleep), coordinating bus-off recovery and wake-up capabilities for network availability and security.
-**Related:** CanIf, AUTOSAR EcuM, CanTp
-
-### CanTp (CAN Transport Layer)
-**Category:** AUTOSAR
-An AUTOSAR Basic Software module implementing ISO 15765-2 transport protocol segmentation and reassembly for CAN messages exceeding 8-byte payload, used in UDS diagnostic sessions with security-sensitive data transfers.
-**Related:** CanIf, UDS, ISO 15765-2
-
-### Capture Camera or Audio
-**Category:** Attack
-An Auto-ISAC attack technique where an adversary captures camera feeds or audio streams from in-vehicle sensors via exploited IVI or cabin monitoring systems, enabling surveillance and data exfiltration.
-**Related:** Privacy, IVI, Cabin Monitoring System, Data Exfiltration
-
-### Capture SMS Message
-**Category:** Attack
-An Auto-ISAC attack technique where an adversary intercepts or captures SMS messages from an in-vehicle cellular module (T-Box, telematics unit), extracting OTP codes, alerts, or sensitive communications.
-**Related:** T-Box, Cellular Communication, Telematics
-
-### CCM (Climate Control Module)
-**Category:** ECU
-A body ECU that manages the vehicle HVAC (Heating, Ventilation, and Air Conditioning) system, controlling blower speed, temperature blend doors, mode doors, compressor engagement, and PTC heater operation; communicates via LIN or CAN with sensors and actuators throughout the cabin.
-**Related:** Seat Control Module, HMI, LIN Bus, BCM, CAN Gateway
-
-### CCP (CAN Calibration Protocol)
+### CAN Bus
 **Category:** Network
-A master-slave protocol used for ECU calibration and measurement data acquisition over CAN bus, defined by ASAM.
-**Related:** XCP, A2L, CAN
+The physical two-wire differential signaling bus that implements the Controller Area Network protocol, carrying CAN-High and CAN-Low signals terminated with 120Ω resistors at each end; in automotive E/E architectures, the CAN bus is the most ubiquitous in-vehicle network medium, connecting ECUs across powertrain, chassis, body, and infotainment domains, and is a primary attack surface for bus injection, masquerade, and denial-of-service attacks.
+**Related:** CAN (Controller Area Network), CAN FD, CAN XL, Arbitration, Bus Off State, Error Frame
 
 ### CAN Diagnostic Protocol
 **Category:** Diagnostics
 Protocols used for ECU diagnostics over CAN.
+
+### CAN DoS Attack
+**Category:** Attack
+A denial-of-service attack on the CAN bus that overwhelms the network with high-priority messages, causing collisions, bus-off states of legitimate ECUs, and disruption of critical vehicle functions.
+**Related:** Bus Off Recovery Attack, CAN, DoS
 
 ### CAN FD (Flexible Data-rate)
 **Category:** Network
@@ -2052,9 +1969,59 @@ An attack exploiting timing differences in CAN communication.
 **Category:** Network
 A protocol enabling segmentation and reassembly of CAN messages.
 
+### CAN Vulnerability
+**Category:** Vulnerability
+A class of vulnerabilities inherent in the Controller Area Network protocol design, including lack of message authentication, absence of encryption, broadcast-only communication, and identifier-based arbitration; CAN vulnerabilities enable bus injection, replay attacks, and ECU impersonation, forming the foundation for many automotive cyber attacks.
+**Related:** CAN Bus, CAN Injection Attack, Frame Spoofing, Replay Attack, Automotive Vulnerability
+
 ### CAN XL
 **Category:** Network
 Next-generation CAN protocol supporting up to 2048-byte payloads and enhanced security.
+
+### can-utils
+**Category:** Security Tool
+A set of Linux userspace utilities for CAN bus communication including candump, cansend, cangen, cansniffer, and canbusload; essential tools for automotive security researchers working with CAN interfaces on Linux systems.
+**Related:** CAN Bus, SocketCAN, CANtact, PCAN, CAN Fuzzing
+
+### CANalyzer (Vector)
+**Category:** Security Tool
+A bus analysis tool by Vector Informatik for monitoring, logging, and analyzing automotive network traffic, commonly used for security analysis, penetration testing, and protocol reverse engineering.
+**Related:** CANoe, CANape, Reverse Engineering
+
+### CANape (Vector)
+**Category:** Security Tool
+An ECU calibration and measurement tool by Vector Informatik for parameter optimization and data logging, relevant to security testing of ECU calibration integrity and diagnostic security.
+**Related:** CANoe, INCA, ECU Flashing
+
+### CANBadger
+**Category:** Security Tool
+A multi-purpose CAN bus security testing tool with dual CAN channels, SD card logging, and isolated power supply, supporting CAN message injection, sniffing, replay, and fuzzing for automotive penetration testing and vulnerability research.
+**Related:** CAN Bus, CANtact, CaringCaribou, Fuzzing, CAN Fuzzing
+
+### CANdevStudio
+**Category:** Security Tool
+An open-source CAN bus simulation and testing environment with a GUI for creating virtual CAN networks, generating CAN signals, and replaying CAN traffic; used in automotive security research for reproducible test scenarios and fuzzing campaigns.
+**Related:** CAN Bus, CAN Fuzzing, Python-CAN, SocketCAN, SavvyCAN
+
+### CanIf (CAN Interface)
+**Category:** AUTOSAR
+An AUTOSAR Basic Software module providing a unified hardware-independent interface between CAN controllers and upper communication layers, handling CAN frame transmission, reception, and controller mode management.
+**Related:** AUTOSAR MCAL, CanTp, CanSM, CAN
+
+### CanNm (CAN Network Management)
+**Category:** AUTOSAR
+An AUTOSAR module implementing coordinated network management over CAN, using ring-based NM messages to synchronize sleep/wake-up states across ECUs, with security considerations for NM message spoofing prevention.
+**Related:** AUTOSAR Network Management (NM), CanIf, CAN
+
+### CANoe (Vector)
+**Category:** Security Tool
+A comprehensive development, test, and analysis tool by Vector Informatik for CAN/LIN/FlexRay/MOST/Ethernet networks, widely used in automotive cybersecurity fuzzing, IDS validation, and ECU security testing.
+**Related:** CANalyzer, CANape, Fuzzing
+
+### CanSM (CAN State Manager)
+**Category:** AUTOSAR
+An AUTOSAR Basic Software module managing the CAN controller state machine (Full/Partial/Sleep/Pre-sleep), coordinating bus-off recovery and wake-up capabilities for network availability and security.
+**Related:** CanIf, AUTOSAR EcuM, CanTp
 
 ### CANtact
 **Category:** Security Tool
@@ -2066,10 +2033,25 @@ An open-source CAN bus interface and analysis tool for automotive security testi
 An enhanced version of the CANtact tool with galvanic isolation, high-speed CAN FD support, multi-channel operation, and robust protection against voltage spikes; designed for professional automotive security testing and ECU development.
 **Related:** CANtact, CAN FD, CAN Bus, SocketCAN
 
+### CanTp (CAN Transport Layer)
+**Category:** AUTOSAR
+An AUTOSAR Basic Software module implementing ISO 15765-2 transport protocol segmentation and reassembly for CAN messages exceeding 8-byte payload, used in UDS diagnostic sessions with security-sensitive data transfers.
+**Related:** CanIf, UDS, ISO 15765-2
+
 ### CAPEC
 **Full Name:** Common Attack Pattern Enumeration and Classification
 **Category:** Threat Modeling
 A catalog of attack patterns used in cybersecurity analysis.
+
+### Capture Camera or Audio
+**Category:** Attack
+An Auto-ISAC attack technique where an adversary captures camera feeds or audio streams from in-vehicle sensors via exploited IVI or cabin monitoring systems, enabling surveillance and data exfiltration.
+**Related:** Privacy, IVI, Cabin Monitoring System, Data Exfiltration
+
+### Capture SMS Message
+**Category:** Attack
+An Auto-ISAC attack technique where an adversary intercepts or captures SMS messages from an in-vehicle cellular module (T-Box, telematics unit), extracting OTP codes, alerts, or sensitive communications.
+**Related:** T-Box, Cellular Communication, Telematics
 
 ### Car API
 **Category:** Android
@@ -2088,6 +2070,11 @@ System service managing vehicle data access for applications.
 A Bluetooth attack tool that exploits default PIN codes in car hands-free kits to inject and intercept audio on automotive Bluetooth systems, demonstrating vulnerabilities in vehicle Bluetooth implementations.
 **Related:** Bluetooth, Bluebugging, Bluesnarfing
 
+### CaringCaribou
+**Category:** Security Tool
+A Python-based automotive security testing framework focused on CAN bus operations, providing modules for UDS discovery, brute-force diagnostic access, CAN message fuzzing, and key retrieval; designed specifically for automotive penetration testers.
+**Related:** CAN Bus, CANtact, CANBadger, UDS, CAN Fuzzing
+
 ### CarLife
 **Category:** Connectivity
 A smartphone projection technology developed by Baidu for the Chinese market, enabling mobile app integration with vehicle infotainment systems.
@@ -2098,10 +2085,24 @@ A smartphone projection technology developed by Baidu for the Chinese market, en
 A smartphone projection technology developed by Apple that mirrors iPhone functionality onto a vehicle's infotainment display via USB or wireless connection.
 **Related:** Android Auto, MirrorLink, SmartDeviceLink
 
+### CC (Common Criteria)
+**Category:** Security Architecture
+An international standard for evaluating security of IT products.
+
 ### CCC (Car Connectivity Consortium)
 **Category:** Standards
 An international organization developing standards for smartphone-to-vehicle connectivity, including the Digital Key standard for NFC and UWB-based vehicle access.
 **Related:** ICCOA, Digital Key, NFC
+
+### CCM (Climate Control Module)
+**Category:** ECU
+A body ECU that manages the vehicle HVAC (Heating, Ventilation, and Air Conditioning) system, controlling blower speed, temperature blend doors, mode doors, compressor engagement, and PTC heater operation; communicates via LIN or CAN with sensors and actuators throughout the cabin.
+**Related:** Seat Control Module, HMI, LIN Bus, BCM, CAN Gateway
+
+### CCP (CAN Calibration Protocol)
+**Category:** Network
+A master-slave protocol used for ECU calibration and measurement data acquisition over CAN bus, defined by ASAM.
+**Related:** XCP, A2L, CAN
 
 ### CCPA (California Consumer Privacy Act)
 **Category:** Standards
@@ -2113,15 +2114,14 @@ A California state law (effective 2020, amended by CPRA 2023) granting consumers
 An international standard for DC fast charging of electric vehicles, combining AC and DC charging pins in a single connector, supporting high-power charging with PLC-based communication.
 **Related:** CHAdeMO, ISO 15118, GB/T 20234
 
+### CDD (AUTOSAR Complex Device Driver)
+**Category:** AUTOSAR
+A special software component used when standard AUTOSAR interfaces cannot meet hardware-specific requirements.
+
 ### CDD (Custom Diagnostic Description)
 **Category:** Diagnostics
 A proprietary diagnostic description file format used by Vector tools to describe ECU diagnostic capabilities, communication parameters, and service definitions.
 **Related:** ODX, PDX, DEXT, ARXML
-
-### CaringCaribou
-**Category:** Security Tool
-A Python-based automotive security testing framework focused on CAN bus operations, providing modules for UDS discovery, brute-force diagnostic access, CAN message fuzzing, and key retrieval; designed specifically for automotive penetration testers.
-**Related:** CAN Bus, CANtact, CANBadger, UDS, CAN Fuzzing
 
 ### Cellular Communication
 **Category:** Connectivity
@@ -2132,27 +2132,19 @@ An Auto-ISAC attack technique where an adversary uses cellular communication cha
 **Category:** Attack
 Attacks targeting LTE/5G communication in connected vehicles.
 
+### Central + Zone Hybrid Architecture
+**Category:** Vehicle Architecture
+A next-generation E/E architecture combining centralized vehicle computers with zonal gateways; central computers handle domain functions (ADAS, cockpit, body) via high-performance SoCs, while zonal gateways consolidate I/O, power distribution, and network routing for physical zones, reducing wiring complexity and enabling SDV capabilities.
+**Related:** Zonal Gateway, HPC (High-Performance Computer), SDV (Software-Defined Vehicle), Domain Controller ECU, Zone-Based ECU Architecture (Zonal Architecture), E/E Architecture
+
+### Central Computing Architecture
+**Category:** Vehicle Architecture
+An E/E architecture paradigm where one or a few high-performance central computers consolidate processing from multiple ECUs, reducing the number of distributed controllers; central computers run multiple virtualized OS instances for mixed-criticality workloads (ADAS, cockpit, gateway), enabled by high-bandwidth in-vehicle networks.
+**Related:** HPC (High-Performance Computer), Domain Controller ECU, SDV (Software-Defined Vehicle), E/E Architecture, Vehicle Central Computer (VCC)
+
 ### Certificate
 **Category:** Cryptography
 A digital document binding a public key to an identity.
-
-### CA (Certificate Authority)
-**Category:** Cryptography
-**Related:** Certificate, Digital Certificate
-An entity that issues and manages digital certificates.
-### CAN Vulnerability
-**Category:** Vulnerability
-A class of vulnerabilities inherent in the Controller Area Network protocol design, including lack of message authentication, absence of encryption, broadcast-only communication, and identifier-based arbitration; CAN vulnerabilities enable bus injection, replay attacks, and ECU impersonation, forming the foundation for many automotive cyber attacks.
-**Related:** CAN Bus, CAN Injection Attack, Frame Spoofing, Replay Attack, Automotive Vulnerability
-### CAN Bus
-**Category:** Network
-The physical two-wire differential signaling bus that implements the Controller Area Network protocol, carrying CAN-High and CAN-Low signals terminated with 120Ω resistors at each end; in automotive E/E architectures, the CAN bus is the most ubiquitous in-vehicle network medium, connecting ECUs across powertrain, chassis, body, and infotainment domains, and is a primary attack surface for bus injection, masquerade, and denial-of-service attacks.
-**Related:** CAN (Controller Area Network), CAN FD, CAN XL, Arbitration, Bus Off State, Error Frame
-
-### Camera ECU
-**Category:** ECU
-An electronic control unit dedicated to image sensor processing and vision-based perception, typically integrating a CMOS image sensor, ISP (Image Signal Processor), and video serializer (SerDes) for transmitting raw or compressed video to ADAS domain controllers or IVI systems; camera ECUs are critical for ADAS functions (lane keeping, AEB, parking) and present an attack surface for sensor spoofing, blinding attacks, and data injection.
-**Related:** ADAS, SerDes, GMSL (Gigabit Multimedia Serial Link), FPD-Link, MIPI CSI-2
 
 ### Certificate Chain
 **Category:** Cryptography
@@ -2171,6 +2163,20 @@ The process of invalidating a previously issued certificate.
 ### Certificate Validation Failure
 **Category:** Vulnerability
 A failure in verifying certificate authenticity or trust chain.
+
+### CFG (Binary Control Flow Graph)
+**Category:** Reverse Engineering
+A graph representation of all possible execution paths in a binary.
+
+### CFI (Control Flow Integrity)
+**Category:** Security
+**Related:** Execution Flow
+A security mechanism preventing unauthorized modification of execution flow.
+
+### cgroups (Control Groups)
+**Category:** Operating System
+A Linux kernel feature that limits, accounts for, and isolates resource usage (CPU, memory, disk I/O, network) of process groups; essential for automotive Linux systems to enforce resource guarantees across IVI applications, navigation, and telematics services.
+**Related:** Container, Namespace Isolation, Linux, systemd
 
 ### CGW (Central Gateway)
 **Category:** ECU
@@ -2195,15 +2201,15 @@ Injection of malicious data into communication channels.
 **Related:** Data Integrity
 A value used to verify data integrity in communication or storage.
 
-### CIA Triad
-**Category:** Security
-The foundational security model consisting of Confidentiality (preventing unauthorized disclosure), Integrity (preventing unauthorized modification), and Availability (ensuring timely access), used as a basis for automotive cybersecurity risk assessment.
-**Related:** Confidentiality, Integrity, Availability, ISO 21434, Risk Assessment, Automotive Cybersecurity
-
 ### ChipWhisperer
 **Category:** Security Tool
 An open-source toolchain for embedded hardware security research, enabling side-channel power analysis (SPA/DPA), clock glitching, voltage fault injection, and electromagnetic fault injection; used in automotive research for attacking secure boot, AES implementations, and key extraction.
 **Related:** EMFI, Voltage Fault Injection (VFI), Side-Channel Attack, Secure Boot, Fault Injection
+
+### CIA Triad
+**Category:** Security
+The foundational security model consisting of Confidentiality (preventing unauthorized disclosure), Integrity (preventing unauthorized modification), and Availability (ensuring timely access), used as a basis for automotive cybersecurity risk assessment.
+**Related:** Confidentiality, Integrity, Availability, ISO 21434, Risk Assessment, Automotive Cybersecurity
 
 ### Cipher
 **Category:** Cryptography
@@ -2222,6 +2228,16 @@ Encrypted data that cannot be read without decryption.
 ### Circuit-Level Attack
 **Category:** Attack
 An attack targeting electrical or hardware circuit behavior.
+
+### Cleartext Storage of Sensitive Data
+**Category:** Vulnerability
+A vulnerability where sensitive information (passwords, cryptographic keys, personal data) is stored in unencrypted form in files, databases, or firmware flash partitions; in automotive systems, cleartext storage in IVI infotainment databases, TCU configuration partitions, or debug logs can expose vehicle credentials and user privacy data.
+**Related:** Sensitive Data Exposure, Information Disclosure, Insecure Storage, Unsecured Credentials
+
+### Cleartext Transmission of Sensitive Data
+**Category:** Vulnerability
+A vulnerability where sensitive data is transmitted over a network without encryption, enabling eavesdropping and interception; in automotive Ethernet (AVB/TSN), CAN/CAN-FD, LIN, or wireless (Bluetooth, Wi-Fi) communication channels, cleartext transmission of diagnostic commands, credentials, or telemetry data can be captured and exploited.
+**Related:** Transport Encryption Failure, Information Leakage, Network Protocol Exploit, MitM
 
 ### Clock Fault Injection (CFI)
 **Category:** Attack
@@ -2257,6 +2273,11 @@ An ECU responsible for instrument cluster display and data processing.
 A block-cipher-based MAC algorithm (defined in NIST SP 800-38B) that uses AES to produce a tag for message authentication and integrity, widely adopted in automotive protocols such as AUTOSAR SecOC and ISO 14229 (UDS) for authenticating in-vehicle communication.
 **Related:** AES, SecOC, HMAC, Message Authentication Code, Cipher
 
+### CNN (Convolutional Neural Network)
+**Category:** AI
+A class of deep neural networks designed for grid-structured data such as images; widely used in automotive perception for object detection, semantic segmentation, lane detection, and traffic sign recognition in ADAS and autonomous driving systems.
+**Related:** Deep Learning, Computer Vision, Object Detection, Semantic Segmentation, Adversarial Machine Learning
+
 ### Code Execution
 **Category:** Vulnerability
 The ability of an attacker to execute arbitrary code on a target system.
@@ -2282,10 +2303,6 @@ An Auto-ISAC attack technique where an adversary leverages command-line or scrip
 **Category:** Vulnerability
 An attack that injects malicious commands into system execution context.
 
-### CC (Common Criteria)
-**Category:** Security Architecture
-An international standard for evaluating security of IT products.
-
 ### Communication Bus
 **Category:** Network
 A shared communication system used by ECUs.
@@ -2304,18 +2321,28 @@ An Auto-ISAC attack technique where an adversary undermines cryptographic protec
 **Category:** Intrusion Detection
 Identification of security breaches in vehicle systems.
 
+### Computer Vision
+**Category:** AI
+The AI field enabling vehicles to interpret and understand visual information from cameras; foundational to ADAS and autonomous driving perception, covering object detection, semantic segmentation, optical flow, depth estimation, and visual SLAM.
+**Related:** CNN (Convolutional Neural Network), Object Detection, Semantic Segmentation, Perception System, ADAS
+
 ### Confidentiality
 **Category:** Security
 Ensuring information is accessible only to authorized entities.
 
-### CFI (Control Flow Integrity)
-**Category:** Security
-**Related:** Execution Flow
-A security mechanism preventing unauthorized modification of execution flow.
+### Container
+**Category:** Operating System
+An OS-level virtualization mechanism that encapsulates applications and their dependencies into isolated user-space instances sharing the host kernel; increasingly used in IVI and telematics platforms for application sandboxing, service isolation, and OTA update management.
+**Related:** cgroups (Control Groups), Namespace Isolation, seccomp, LSM (Linux Security Module)
 
 ### Content Provider
 **Category:** Android
 A component that securely shares structured application data.
+
+### Context Switch
+**Category:** Operating System
+The OS operation of saving and restoring process/thread state when switching execution between tasks; context switch latency is a critical metric in real-time automotive systems where deterministic scheduling guarantees must be met.
+**Related:** Thread, RTOS (Real-Time Operating System), Deterministic Scheduling, ECU Scheduling
 
 ### Control Unit
 **Category:** ECU
@@ -2334,10 +2361,19 @@ An ISO 21434 concept referring to cybersecurity components (hardware, software, 
 **Category:** Attack
 Stealing session cookies to impersonate users.
 
+### COQOS
+**Category:** Virtualization
+An automotive hypervisor by OpenSynergy providing virtualized execution environments for mixed-criticality workloads on a single SoC, enabling concurrent operation of safety-critical AUTOSAR OS and non-critical Android/Linux for IVI and digital cockpit.
+**Related:** Hypervisor, Type-1 Hypervisor, QNX Hypervisor, AUTOSAR OS, IVI (In-Vehicle Infotainment)
+
 ### COTS (Commercial Off-The-Shelf)
 **Category:** Supply Chain Security
 Commercially available hardware or software components used in automotive systems without modification, offering cost efficiency but introducing supply chain security risks and potential vulnerabilities from third-party code.
 **Related:** CooC, ISO 21434, Supply Chain Security, Third-Party Risk
+
+### CPS (Cyber Physical System)
+**Category:** Vehicle Architecture
+Systems integrating computation, networking, and physical processes.
 
 ### Credential
 **Category:** IAM
@@ -2365,33 +2401,15 @@ A signed list of revoked certificates published by a Certificate Authority, used
 **Category:** Attack
 Attacks that cross isolated vehicle system domains.
 
+### Cross-Domain Fusion Architecture
+**Category:** Vehicle Architecture
+An evolution of domain-centralized architecture where traditionally separate functional domains (ADAS, autonomous driving, cockpit, body) are merged onto shared high-performance computing platforms; enables advanced functions requiring cross-domain data fusion (e.g., ADAS + map data for personalized driving), but introduces stronger isolation and mixed-criticality requirements.
+**Related:** Domain Centralized Architecture, HPC (High-Performance Computer), E/E Architecture, Hypervisor, SDV (Software-Defined Vehicle)
+
 ### CRYIF (Crypto Interface)
 **Category:** AUTOSAR
 An AUTOSAR Basic Software module providing a standardized abstraction layer between the Crypto Service Manager (CSM) and cryptographic hardware drivers (HSM, SHE, software crypto), enabling platform-independent crypto service deployment.
 **Related:** CSM (AUTOSAR Crypto Service Manager), AUTOSAR Crypto Stack, SHE (AUTOSAR Secure Hardware Extension)
-
-### CRYSTALS-Dilithium (ML-DSA)
-**Category:** Cryptography
-A lattice-based digital signature algorithm selected by NIST for post-quantum standardization, suitable for automotive code signing and certificate issuance.
-**Related:** PQC, ML-DSA, CRYSTALS-Kyber, Certificate, Digital Signature
-
-### CRYSTALS-Kyber (ML-KEM)
-**Category:** Cryptography
-A lattice-based KEM selected by NIST for post-quantum standardization, based on MLWE, providing IND-CCA2 secure key agreement for automotive secure communication.
-**Related:** PQC, ML-KEM, CRYSTALS-Dilithium
-
-### CSAF (Common Security Advisory Framework)
-**Category:** Supply Chain Security
-An OASIS standard format for publishing structured security advisories enabling automated vulnerability processing across the automotive supply chain.
-**Related:** SBOM, VEX, Vulnerability, CVE
-
-### CSRF (Cross-Site Request Forgery)
-**Category:** Network
-An attack that forces a user to execute unwanted actions.
-
-### XSS (Cross-Site Scripting)
-**Category:** Network
-Injection of malicious scripts into web applications.
 
 ### Cryptanalysis
 **Category:** Cryptography
@@ -2414,6 +2432,21 @@ A value used in encryption and decryption operations.
 **Category:** Cryptography
 A protocol using cryptographic methods for secure communication.
 
+### CRYSTALS-Dilithium (ML-DSA)
+**Category:** Cryptography
+A lattice-based digital signature algorithm selected by NIST for post-quantum standardization, suitable for automotive code signing and certificate issuance.
+**Related:** PQC, ML-DSA, CRYSTALS-Kyber, Certificate, Digital Signature
+
+### CRYSTALS-Kyber (ML-KEM)
+**Category:** Cryptography
+A lattice-based KEM selected by NIST for post-quantum standardization, based on MLWE, providing IND-CCA2 secure key agreement for automotive secure communication.
+**Related:** PQC, ML-KEM, CRYSTALS-Dilithium
+
+### CSAF (Common Security Advisory Framework)
+**Category:** Supply Chain Security
+An OASIS standard format for publishing structured security advisories enabling automated vulnerability processing across the automotive supply chain.
+**Related:** SBOM, VEX, Vulnerability, CVE
+
 ### CSI-2 (MIPI Camera Serial Interface 2)
 **Category:** Vehicle Architecture
 A high-speed serial interface standard developed by MIPI Alliance for connecting cameras to processors, widely used in automotive vision systems for ADAS and autonomous driving applications.
@@ -2424,10 +2457,18 @@ A high-speed serial interface standard developed by MIPI Alliance for connecting
 An agreement defined in ISO/SAE 21434 (Clause 5.4) specifying cybersecurity responsibilities, interfaces, and communication between parties involved in the vehicle lifecycle (OEMs, Tier 1s, Tier 2s, and service providers), ensuring accountability for cybersecurity activities across the supply chain.
 **Related:** ISO 21434, Distributed Cybersecurity Audit, Supply Chain Security, CSMS
 
+### CSM (AUTOSAR Crypto Service Manager)
+**Category:** Cryptography
+The AUTOSAR module responsible for managing cryptographic operations and key usage.
+
 ### CSMS (Cybersecurity Management System)
 **Category:** Security Architecture
 A management system defined by UN R155 requiring vehicle manufacturers to establish, implement, and maintain processes for identifying and managing cybersecurity risks throughout the vehicle lifecycle.
 **Related:** UN R155, ISO 21434, TARA
+
+### CSRF (Cross-Site Request Forgery)
+**Category:** Network
+An attack that forces a user to execute unwanted actions.
 
 ### CVE (Common Vulnerabilities and Exposures)
 **Category:** Vulnerability
@@ -2448,10 +2489,6 @@ A community-developed catalog of software and hardware weakness types (e.g., CWE
 **Category:** Threat Modeling
 A framework developed by Lockheed Martin describing the stages of a cyberattack from reconnaissance to action on objectives, used to understand and model automotive cyber threats.
 **Related:** STRIDE, Attack Tree, TARA
-
-### CPS (Cyber Physical System)
-**Category:** Vehicle Architecture
-Systems integrating computation, networking, and physical processes.
 
 ### Cyber Range
 **Category:** Penetration Testing
@@ -2477,52 +2514,13 @@ Rules defining security requirements and enforcement mechanisms.
 **Category:** Vehicle Security
 Testing process ensuring security requirements are met.
 
-### can-utils
-**Category:** Security Tool
-A set of Linux userspace utilities for CAN bus communication including candump, cansend, cangen, cansniffer, and canbusload; essential tools for automotive security researchers working with CAN interfaces on Linux systems.
-**Related:** CAN Bus, SocketCAN, CANtact, PCAN, CAN Fuzzing
-### Computer Vision
-**Category:** AI
-The AI field enabling vehicles to interpret and understand visual information from cameras; foundational to ADAS and autonomous driving perception, covering object detection, semantic segmentation, optical flow, depth estimation, and visual SLAM.
-**Related:** CNN (Convolutional Neural Network), Object Detection, Semantic Segmentation, Perception System, ADAS
-### cgroups (Control Groups)
-**Category:** Operating System
-A Linux kernel feature that limits, accounts for, and isolates resource usage (CPU, memory, disk I/O, network) of process groups; essential for automotive Linux systems to enforce resource guarantees across IVI applications, navigation, and telematics services.
-**Related:** Container, Namespace Isolation, Linux, systemd
-### Cleartext Transmission of Sensitive Data
-**Category:** Vulnerability
-A vulnerability where sensitive data is transmitted over a network without encryption, enabling eavesdropping and interception; in automotive Ethernet (AVB/TSN), CAN/CAN-FD, LIN, or wireless (Bluetooth, Wi-Fi) communication channels, cleartext transmission of diagnostic commands, credentials, or telemetry data can be captured and exploited.
-**Related:** Transport Encryption Failure, Information Leakage, Network Protocol Exploit, MitM
-
-### Cleartext Storage of Sensitive Data
-**Category:** Vulnerability
-A vulnerability where sensitive information (passwords, cryptographic keys, personal data) is stored in unencrypted form in files, databases, or firmware flash partitions; in automotive systems, cleartext storage in IVI infotainment databases, TCU configuration partitions, or debug logs can expose vehicle credentials and user privacy data.
-**Related:** Sensitive Data Exposure, Information Disclosure, Insecure Storage, Unsecured Credentials
-
-### CNN (Convolutional Neural Network)
-**Category:** AI
-A class of deep neural networks designed for grid-structured data such as images; widely used in automotive perception for object detection, semantic segmentation, lane detection, and traffic sign recognition in ADAS and autonomous driving systems.
-**Related:** Deep Learning, Computer Vision, Object Detection, Semantic Segmentation, Adversarial Machine Learning
-### Context Switch
-**Category:** Operating System
-The OS operation of saving and restoring process/thread state when switching execution between tasks; context switch latency is a critical metric in real-time automotive systems where deterministic scheduling guarantees must be met.
-**Related:** Thread, RTOS (Real-Time Operating System), Deterministic Scheduling, ECU Scheduling
-
-### Container
-**Category:** Operating System
-An OS-level virtualization mechanism that encapsulates applications and their dependencies into isolated user-space instances sharing the host kernel; increasingly used in IVI and telematics platforms for application sandboxing, service isolation, and OTA update management.
-**Related:** cgroups (Control Groups), Namespace Isolation, seccomp, LSM (Linux Security Module)
-### COQOS
-**Category:** Virtualization
-An automotive hypervisor by OpenSynergy providing virtualized execution environments for mixed-criticality workloads on a single SoC, enabling concurrent operation of safety-critical AUTOSAR OS and non-critical Android/Linux for IVI and digital cockpit.
-**Related:** Hypervisor, Type-1 Hypervisor, QNX Hypervisor, AUTOSAR OS, IVI (In-Vehicle Infotainment)
-
 ## D
 
 ### D-Bus
 **Category:** Network
 An inter-process communication system used in Linux-based automotive systems such as IVI and infotainment platforms.
 **Related:** Binder, IPC
+
 ### Dangling Pointer
 **Category:** Vulnerability
 A pointer that retains a memory address after the referenced object has been freed or deallocated, leading to undefined behavior when dereferenced; in automotive C/C++ firmware for ECUs, ADAS controllers, and IVI systems, dangling pointers can cause memory corruption, use-after-free exploits, and denial of service.
@@ -2567,6 +2565,15 @@ A file format for describing CAN bus communication, defining messages, signals, 
 A bus database file format used by the BUSMASTER tool for describing CAN and LIN network communication configurations.
 **Related:** DBC, FIBEX, LDF
 
+### DBI (Dynamic Binary Instrumentation)
+**Category:** Reverse Engineering
+A technique for analyzing binary execution at runtime.
+
+### DCM (AUTOSAR Diagnostic Communication Manager)
+**Category:** Diagnostics
+**Related:** Diagnostic Service
+An AUTOSAR module implementing Unified Diagnostic Services (UDS).
+
 ### DCM (Diagnostic Communication Manager)
 **Category:** Diagnostics
 An AUTOSAR module handling diagnostic communication services such as UDS.
@@ -2584,6 +2591,11 @@ An attack that overwhelms a target system with traffic from multiple sources, ca
 **Category:** Network
 A middleware protocol standard (OMG DDS) providing real-time data-centric publish-subscribe communication, widely adopted in ADAS and autonomous driving systems for its QoS control, deterministic delivery, and scalable data distribution.
 **Related:** SOME/IP, SOA, Zenoh
+
+### Deadlock
+**Category:** Operating System
+A state where two or more threads/processes block indefinitely waiting for resources held by each other; a critical concern in safety-critical automotive systems where deadlock can lead to ECU hangs and loss of vehicle functions.
+**Related:** Mutex, Semaphore, Thread, RTOS (Real-Time Operating System), Spinlock
 
 ### Debug Authentication Bypass
 **Category:** Attack
@@ -2618,6 +2630,16 @@ The process of converting ciphertext into readable plaintext.
 **Category:** Cryptography
 **Related:** Cryptographic Key
 A cryptographic key used to decrypt encrypted data.
+
+### Deep Learning
+**Category:** AI
+A subset of machine learning using multi-layer neural networks to learn hierarchical representations from data; underpins modern ADAS perception (object detection, lane detection), driver monitoring, and autonomous driving decision-making; models include CNNs, RNNs, and Transformers.
+**Related:** CNN (Convolutional Neural Network), Machine Learning, Computer Vision, Reinforcement Learning, Transformer (Neural Network)
+
+### Default Credentials
+**Category:** Vulnerability
+A vulnerability arising from factory-default usernames and passwords that remain unchanged after deployment; common in automotive ECUs, diagnostic tools, TCUs, and telematics gateways where default credentials for SSH, web interfaces, or debug ports allow immediate unauthorized access.
+**Related:** Hardcoded Credentials, Weak Authentication, Authentication Bypass, Exposed Debug Interface
 
 ### Defense in Depth
 **Category:** Security Architecture
@@ -2656,6 +2678,11 @@ Guarantees predictable execution timing of tasks.
 **Related:** Identity
 The process of verifying the identity of a device in a network.
 
+### Device Driver
+**Category:** Operating System
+A kernel component that provides a software interface to hardware peripherals; automotive ECUs require device drivers for CAN controllers, SPI/I2C sensors, Ethernet MACs, GPIOs, ADCs, and memory-mapped I/O, often with real-time constraints.
+**Related:** Kernel, System Call, Interrupt (IRQ), ECU
+
 ### Device Fingerprinting
 **Category:** Security
 Identifying devices based on unique behavioral or hardware characteristics.
@@ -2664,9 +2691,19 @@ Identifying devices based on unique behavioral or hardware characteristics.
 **Category:** IAM
 A unique identity assigned to a device within a system.
 
+### Device Passthrough
+**Category:** Virtualization
+A virtualization technique that assigns a physical device (GPU, CAN controller, Ethernet MAC) directly to a specific VM, bypassing the hypervisor for near-native I/O performance; requires IOMMU/SMMU hardware support for DMA isolation in automotive mixed-criticality systems.
+**Related:** IOMMU (Input/Output Memory Management Unit), VirtIO, Hypervisor, KVM (Kernel-based Virtual Machine)
+
 ### Device Provisioning
 **Category:** Connectivity
 The process of securely onboarding devices into a managed system.
+
+### Device Tree
+**Category:** Operating System
+A data structure for describing hardware components and their connections to the OS, used in embedded Linux (Flattened Device Tree / FDT); essential for automotive Linux to support diverse SoC configurations across IVI, telematics, and domain controllers.
+**Related:** U-Boot, Linux, Embedded Linux, AGL (Automotive Grade Linux)
 
 ### DEXT (Diagnostic Extract Template)
 **Category:** Diagnostics
@@ -2727,6 +2764,11 @@ A communication session established between tester and ECU.
 **Related:** Diagnostic Session
 A UDS service used to manage ECU diagnostic sessions.
 
+### Diagnostic Vulnerability
+**Category:** Vulnerability
+A security weakness in automotive diagnostic protocols (UDS, OBD-II, DoIP, XCP) that allows unauthorized access to vehicle functions; common vulnerabilities include unauthenticated diagnostic sessions, lack of transport encryption, unrestricted read/write of ECU memory, firmware flashing without authorization, and manipulation of vehicle operational parameters.
+**Related:** UDS Service Bypass, OBD-II Attack, Unauthorized ECU Access, Remote Diagnostics Attack
+
 ### DID (Data Identifier)
 **Category:** Diagnostics
 Identifiers used in UDS services to access ECU data.
@@ -2735,28 +2777,14 @@ Identifiers used in UDS services to access ECU data.
 **Category:** Cryptography
 An attack method analyzing differences in inputs and outputs of cryptographic algorithms.
 
+### Digital Certificate
+**Category:** Cryptography
+A cryptographic document binding a public key to an identity.
+
 ### Digital Cockpit
 **Category:** Vehicle Architecture
 A fully digital instrument and infotainment platform replacing analog gauges with reconfigurable displays on a single SoC, presenting security challenges in isolation and secure boot.
 **Related:** IVI, Hypervisor, HMI
-
-### Disable Software Update
-**Category:** OTA
-An Auto-ISAC attack technique where an adversary prevents or disables OTA software update mechanisms to block security patches, maintain persistence on compromised systems, or force rollback to vulnerable firmware versions.
-**Related:** OTA, Software Update Attack, Rollback Protection
-
-### DLT (Diagnostic Log and Trace)
-**Category:** AUTOSAR
-An AUTOSAR Basic Software module providing standardized diagnostic logging and tracing services for system events, security incidents, and debug information, essential for security audit trails and forensic analysis.
-**Related:** DET, AUTOSAR DEM, Security Audit
-
-### DPA (Differential Power Analysis)
-**Category:** Attack
-Advanced power analysis technique used to break cryptographic implementations.
-
-### Digital Certificate
-**Category:** Cryptography
-A cryptographic document binding a public key to an identity.
 
 ### Digital Key
 **Category:** Vehicle Security
@@ -2775,9 +2803,10 @@ A virtual representation of a physical vehicle or ECU used for simulation and mo
 A German standard for DC charging communication between electric vehicles and charging infrastructure, based on CAN communication. Predecessor to ISO 15118.
 **Related:** ISO 15118, GB/T 27930, CHAdeMO
 
-### DMA (Direct Memory Access)
-**Category:** Hardware Security
-A mechanism allowing hardware components to access memory without CPU intervention.
+### Disable Software Update
+**Category:** OTA
+An Auto-ISAC attack technique where an adversary prevents or disables OTA software update mechanisms to block security patches, maintain persistence on compromised systems, or force rollback to vulnerable firmware versions.
+**Related:** OTA, Software Update Attack, Rollback Protection
 
 ### Disassembler
 **Category:** Reverse Engineering
@@ -2800,14 +2829,32 @@ A system distributing routing and filtering responsibilities across multiple gat
 The standardized 16-pin OBD-II connector providing physical access to vehicle diagnostic networks, serving as a primary attack surface for physical access.
 **Related:** OBD-II, J1962, UDS
 
+### DLNA (Digital Living Network Alliance)
+**Category:** Connectivity
+A set of interoperability standards for sharing digital media (audio, video, images) between consumer electronics devices over a home network, built on UPnP protocols; in automotive IVI systems, DLNA enables media streaming from smartphones and home media servers to the vehicle's infotainment head unit, but introduces security risks including unauthorized media access, buffer overflow vulnerabilities in media renderers, and network exposure of sensitive vehicle data over Wi-Fi or smartphone tethering.
+**Related:** UPnP (Universal Plug and Play), SSDP (Simple Service Discovery Protocol), IVI (In-Vehicle Infotainment), Media Streaming
+
 ### DLP (Data Loss Prevention)
 **Category:** Security Architecture
 Strategies and technologies designed to prevent unauthorized exfiltration or transmission of sensitive vehicle data (e.g., PII, telemetry, firmware) from in-vehicle systems, backend servers, or development environments.
 **Related:** Data Exfiltration, PII, Insider Threat
 
+### DLT (Diagnostic Log and Trace)
+**Category:** AUTOSAR
+An AUTOSAR Basic Software module providing standardized diagnostic logging and tracing services for system events, security incidents, and debug information, essential for security audit trails and forensic analysis.
+**Related:** DET, AUTOSAR DEM, Security Audit
+
+### DMA (Direct Memory Access)
+**Category:** Hardware Security
+A mechanism allowing hardware components to access memory without CPU intervention.
+
 ### DMA Attack
 **Category:** Attack
 An attack using DMA to read or modify system memory directly.
+
+### DMS (Driver Monitoring System)
+**Category:** ECU
+A system that monitors driver attention, fatigue, and behavior.
 
 ### Docker Container Security
 **Category:** Operating System
@@ -2827,6 +2874,11 @@ UDS over IP-based diagnostic protocol.
 **Related:** DoIP (Diagnostic over IP)
 A protocol that transports diagnostic messages over Ethernet/IP networks.
 
+### Domain Centralized Architecture
+**Category:** Vehicle Architecture
+An E/E architecture where ECUs are grouped by functional domains (powertrain, chassis, body, infotainment, ADAS), each managed by a domain controller that consolidates processing and provides service-oriented interfaces; a transitional step from distributed ECU architectures toward zonal and central computing architectures.
+**Related:** Domain Controller ECU, E/E Architecture, Functional Domain Architecture, Central Computing Architecture, Distributed ECU Architecture
+
 ### Domain Controller ECU
 **Category:** ECU
 A high-performance ECU that manages multiple vehicle domains such as ADAS, infotainment, and powertrain.
@@ -2842,6 +2894,15 @@ A security architecture that separates vehicle systems into isolated functional 
 ### Domain Separation
 **Category:** Security Architecture
 A design principle that prevents unauthorized communication between system domains.
+
+### Double Free
+**Category:** Vulnerability
+A memory corruption vulnerability caused by calling free() on the same heap allocation twice, corrupting the heap allocator metadata and potentially leading to arbitrary code execution; in automotive embedded systems with manual memory management, double free can compromise ECU firmware stability and security.
+**Related:** Use-After-Free, Memory Corruption, Heap Overflow, Dangling Pointer
+
+### DPA (Differential Power Analysis)
+**Category:** Attack
+Advanced power analysis technique used to break cryptographic implementations.
 
 ### DPI (Deep Packet Inspection)
 **Category:** Network
@@ -2865,10 +2926,6 @@ A vehicle control system replacing mechanical linkages (steering, braking, throt
 ### Driver Assistance System
 **Category:** ADAS
 Systems assisting drivers in perception, decision, and control tasks.
-
-### DMS (Driver Monitoring System)
-**Category:** ECU
-A system that monitors driver attention, fatigue, and behavior.
 
 ### Driver Override
 **Category:** Vehicle Architecture
@@ -2915,50 +2972,6 @@ Analysis of software behavior during execution.
 **Category:** Threat Modeling
 The portion of the attack surface that changes during system runtime.
 
-### DBI (Dynamic Binary Instrumentation)
-**Category:** Reverse Engineering
-A technique for analyzing binary execution at runtime.
-### Deep Learning
-**Category:** AI
-A subset of machine learning using multi-layer neural networks to learn hierarchical representations from data; underpins modern ADAS perception (object detection, lane detection), driver monitoring, and autonomous driving decision-making; models include CNNs, RNNs, and Transformers.
-**Related:** CNN (Convolutional Neural Network), Machine Learning, Computer Vision, Reinforcement Learning, Transformer (Neural Network)
-### Device Tree
-**Category:** Operating System
-A data structure for describing hardware components and their connections to the OS, used in embedded Linux (Flattened Device Tree / FDT); essential for automotive Linux to support diverse SoC configurations across IVI, telematics, and domain controllers.
-**Related:** U-Boot, Linux, Embedded Linux, AGL (Automotive Grade Linux)
-
-### Device Driver
-**Category:** Operating System
-A kernel component that provides a software interface to hardware peripherals; automotive ECUs require device drivers for CAN controllers, SPI/I2C sensors, Ethernet MACs, GPIOs, ADCs, and memory-mapped I/O, often with real-time constraints.
-**Related:** Kernel, System Call, Interrupt (IRQ), ECU
-
-### Deadlock
-**Category:** Operating System
-A state where two or more threads/processes block indefinitely waiting for resources held by each other; a critical concern in safety-critical automotive systems where deadlock can lead to ECU hangs and loss of vehicle functions.
-**Related:** Mutex, Semaphore, Thread, RTOS (Real-Time Operating System), Spinlock
-### Device Passthrough
-**Category:** Virtualization
-A virtualization technique that assigns a physical device (GPU, CAN controller, Ethernet MAC) directly to a specific VM, bypassing the hypervisor for near-native I/O performance; requires IOMMU/SMMU hardware support for DMA isolation in automotive mixed-criticality systems.
-**Related:** IOMMU (Input/Output Memory Management Unit), VirtIO, Hypervisor, KVM (Kernel-based Virtual Machine)
-### Double Free
-**Category:** Vulnerability
-A memory corruption vulnerability caused by calling free() on the same heap allocation twice, corrupting the heap allocator metadata and potentially leading to arbitrary code execution; in automotive embedded systems with manual memory management, double free can compromise ECU firmware stability and security.
-**Related:** Use-After-Free, Memory Corruption, Heap Overflow, Dangling Pointer
-
-### Diagnostic Vulnerability
-**Category:** Vulnerability
-A security weakness in automotive diagnostic protocols (UDS, OBD-II, DoIP, XCP) that allows unauthorized access to vehicle functions; common vulnerabilities include unauthenticated diagnostic sessions, lack of transport encryption, unrestricted read/write of ECU memory, firmware flashing without authorization, and manipulation of vehicle operational parameters.
-**Related:** UDS Service Bypass, OBD-II Attack, Unauthorized ECU Access, Remote Diagnostics Attack
-
-### Default Credentials
-**Category:** Vulnerability
-A vulnerability arising from factory-default usernames and passwords that remain unchanged after deployment; common in automotive ECUs, diagnostic tools, TCUs, and telematics gateways where default credentials for SSH, web interfaces, or debug ports allow immediate unauthorized access.
-**Related:** Hardcoded Credentials, Weak Authentication, Authentication Bypass, Exposed Debug Interface
-### DLNA (Digital Living Network Alliance)
-**Category:** Connectivity
-A set of interoperability standards for sharing digital media (audio, video, images) between consumer electronics devices over a home network, built on UPnP protocols; in automotive IVI systems, DLNA enables media streaming from smartphones and home media servers to the vehicle's infotainment head unit, but introduces security risks including unauthorized media access, buffer overflow vulnerabilities in media renderers, and network exposure of sensitive vehicle data over Wi-Fi or smartphone tethering.
-**Related:** UPnP (Universal Plug and Play), SSDP (Simple Service Discovery Protocol), IVI (In-Vehicle Infotainment), Media Streaming
-
 ### Dynamic Key Rotation
 **Category:** Cryptography
 **Related:** Cryptographic Key
@@ -2990,6 +3003,10 @@ A value ensuring message freshness and preventing replay attacks.
 ### E2E Protection (End-to-End Protection)
 **Category:** Security
 A mechanism ensuring integrity and authenticity of signals from sender ECU to receiver ECU.
+
+### E2EE (End-to-End Encryption)
+**Category:** Security
+Encryption ensuring only sender and receiver can access plaintext data.
 
 ### EA (EEPROM Abstraction)
 **Category:** AUTOSAR
@@ -3131,6 +3148,11 @@ An AUTOSAR Basic Software module managing ECU startup, shutdown, and sleep/wake-
 An Edwards-curve Digital Signature Algorithm (EdDSA) using Curve25519, offering high performance, small signatures (64 bytes), and side-channel resistance, increasingly adopted in automotive key management.
 **Related:** X25519, ECDSA, ECC, Digital Signature, Key Management
 
+### Edge AI
+**Category:** AI
+The deployment of AI inference on edge devices (ECUs, domain controllers, sensors) rather than cloud servers; enables real-time perception and decision-making with low latency, offline operation, and privacy preservation; critical for ADAS and autonomous driving where cloud round-trips are infeasible.
+**Related:** AI Accelerator, NPU (Neural Processing Unit), Inference Engine, Model Compression, ECU
+
 ### EDR (Event Data Recorder)
 **Category:** ECU
 A system that records vehicle data before and after crash events.
@@ -3209,18 +3231,10 @@ Hardware module performing cryptographic operations.
 **Category:** Cryptography
 A key used to encrypt or decrypt data.
 
-### E2EE (End-to-End Encryption)
-**Category:** Security
-Encryption ensuring only sender and receiver can access plaintext data.
 ### End-to-End Learning
 **Category:** AI
 An autonomous driving paradigm where a single neural network maps raw sensor inputs (camera images, lidar point clouds) directly to driving actions (steering, throttle, braking), bypassing modular perception-planning-control pipelines; pioneered by NVIDIA and demonstrated in research platforms.
 **Related:** Deep Learning, CNN (Convolutional Neural Network), Behavior Prediction, Autonomous Driving, Imitation Learning
-
-### Edge AI
-**Category:** AI
-The deployment of AI inference on edge devices (ECUs, domain controllers, sensors) rather than cloud servers; enables real-time perception and decision-making with low latency, offline operation, and privacy preservation; critical for ADAS and autonomous driving where cloud round-trips are infeasible.
-**Related:** AI Accelerator, NPU (Neural Processing Unit), Inference Engine, Model Compression, ECU
 
 ### Endpoint Security
 **Category:** Security Architecture
@@ -3338,6 +3352,7 @@ Manipulating program execution to run attacker-controlled code.
 ### Execution Policy
 **Category:** Security Architecture
 Rules governing what code or processes are allowed to execute.
+
 ### Explainable AI (XAI)
 **Category:** AI
 Techniques and methods that make AI model decisions interpretable to humans; essential for safety-critical automotive applications where regulatory compliance (ISO 21448 SOTIF), system validation, and incident investigation require understanding why an autonomous system acted in a particular way.
@@ -3378,6 +3393,7 @@ An Auto-ISAC attack technique where an adversary exploits vulnerabilities access
 **Category:** Attack
 An Auto-ISAC attack technique where an adversary uses removable media (e.g., USB drives, SD cards) to introduce malware or exploit vulnerable file parsers in IVI systems, navigation map updates, or diagnostic log transfers.
 **Related:** USB Attack, IVI, Malware
+
 ### Exposed Debug Interface
 **Category:** Vulnerability
 A vulnerability where hardware debug interfaces (JTAG, SWD, UART debug ports, Nexus, Aurora) are left accessible on production ECUs, allowing attackers to read memory, extract firmware, modify execution flow, and bypass security mechanisms; a primary vector for physical automotive attacks.
@@ -3429,49 +3445,48 @@ Recording system faults for later analysis.
 **Category:** Functional Safety
 The ability of a system to continue operation despite failures.
 
+### Feature Abuse
+**Category:** Attack
+Exploitation of legitimate system features to achieve malicious goals.
+
+### Federated Learning
+**Category:** AI
+A privacy-preserving machine learning paradigm where models are trained across distributed vehicle fleets without centralizing raw data; each vehicle trains locally and only shares model updates (gradients) with a central server, reducing data transmission and protecting user privacy.
+**Related:** Machine Learning, Edge AI, Privacy, Data Exfiltration
+
 ### Fee (Flash EEPROM Emulation)
 **Category:** AUTOSAR
 An AUTOSAR Basic Software module emulating EEPROM behavior over flash memory, managing wear leveling, garbage collection, and data block management for secure persistent storage of configurations and credentials.
 **Related:** AUTOSAR EA, AUTOSAR NvM, Secure Storage
+
+### FFI (Foreign Function Interface)
+**Category:** Security
+A mechanism allowing programs to call functions written in other languages.
+
+### FIBEX (Field Bus Exchange Format)
+**Category:** Network
+An XML-based standard format by ASAM for describing automotive network topologies, bus configurations, ECU communication parameters, and signal layouts across CAN, FlexRay, LIN, and Ethernet; widely used in E/E architecture design, network simulation, and diagnostic configuration, and serves as the basis for tools like CANoe and SystemDesk.
+**Related:** CAN, FlexRay, LIN (Local Interconnect Network), Ethernet Automotive, DBC (Database for CAN)
 
 ### File and Directory Discovery
 **Category:** Attack
 An Auto-ISAC attack technique where an adversary enumerates files and directories on a compromised vehicle system to identify sensitive data, configuration files, software versions, and potential privilege escalation vectors.
 **Related:** System Information Discovery, Software Discovery, Penetration Testing, Privilege Escalation
 
+### File System
+**Category:** Operating System
+The OS component managing how data is stored, organized, and accessed on storage media; automotive file systems (UBIFS, ext4, squashfs, JFFS2) must balance reliability, wear-leveling, power-fail safety, and read/write performance for ECUs with limited flash storage.
+**Related:** Kernel, Device Driver, Virtual Memory, Sysfs
+
 ### FIM (Function Inhibition Manager)
 **Category:** AUTOSAR
 An AUTOSAR Basic Software module that inhibits specific vehicle functions based on conditions detected by DEM events, acting as a safety-security co-engineering mechanism to disable compromised features.
 **Related:** AUTOSAR DEM, Functional Safety, Fault Management
 
-### FRIDA (Dynamic Instrumentation)
-**Category:** Security Tool
-A cross-platform dynamic instrumentation toolkit allowing runtime code injection, function hooking, and process introspection on Android, iOS, Linux, and Windows; used in automotive security for analyzing IVI applications, bypassing SSL pinning, and reverse engineering connected vehicle telematics binaries.
-**Related:** Reverse Engineering, IVI, Android Security, Dynamic Analysis, API Security
-
-### FTA (Fault Tree Analysis)
-**Category:** Functional Safety
-A top-down analytical method used to identify causes of system failures.
-
-### Feature Abuse
-**Category:** Attack
-Exploitation of legitimate system features to achieve malicious goals.
-### Federated Learning
-**Category:** AI
-A privacy-preserving machine learning paradigm where models are trained across distributed vehicle fleets without centralizing raw data; each vehicle trains locally and only shares model updates (gradients) with a central server, reducing data transmission and protecting user privacy.
-**Related:** Machine Learning, Edge AI, Privacy, Data Exfiltration
-
-### FFI (Foreign Function Interface)
-**Category:** Security
-A mechanism allowing programs to call functions written in other languages.
-### File System
-**Category:** Operating System
-The OS component managing how data is stored, organized, and accessed on storage media; automotive file systems (UBIFS, ext4, squashfs, JFFS2) must balance reliability, wear-leveling, power-fail safety, and read/write performance for ECUs with limited flash storage.
-**Related:** Kernel, Device Driver, Virtual Memory, Sysfs
-### FIBEX (Field Bus Exchange Format)
-**Category:** Network
-An XML-based standard format by ASAM for describing automotive network topologies, bus configurations, ECU communication parameters, and signal layouts across CAN, FlexRay, LIN, and Ethernet; widely used in E/E architecture design, network simulation, and diagnostic configuration, and serves as the basis for tools like CANoe and SystemDesk.
-**Related:** CAN, FlexRay, LIN (Local Interconnect Network), Ethernet Automotive, DBC (Database for CAN)
+### FIPS 140 (Security Requirements for Cryptographic Modules)
+**Category:** Standards
+A U.S. federal standard (NIST FIPS 140-2/140-3) defining security requirements for cryptographic modules across four increasing levels (Level 1-4) covering key management, authenticated encryption, tamper evidence, and physical security; referenced in automotive for HSMs, secure boot, and V2X security certificate management.
+**Related:** ISO 19790, HSM, Secure Boot, Cryptographic Key, NIST
 
 ### Firewall
 **Category:** Network
@@ -3517,10 +3532,6 @@ Checking whether firmware has been tampered with.
 **Category:** Attack
 Unauthorized alteration of firmware code or configuration.
 
-### FOTA (Firmware Over-the-Air)
-**Category:** OTA
-Remote firmware update mechanism over wireless or network connections.
-
 ### Firmware Reflash
 **Category:** Diagnostics
 The process of rewriting firmware to a device or ECU.
@@ -3536,6 +3547,11 @@ Digital signing of firmware to ensure authenticity and integrity.
 ### Firmware Verification
 **Category:** Boot Security
 Validation of firmware before execution.
+
+### Firmware Vulnerability
+**Category:** Vulnerability
+A security weakness in embedded firmware running on automotive ECUs, including memory corruption bugs, backdoors, hardcoded credentials, improper cryptographic implementations, and logic flaws; firmware vulnerabilities can be exploited through OTA update interception, physical debugging, or network-based attacks against connected ECUs.
+**Related:** OTA Vulnerability, Bootloader Vulnerability, Secure Boot, Firmware Modification, Firmware Extraction
 
 ### Flash Bootloader
 **Category:** Boot Security
@@ -3581,15 +3597,6 @@ Mechanisms used to regulate data transmission rates between systems.
 **Category:** Attack
 Manipulating flow control mechanisms to cause denial of service or data loss.
 
-### FIPS 140 (Security Requirements for Cryptographic Modules)
-**Category:** Standards
-A U.S. federal standard (NIST FIPS 140-2/140-3) defining security requirements for cryptographic modules across four increasing levels (Level 1-4) covering key management, authenticated encryption, tamper evidence, and physical security; referenced in automotive for HSMs, secure boot, and V2X security certificate management.
-**Related:** ISO 19790, HSM, Secure Boot, Cryptographic Key, NIST
-### Firmware Vulnerability
-**Category:** Vulnerability
-A security weakness in embedded firmware running on automotive ECUs, including memory corruption bugs, backdoors, hardcoded credentials, improper cryptographic implementations, and logic flaws; firmware vulnerabilities can be exploited through OTA update interception, physical debugging, or network-based attacks against connected ECUs.
-**Related:** OTA Vulnerability, Bootloader Vulnerability, Secure Boot, Firmware Modification, Firmware Extraction
-
 ### FMEA (Failure Mode and Effects Analysis)
 **Category:** Functional Safety
 A systematic technique for identifying potential failure modes in a system, their causes, and effects, used in automotive safety engineering (ISO 26262) to assess risks and define mitigation measures; extended as FMECA to include criticality analysis.
@@ -3603,6 +3610,7 @@ U.S. Federal Motor Vehicle Safety Standards, mandatory regulations administered 
 ### Forensics Analysis
 **Category:** Intrusion Detection
 The process of analyzing system artifacts to reconstruct security incidents.
+
 ### Format String Vulnerability
 **Category:** Vulnerability
 A vulnerability where user-controlled input is passed as the format string argument to printf() or similar functions, allowing arbitrary memory read/write; in automotive IVI and telematics systems, format string bugs in log handling or diagnostic output can leak stack data or achieve code execution.
@@ -3611,6 +3619,11 @@ A vulnerability where user-controlled input is passed as the format string argum
 ### Forwarding ECU
 **Category:** ECU
 An ECU responsible for routing messages between network segments.
+
+### FOTA (Firmware Over-the-Air)
+**Category:** OTA
+Remote firmware update mechanism over wireless or network connections.
+
 ### FPD-Link
 **Category:** Vehicle Architecture
 A high-speed serial interface technology by Texas Instruments for transmitting video, audio, and control data over a single coaxial or twisted-pair cable at multiple Gbps; widely used in automotive camera and display applications as a SerDes solution connecting ADAS cameras and IVI displays to domain controllers, with forward error correction and HDCP encryption for link security.
@@ -3635,6 +3648,7 @@ Forging network frames to impersonate legitimate ECUs.
 ### Frame Timing Manipulation
 **Category:** Attack
 Altering message timing to exploit ECU synchronization logic.
+
 ### FreeRTOS
 **Category:** Operating System
 A popular open-source real-time operating system kernel for embedded devices; widely used in automotive ECUs for sensor processing, actuator control, and communication tasks due to its small footprint, deterministic scheduling, and low memory requirements.
@@ -3644,10 +3658,20 @@ A popular open-source real-time operating system kernel for embedded devices; wi
 **Category:** Connectivity
 A technique used in wireless communication to reduce interception and interference.
 
+### FRIDA (Dynamic Instrumentation)
+**Category:** Security Tool
+A cross-platform dynamic instrumentation toolkit allowing runtime code injection, function hooking, and process introspection on Android, iOS, Linux, and Windows; used in automotive security for analyzing IVI applications, bypassing SSL pinning, and reverse engineering connected vehicle telematics binaries.
+**Related:** Reverse Engineering, IVI, Android Security, Dynamic Analysis, API Security
+
+### FTA (Fault Tree Analysis)
+**Category:** Functional Safety
+A top-down analytical method used to identify causes of system failures.
+
 ### FTTI (Fault Tolerant Time Interval)
 **Category:** Functional Safety
 The maximum time span during which a vehicle system can operate with a fault before the safety goal is violated, defined per ISO 26262; determines the urgency required for fault detection, diagnosis, and safe-state transition in automotive systems.
 **Related:** ISO 26262, ASIL, Fault Tolerance, Functional Safety
+
 ### Full Virtualization
 **Category:** Virtualization
 A virtualization approach providing complete hardware emulation allowing unmodified guest OSes to run; in automotive, used for IVI and infotainment VMs where hardware-acceleration (GPU, video codec) is available via device passthrough or para-virtualized drivers.
@@ -3668,6 +3692,11 @@ Mechanisms that ensure system functions meet safety requirements.
 ### Functional Decomposition
 **Category:** Vehicle Architecture
 Breaking system functions into smaller components for analysis or design.
+
+### Functional Domain Architecture
+**Category:** Vehicle Architecture
+The classic domain-based E/E architecture that groups vehicle functions into domains (powertrain, chassis, body, infotainment, ADAS/autonomous driving), each with dedicated ECUs or domain controllers communicating via domain-specific gateways; the dominant architecture before the shift to zonal and centralized paradigms.
+**Related:** Domain Centralized Architecture, E/E Architecture, Distributed ECU Architecture, Central Computing Architecture, Domain Controller ECU
 
 ### Functional Safety (FuSa)
 **Category:** Functional Safety
@@ -3823,6 +3852,7 @@ Chinese recommended national standard specifying security requirements for vehic
 **Category:** Standards
 EU regulation governing the processing of personal data and privacy, applicable to connected vehicles that collect and process driver and passenger data.
 **Related:** Data Privacy, GB/T 41871
+
 ### Generative AI
 **Category:** AI
 AI systems capable of generating new content (text, images, code, synthetic sensor data); automotive applications include synthetic data generation for ADAS training, LLM-based in-vehicle voice assistants, automated test case generation, and simulation scenario creation.
@@ -3855,14 +3885,14 @@ Security concerns for in-vehicle gesture control, including sensor spoofing, adv
 A network node in GSM/GPRS architecture that provides internetworking between the mobile cellular network and external packet data networks; relevant to automotive telematics backend connectivity.
 **Related:** GPRS, GSM, TCU, BTS
 
-### GID (Group Identifier)
-**Category:** IAM
-Identifier used to manage group-based permissions.
-
 ### Ghidra
 **Category:** Security Tool
 An open-source reverse engineering framework developed by the NSA, featuring a powerful decompiler, scriptable Python API, and multi-architecture support (ARM, x86, MIPS, RISC-V, TriCore); widely used in automotive firmware analysis for binary patching, vulnerability hunting, and ECU software reverse engineering.
 **Related:** Reverse Engineering, IDA Pro, Binary Ninja, radare2, Firmware Analysis
+
+### GID (Group Identifier)
+**Category:** IAM
+Identifier used to manage group-based permissions.
 
 ### Global ECU Coordination
 **Category:** Vehicle Architecture
@@ -4007,6 +4037,11 @@ A virtualized operating system running inside IVI or cockpit systems.
 An open-source software-defined radio peripheral by Great Scott Gadgets operating from 1 MHz to 6 GHz, used in automotive security research for cellular network analysis, GPS spoofing, and RF signal capture.
 **Related:** SDR, BladeRF, RTL-SDR, USRP, GSM, Rogue BTS
 
+### HAL (Hardware Abstraction Layer)
+**Full Name:** Hardware Abstraction Layer
+**Category:** Android
+A software layer providing standardized interfaces between Android framework components and hardware.
+
 ### Handoff Attack (Cellular)
 **Category:** Attack
 Exploiting handover mechanisms between cellular base stations.
@@ -4019,6 +4054,7 @@ Disrupting cellular network handoff processes to cause service interruption.
 **Category:** Functional Safety
 A systematic process defined in ISO 26262 for identifying vehicle hazards, assessing their risk based on severity, exposure, and controllability, and assigning ASIL levels; foundational for linking functional safety with cybersecurity risk assessment in ISO/SAE 21434.
 **Related:** ISO 26262, ASIL, TARA, FMEA, HAZOP
+
 ### Hardcoded Credentials
 **Category:** Vulnerability
 A vulnerability where authentication secrets (passwords, API keys, certificates, symmetric keys) are embedded in source code, firmware binaries, or configuration files; common in automotive ECUs where diagnostic passwords, telematics API tokens, or cloud service credentials are hardcoded in read-only memory or bootloader code.
@@ -4031,6 +4067,7 @@ Recording hardware-level events for security analysis.
 ### Hardware Root Certificate
 **Category:** Hardware Security
 A trusted certificate stored in hardware used for boot and authentication.
+
 ### Hardware Root of Trust
 **Category:** Hardware Security
 A hardware-anchored trust foundation that provides immutable identity, secure boot measurement, attestation, and cryptographic key storage, typically implemented as immutable boot ROM, PUF, or dedicated secure element; in automotive systems, the hardware root of trust anchors the entire secure boot chain, ECU identity verification, and secure diagnostic access.
@@ -4047,6 +4084,7 @@ Exploiting timing differences in hardware operations to extract secrets.
 ### Hardware Trace Port
 **Category:** Reverse Engineering
 Hardware interface used for tracing system execution.
+
 ### Hardware-Assisted Virtualization
 **Category:** Virtualization
 CPU hardware extensions (ARM Virtualization Extensions / VHE, Intel VT-x, AMD-V) that accelerate hypervisor performance by providing dedicated privilege levels for guest OS and hypervisor; essential for automotive mixed-criticality virtualization enabling native-speed execution of AUTOSAR and RTOS alongside Linux.
@@ -4056,15 +4094,15 @@ CPU hardware extensions (ARM Virtualization Extensions / VHE, Intel VT-x, AMD-V)
 **Category:** Cryptography
 Finding two inputs that produce the same hash output.
 
-### HAZOP (Hazard and Operability Study)
-**Category:** Functional Safety
-A structured and systematic technique for examining a system to identify potential hazards and operability problems, using guide-word-based deviation analysis on design parameters; applied in automotive safety and cybersecurity analysis to uncover failure modes.
-**Related:** HARA, FMEA, ISO 26262, TARA
-
 ### Hashcat
 **Category:** Security Tool
 The world's fastest password recovery and hash cracking tool supporting GPU-accelerated attack modes (brute-force, dictionary, rule-based, mask); used in automotive security for testing diagnostic security access seed-key algorithms, cracking signed firmware hashes, and auditing password strength in vehicle systems.
 **Related:** Brute Force Attack, Cryptographic Key, Password Cracking, Security Access
+
+### HAZOP (Hazard and Operability Study)
+**Category:** Functional Safety
+A structured and systematic technique for examining a system to identify potential hazards and operability problems, using guide-word-based deviation analysis on design parameters; applied in automotive safety and cybersecurity analysis to uncover failure modes.
+**Related:** HARA, FMEA, ISO 26262, TARA
 
 ### Head Unit (IVI Head Unit)
 **Category:** ECU
@@ -4074,19 +4112,21 @@ Central infotainment system in a vehicle.
 **Category:** ECU
 **Related:** Control Unit
 An ECU without direct user interface, typically backend control units.
-### Heap Memory
-**Category:** Operating System
-A dynamically allocated memory region used for runtime data structures; automotive C/C++ embedded software must carefully manage heap allocation to avoid fragmentation, out-of-memory failures, and memory leaks that could compromise ECU reliability.
-**Related:** Stack Memory, Virtual Memory, Memory Corruption, RTOS (Real-Time Operating System)
-### Heap Overflow
-**Category:** Vulnerability
-A buffer overflow vulnerability occurring in dynamically allocated heap memory, where writing beyond the allocated region corrupts adjacent heap metadata or objects; in automotive C/C++ firmware, heap overflows in message parsers, communication stacks, or sensor data processing can lead to code execution or privilege escalation.
-**Related:** Buffer Overflow, Memory Corruption, Code Execution, Heap Exhaustion, Use-After-Free
 
 ### Heap Exhaustion
 **Category:** Vulnerability
 A denial-of-service vulnerability caused by allocating memory until the heap is exhausted, leading to allocation failures, service crashes, or system instability; in automotive systems, uncontrolled heap growth in IVI browsers, telematics message handlers, or camera processing pipelines can disable critical functions.
 **Related:** Resource Exhaustion, Stack Exhaustion, Denial of Service (DoS), Resource Leak
+
+### Heap Memory
+**Category:** Operating System
+A dynamically allocated memory region used for runtime data structures; automotive C/C++ embedded software must carefully manage heap allocation to avoid fragmentation, out-of-memory failures, and memory leaks that could compromise ECU reliability.
+**Related:** Stack Memory, Virtual Memory, Memory Corruption, RTOS (Real-Time Operating System)
+
+### Heap Overflow
+**Category:** Vulnerability
+A buffer overflow vulnerability occurring in dynamically allocated heap memory, where writing beyond the allocated region corrupts adjacent heap metadata or objects; in automotive C/C++ firmware, heap overflows in message parsers, communication stacks, or sensor data processing can lead to code execution or privilege escalation.
+**Related:** Buffer Overflow, Memory Corruption, Code Execution, Heap Exhaustion, Use-After-Free
 
 ### HEAVENS
 **Category:** Threat Modeling
@@ -4245,6 +4285,16 @@ The International Automotive Task Force quality management system standard for a
 The Intelligent Connected Car Open Alliance, a Chinese industry alliance developing standards for smartphone-to-vehicle connectivity, digital key, and cross-platform interoperability.
 **Related:** CCC, CarPlay, Android Auto
 
+### ICSim (Instrument Cluster Simulator)
+**Category:** Security Tool
+An open-source instrument cluster simulation environment that works with SocketCAN to emulate vehicle dashboard displays and CAN bus signals; widely used in automotive security education and training for practicing CAN bus attacks in a safe virtual environment.
+**Related:** SocketCAN, CAN Bus, can-utils, SavvyCAN, CAN Fuzzing
+
+### IDA Pro
+**Category:** Security Tool
+A commercial disassembler and debugger by Hex-Rays supporting a wide range of architectures (ARM, x86, TriCore, PPC, RISC-V) with a powerful decompiler; the industry standard for automotive firmware reverse engineering, vulnerability analysis, and binary patch development.
+**Related:** Ghidra, Binary Ninja, radare2, Reverse Engineering, Firmware Analysis
+
 ### Identity
 **Category:** Security Architecture
 A unique representation of an entity such as ECU, user, or service within a vehicle system.
@@ -4261,6 +4311,10 @@ Impersonating a legitimate identity to gain unauthorized access.
 **Category:** Security Architecture
 **Related:** Identity
 Validation of claimed identity against trusted sources.
+
+### IDS (Intrusion Detection System)
+**Category:** Intrusion Detection
+A system that detects unauthorized or malicious activities in a network or system.
 
 ### IDS Evasion
 **Category:** Attack
@@ -4295,10 +4349,24 @@ IEEE standard for the Audio Video Transport Protocol over IEEE 802 networks, use
 An amendment to the IEEE 802.11 standard for WAVE (Wireless Access in Vehicular Environments), operating on the 5.9 GHz band with up to 1000 m range; the physical layer for DSRC-based V2X communication.
 **Related:** DSRC, WAVE, V2X, ITS, VANET
 
+### IFC (Information Flow Control)
+**Category:** Security Architecture
+A mechanism controlling how data flows between system components.
+
 ### IMEI (International Mobile Equipment Identity)
 **Category:** IAM
 A unique 15-digit number identifying individual mobile equipment; used to identify vehicle TCUs on cellular networks and targetable for tracking or interception.
 **Related:** IMSI, MSISDN, TCU, GSM, BTS
+
+### Immobilizer
+**Category:** Vehicle Security
+An anti-theft system that prevents engine start without the presence of an authorized key fob or transponder, using challenge-response authentication over LF/RF (125 kHz / 433 MHz) between the immobilizer ECU and the key; modern immobilizers employ rolling codes or cryptographic authentication (Keeloq, AES) and are a common target for relay attacks and key cloning.
+**Related:** Keyless Entry Attack, PEPS (Passive Entry Passive Start), RKE (Remote Keyless Entry), Keeloq (Rolling Code), Relay Attack
+
+### Improper Certificate Validation
+**Category:** Vulnerability
+A vulnerability where an application fails to properly verify X.509 certificates during TLS/mTLS communication, including missing hostname verification, acceptance of self-signed certificates, ignoring expiration dates, or skipping chain validation; in automotive V2X and telematics, improper validation enables MitM attacks on secure channels.
+**Related:** Certificate Validation Failure, Transport Encryption Failure, TLS MITM Attack, PKI
 
 ### IMSI (International Mobile Subscriber Identity)
 **Category:** IAM
@@ -4310,6 +4378,38 @@ A unique number (up to 15 digits) identifying a cellular subscriber on GSM/UMTS/
 An ECU measurement, calibration, and diagnostic tool by ETAS for parameter optimization and data acquisition, relevant to security assessment of calibration data integrity.
 **Related:** CANape, XCP, ECU Calibration
 
+### Incident Response
+**Category:** Security Architecture
+A structured process for detecting, analyzing, containing, eradicating, and recovering from cybersecurity incidents; in the automotive context, incident response covers vehicle fleet compromise response, OTA patch deployment, forensic analysis of compromised ECUs, and coordination with regulatory authorities (UN R155 CSMS).
+**Related:** UN R155, CSMS, Forensic Analysis, OTA, Vulnerability
+
+### Inference Engine
+**Category:** AI
+A software or hardware component that executes trained machine learning models to produce predictions; optimized inference engines (TensorRT, ONNX Runtime, TFLite, OpenVINO) are critical for real-time automotive perception on resource-constrained ECUs.
+**Related:** Edge AI, AI Accelerator, Model Compression, Neural Network Quantization, Deep Learning
+
+### Information Disclosure
+**Category:** Vulnerability
+A vulnerability that results in unintended exposure of sensitive information to unauthorized parties, including memory contents, stack traces, system configuration, file paths, or personally identifiable information; in automotive IVI and telematics systems, information disclosure can reveal API endpoints, vehicle identifiers, or user data.
+**Related:** Sensitive Data Exposure, Memory Disclosure, Information Leakage, Privacy Data
+
+### Information Leakage
+**Category:** Vulnerability
+Unauthorized disclosure of sensitive data.
+
+### Init Process
+**Category:** Operating System
+The first userspace process started by the kernel during system boot (PID 1), responsible for initializing system services and launching other processes; in automotive Linux, systemd or BusyBox init manages service startup, dependency ordering, and watchdog supervision.
+**Related:** systemd, Kernel, Boot Sequence, Process, Linux
+
+### Initialization Sequence
+**Category:** Boot Security
+The process of initializing system components during startup.
+
+### Injection Attack
+**Category:** Attack
+A broad category of attacks that inject malicious input into systems.
+
 ### Input Capture
 **Category:** Attack
 An Auto-ISAC attack technique where an adversary captures user input on in-vehicle HMI systems, including touchscreen gestures, keyboard entries, and voice commands, to harvest PINs, passwords, or user preferences.
@@ -4320,51 +4420,6 @@ An Auto-ISAC attack technique where an adversary captures user input on in-vehic
 An Auto-ISAC attack technique where an adversary presents deceptive input prompts on vehicle infotainment displays to trick users into entering sensitive information, similar to phishing but delivered through the in-vehicle HMI.
 **Related:** Input Capture, HMI, IVI, Phishing
 
-### Intelligent Cockpit
-**Category:** Vehicle Architecture
-An integrated HMI combining digital clusters, infotainment, HUD, voice control, and AI personalization, presenting a consolidated attack surface across IVI, telematics, and ADAS systems.
-**Related:** IVI, HMI, Android Automotive, ADAS
-
-### Intent
-**Category:** Android
-A messaging object used to request actions between Android components.
-
-### Internet Communication
-**Category:** Attack
-An Auto-ISAC attack technique where an adversary uses internet connectivity (cellular or Wi-Fi) from a compromised vehicle to establish C2 channels, exfiltrate data, or download additional malicious payloads.
-**Related:** Cellular Communication, Telematics, C2
-
-### IpduM (I-PDU Multiplexer)
-**Category:** AUTOSAR
-An AUTOSAR Basic Software module multiplexing multiple I-PDUs into a single CAN/LIN frame and demultiplexing at the receiver, used in bandwidth-limited networks with integrity verification requirements.
-**Related:** AUTOSAR COM, AUTOSAR PDU Router (PduR), CAN
-
-### IVN (In-Vehicle Network)
-**Category:** Network
-**Related:** FlexRay
-Communication networks inside a vehicle including CAN, LIN, FlexRay, Ethernet.
-
-### IFC (Information Flow Control)
-**Category:** Security Architecture
-A mechanism controlling how data flows between system components.
-
-### Information Leakage
-**Category:** Vulnerability
-Unauthorized disclosure of sensitive data.
-
-### Initialization Sequence
-**Category:** Boot Security
-The process of initializing system components during startup.
-
-### IV (Initialization Vector)
-**Category:** Cryptography
-**Related:** Encryption
-A random value used in encryption to ensure uniqueness.
-
-### Injection Attack
-**Category:** Attack
-A broad category of attacks that inject malicious input into systems.
-
 ### Input Validation Failure
 **Category:** Vulnerability
 A security flaw caused by improper validation of input data.
@@ -4374,9 +4429,34 @@ A security flaw caused by improper validation of input data.
 **Related:** Code Execution
 Processing untrusted serialized data leading to code execution.
 
+### Insecure Storage
+**Category:** Vulnerability
+A vulnerability where sensitive data (cryptographic keys, credentials, PII, session tokens) is stored without adequate protection mechanisms such as encryption, access control, or integrity verification; in automotive IVI systems, insecure storage in world-readable flash partitions, databases, or log files can expose vehicle telemetry keys and user private data.
+**Related:** Cleartext Storage of Sensitive Data, Sensitive Data Exposure, Unsecured Credentials, Hardcoded Credentials
+
 ### Instruction Flow Hijacking
 **Category:** Attack
 Manipulating execution flow of CPU instructions.
+
+### Insufficient Entropy
+**Category:** Vulnerability
+A vulnerability where cryptographic operations use insufficient random data, resulting in predictable keys, tokens, or session identifiers; common in automotive embedded systems lacking hardware random number generators (HRNG) or TRNGs, where boot-time entropy depletion leads to predictable cryptographic outputs.
+**Related:** Weak PRNG, Predictable Random Number Generator, Weak Cryptographic Key, Hardcoded Credentials
+
+### Insufficient Logging
+**Category:** Vulnerability
+A vulnerability where security-relevant events (authentication failures, privilege escalation attempts, firmware modification, diagnostic access) are not logged or monitored, reducing the ability to detect and respond to security incidents; common in automotive ECUs where flash storage constraints limit audit trail retention.
+**Related:** Audit Trail, Log Tampering, Security Misconfiguration, Intrusion Detection
+
+### Integer Overflow or Wraparound
+**Category:** Vulnerability
+A vulnerability where an arithmetic operation exceeds the maximum (or goes below the minimum) value of an integer type, wrapping around to an unexpected result; in automotive embedded code, integer overflows in buffer size calculations, message length fields, or timing computations can bypass bounds checks or cause denial of service.
+**Related:** Integer Underflow, Buffer Overflow, Memory Corruption, Logic Vulnerability, Off-by-One Error
+
+### Integer Underflow
+**Category:** Vulnerability
+A vulnerability where subtraction produces a result below the integer type minimum, often resulting in a very large unsigned value; in automotive firmware, integer underflows in size calculations, index operations, or loop counters can cause buffer overflows or infinite loops in critical ECUs.
+**Related:** Integer Overflow or Wraparound, Buffer Overflow, Memory Corruption, Logic Vulnerability
 
 ### Integer Underflow Attack
 **Category:** Hardware Security
@@ -4394,84 +4474,32 @@ Continuous observation of system integrity state.
 **Category:** Security
 A condition where system integrity is compromised.
 
+### Intelligent Cockpit
+**Category:** Vehicle Architecture
+An integrated HMI combining digital clusters, infotainment, HUD, voice control, and AI personalization, presenting a consolidated attack surface across IVI, telematics, and ADAS systems.
+**Related:** IVI, HMI, Android Automotive, ADAS
+
+### Intent
+**Category:** Android
+A messaging object used to request actions between Android components.
+
 ### Interconnect Security
 **Category:** Hardware Security
 Protection of internal chip or SoC communication pathways.
 
-### Interrupt Handling Attack
+### Internet Communication
 **Category:** Attack
-Exploiting interrupt mechanisms to manipulate system execution.
+An Auto-ISAC attack technique where an adversary uses internet connectivity (cellular or Wi-Fi) from a compromised vehicle to establish C2 channels, exfiltrate data, or download additional malicious payloads.
+**Related:** Cellular Communication, Telematics, C2
 
-### ICSim (Instrument Cluster Simulator)
-**Category:** Security Tool
-An open-source instrument cluster simulation environment that works with SocketCAN to emulate vehicle dashboard displays and CAN bus signals; widely used in automotive security education and training for practicing CAN bus attacks in a safe virtual environment.
-**Related:** SocketCAN, CAN Bus, can-utils, SavvyCAN, CAN Fuzzing
-
-### IDA Pro
-**Category:** Security Tool
-A commercial disassembler and debugger by Hex-Rays supporting a wide range of architectures (ARM, x86, TriCore, PPC, RISC-V) with a powerful decompiler; the industry standard for automotive firmware reverse engineering, vulnerability analysis, and binary patch development.
-**Related:** Ghidra, Binary Ninja, radare2, Reverse Engineering, Firmware Analysis
-
-### IDS (Intrusion Detection System)
-**Category:** Intrusion Detection
-A system that detects unauthorized or malicious activities in a network or system.
-### Inference Engine
-**Category:** AI
-A software or hardware component that executes trained machine learning models to produce predictions; optimized inference engines (TensorRT, ONNX Runtime, TFLite, OpenVINO) are critical for real-time automotive perception on resource-constrained ECUs.
-**Related:** Edge AI, AI Accelerator, Model Compression, Neural Network Quantization, Deep Learning
 ### Interrupt (IRQ)
 **Category:** Operating System
 A hardware signal that temporarily suspends CPU execution to service a peripheral event; in automotive ECUs, interrupts handle time-critical CAN message reception, sensor data acquisition, and watchdog timer expiry with deterministic latency requirements.
 **Related:** RTOS (Real-Time Operating System), Context Switch, Device Driver, ECU Scheduling
-### Information Disclosure
-**Category:** Vulnerability
-A vulnerability that results in unintended exposure of sensitive information to unauthorized parties, including memory contents, stack traces, system configuration, file paths, or personally identifiable information; in automotive IVI and telematics systems, information disclosure can reveal API endpoints, vehicle identifiers, or user data.
-**Related:** Sensitive Data Exposure, Memory Disclosure, Information Leakage, Privacy Data
-### Immobilizer
-**Category:** Vehicle Security
-An anti-theft system that prevents engine start without the presence of an authorized key fob or transponder, using challenge-response authentication over LF/RF (125 kHz / 433 MHz) between the immobilizer ECU and the key; modern immobilizers employ rolling codes or cryptographic authentication (Keeloq, AES) and are a common target for relay attacks and key cloning.
-**Related:** Keyless Entry Attack, PEPS (Passive Entry Passive Start), RKE (Remote Keyless Entry), Keeloq (Rolling Code), Relay Attack
 
-### Improper Certificate Validation
-**Category:** Vulnerability
-A vulnerability where an application fails to properly verify X.509 certificates during TLS/mTLS communication, including missing hostname verification, acceptance of self-signed certificates, ignoring expiration dates, or skipping chain validation; in automotive V2X and telematics, improper validation enables MitM attacks on secure channels.
-**Related:** Certificate Validation Failure, Transport Encryption Failure, TLS MITM Attack, PKI
-### Incident Response
-**Category:** Security Architecture
-A structured process for detecting, analyzing, containing, eradicating, and recovering from cybersecurity incidents; in the automotive context, incident response covers vehicle fleet compromise response, OTA patch deployment, forensic analysis of compromised ECUs, and coordination with regulatory authorities (UN R155 CSMS).
-**Related:** UN R155, CSMS, Forensic Analysis, OTA, Vulnerability
-
-### Init Process
-**Category:** Operating System
-The first userspace process started by the kernel during system boot (PID 1), responsible for initializing system services and launching other processes; in automotive Linux, systemd or BusyBox init manages service startup, dependency ordering, and watchdog supervision.
-**Related:** systemd, Kernel, Boot Sequence, Process, Linux
-### Integer Underflow
-**Category:** Vulnerability
-A vulnerability where subtraction produces a result below the integer type minimum, often resulting in a very large unsigned value; in automotive firmware, integer underflows in size calculations, index operations, or loop counters can cause buffer overflows or infinite loops in critical ECUs.
-**Related:** Integer Overflow or Wraparound, Buffer Overflow, Memory Corruption, Logic Vulnerability
-### Insecure Storage
-**Category:** Vulnerability
-A vulnerability where sensitive data (cryptographic keys, credentials, PII, session tokens) is stored without adequate protection mechanisms such as encryption, access control, or integrity verification; in automotive IVI systems, insecure storage in world-readable flash partitions, databases, or log files can expose vehicle telemetry keys and user private data.
-**Related:** Cleartext Storage of Sensitive Data, Sensitive Data Exposure, Unsecured Credentials, Hardcoded Credentials
-
-### Integer Overflow or Wraparound
-**Category:** Vulnerability
-A vulnerability where an arithmetic operation exceeds the maximum (or goes below the minimum) value of an integer type, wrapping around to an unexpected result; in automotive embedded code, integer overflows in buffer size calculations, message length fields, or timing computations can bypass bounds checks or cause denial of service.
-**Related:** Integer Underflow, Buffer Overflow, Memory Corruption, Logic Vulnerability, Off-by-One Error
-
-### Insufficient Logging
-**Category:** Vulnerability
-A vulnerability where security-relevant events (authentication failures, privilege escalation attempts, firmware modification, diagnostic access) are not logged or monitored, reducing the ability to detect and respond to security incidents; common in automotive ECUs where flash storage constraints limit audit trail retention.
-**Related:** Audit Trail, Log Tampering, Security Misconfiguration, Intrusion Detection
-
-### Insufficient Entropy
-**Category:** Vulnerability
-A vulnerability where cryptographic operations use insufficient random data, resulting in predictable keys, tokens, or session identifiers; common in automotive embedded systems lacking hardware random number generators (HRNG) or TRNGs, where boot-time entropy depletion leads to predictable cryptographic outputs.
-**Related:** Weak PRNG, Predictable Random Number Generator, Weak Cryptographic Key, Hardcoded Credentials
-
-### IPS (Intrusion Prevention System)
-**Category:** Security Architecture
-A system that actively blocks detected malicious activity.
+### Interrupt Handling Attack
+**Category:** Attack
+Exploiting interrupt mechanisms to manipulate system execution.
 
 ### Inverter (Motor Control Unit)
 **Category:** ECU
@@ -4511,6 +4539,15 @@ Forging IPC messages between processes or subsystems.
 ### IPC Router Hijacking
 **Category:** Attack
 Taking control of IPC routing mechanisms between subsystems.
+
+### IpduM (I-PDU Multiplexer)
+**Category:** AUTOSAR
+An AUTOSAR Basic Software module multiplexing multiple I-PDUs into a single CAN/LIN frame and demultiplexing at the receiver, used in bandwidth-limited networks with integrity verification requirements.
+**Related:** AUTOSAR COM, AUTOSAR PDU Router (PduR), CAN
+
+### IPS (Intrusion Prevention System)
+**Category:** Security Architecture
+A system that actively blocks detected malicious activity.
 
 ### ISMS (Information Security Management System)
 **Category:** Security Architecture
@@ -4633,6 +4670,11 @@ Failure to maintain separation between system components.
 An integrated system combining vehicles, infrastructure, and communication technologies to improve transportation safety and efficiency; encompasses V2X, VANET, and DSRC technologies.
 **Related:** V2X, VANET, DSRC, WAVE, IEEE 802.11p, ETSI
 
+### IV (Initialization Vector)
+**Category:** Cryptography
+**Related:** Encryption
+A random value used in encryption to ensure uniqueness.
+
 ### IVC (Inter-Vehicle Communication)
 **Category:** Connectivity
 Wireless communication between vehicles for exchanging safety, mobility, and environmental data; a subset of V2X enabled by DSRC/WAVE or C-V2X technologies.
@@ -4687,6 +4729,11 @@ Security framework for infotainment systems.
 **Category:** OTA
 Update process for infotainment systems.
 
+### IVN (In-Vehicle Network)
+**Category:** Network
+**Related:** FlexRay
+Communication networks inside a vehicle including CAN, LIN, FlexRay, Ethernet.
+
 ### IVN Gateway
 **Category:** ECU
 A system connecting different in-vehicle networks.
@@ -4734,6 +4781,7 @@ Multi-step exploitation process used to achieve system jailbreak.
 ### Jailbreak Persistence
 **Category:** Attack
 Maintaining unauthorized root access after reboot or update.
+
 ### Jailhouse
 **Category:** Virtualization
 A Linux-based partitioning hypervisor that creates isolated "cells" for safety-critical and non-critical workloads on multicore SoCs; used in automotive for consolidating real-time control and Linux-based IVI without a full hypervisor, leveraging hardware-assisted virtualization for static partitioning.
@@ -4789,16 +4837,6 @@ Injection of malicious JSON payloads into APIs or message systems.
 **Category:** Vulnerability
 Security flaw caused by improper parsing of JSON data.
 
-### JTAGulator
-**Category:** Security Tool
-An open-source hardware tool for identifying JTAG and SWD debug interface signals on embedded devices, automating the discovery of TDI, TDO, TMS, TCK, SWDIO, and SWCLK pinouts; essential for initial hardware reconnaissance in automotive ECU security assessments.
-**Related:** JTAG, SWD, J-Link (SEGGER), OpenOCD, Debug Port
-
-### JWT (JSON Web Token)
-**Category:** IAM
-**Related:** Authentication
-A compact token format used for secure authentication in APIs.
-
 ### JT/T 808
 **Category:** Connectivity
 Chinese industry standard for satellite positioning system terminal communication, defining the data format and protocol for vehicle telematics and location tracking systems.
@@ -4825,9 +4863,19 @@ Using JTAG to analyze firmware and system behavior.
 **Category:** Hardware Security
 Hardware-level mechanism restricting JTAG access.
 
+### JTAGulator
+**Category:** Security Tool
+An open-source hardware tool for identifying JTAG and SWD debug interface signals on embedded devices, automating the discovery of TDI, TDO, TMS, TCK, SWDIO, and SWCLK pinouts; essential for initial hardware reconnaissance in automotive ECU security assessments.
+**Related:** JTAG, SWD, J-Link (SEGGER), OpenOCD, Debug Port
+
 ### Junction Attack Point
 **Category:** Threat Modeling
 A system point where multiple communication paths converge and become vulnerable.
+
+### JWT (JSON Web Token)
+**Category:** IAM
+**Related:** Authentication
+A compact token format used for secure authentication in APIs.
 
 ### JWT Attack
 **Category:** Attack
@@ -4843,14 +4891,14 @@ Bypassing signature verification in JWT-based authentication systems.
 **Category:** Security
 Security mechanism that randomizes kernel memory layout.
 
-### KDF Attack
-**Category:** Cryptography
-Attacks targeting weaknesses in key derivation functions.
-
 ### Kayak
 **Category:** Security Tool
 An open-source CAN bus analysis and reverse engineering tool built on Java and SavvyCAN components, providing a user-friendly GUI for CAN traffic visualization, signal decoding, and replay attacks; used in automotive security research for protocol reverse engineering and vulnerability discovery.
 **Related:** CAN Bus, SavvyCAN, CAN Fuzzing, Reverse Engineering, SocketCAN
+
+### KDF Attack
+**Category:** Cryptography
+Attacks targeting weaknesses in key derivation functions.
 
 ### Keeloq (Rolling Code)
 **Category:** Cryptography
@@ -5012,6 +5060,7 @@ An open-source 802.11 wireless network detector, sniffer, and intrusion detectio
 **Category:** Attack
 A Bluetooth vulnerability (CVE-2019-9506) that forces negotiation of short encryption keys (as low as 1 byte) between paired devices, enabling brute-force decryption of Bluetooth traffic; affects automotive Bluetooth implementations using EDR connections.
 **Related:** Bluetooth, BlueBorne, Bluetooth Pineapple, Encryption Key
+
 ### Knowledge Distillation
 **Category:** AI
 A model compression technique where a smaller "student" model is trained to mimic a larger "teacher" model, transferring knowledge while reducing model size and inference latency; widely used to deploy complex ADAS perception models onto embedded ECUs with limited compute.
@@ -5051,10 +5100,18 @@ The first level of SAE J3016 driving automation where the vehicle provides eithe
 The second level of SAE J3016 driving automation where the vehicle can simultaneously control both lateral and longitudinal motion through integrated features (e.g., Adaptive Cruise Control with Lane Centering); the driver must continuously monitor the environment, keep hands on the steering wheel, and be ready to take over immediately. L2 systems require robust sensor fusion security and fail-safe fallback to prevent accidents from sensor manipulation or CAN bus attacks.
 **Related:** SAE J3016, ADAS, Autonomous Driving, L3, L2+, Sensor Fusion
 
+### L2 Cache Side Channel
+**Category:** Attack
+Exploiting CPU L2 cache behavior to extract sensitive information.
+
 ### L2+ (Level 2+) — Enhanced Partial Driving Automation
 **Category:** ADAS
 An industry-defined extension of SAE L2 allowing hands-off, eyes-on operation on highways by combining multiple ADAS features with more sophisticated sensor suites and longer operational design domains (ODD); while the vehicle handles sustained lateral and longitudinal control, the driver must still monitor the road and take over when requested. L2+ introduces additional security surface through driver monitoring systems (DMS), over-the-air updates, and increased connectivity.
 **Related:** SAE J3016, ADAS, L2, L3, DMS (Driver Monitoring System), OTA
+
+### L2/L3 Network Attack
+**Category:** Attack
+Attacks targeting OSI Layer 2 or Layer 3 protocols in vehicle networks.
 
 ### L3 (Level 3) — Conditional Driving Automation
 **Category:** ADAS
@@ -5070,14 +5127,6 @@ The fourth level of SAE J3016 driving automation where the vehicle performs all 
 **Category:** ADAS
 The highest level of SAE J3016 driving automation where the vehicle performs all driving tasks under all conditions across the full operational design domain, requiring no human intervention for any trip; L5 vehicles have no steering wheel or pedals. Security requirements encompass full vehicle autonomy security including end-to-end sensor integrity, tamper-proof AI perception and planning, robust secure boot chains across all processing units, and defense-in-depth for redundant fail-operational systems.
 **Related:** SAE J3016, ADAS, Autonomous Driving, L4, AI Safety, Cybersecurity
-
-### L2 Cache Side Channel
-**Category:** Attack
-Exploiting CPU L2 cache behavior to extract sensitive information.
-
-### L2/L3 Network Attack
-**Category:** Attack
-Attacks targeting OSI Layer 2 or Layer 3 protocols in vehicle networks.
 
 ### Laser Fault Injection (LFI)
 **Category:** Attack
@@ -5196,18 +5245,19 @@ Gaining elevated privileges through Linux system vulnerabilities.
 **Related:** Identity
 Mechanism ensuring a system or identity is actively present and not replayed.
 
-### Load Balancer ECU
-**Category:** ECU
-An ECU responsible for distributing processing or communication load.
-
 ### LKM (Loadable Kernel Module)
 **Category:** Operating System
 **Related:** Kernel
 Kernel module that can be dynamically loaded or unloaded.
+
 ### LLM (Large Language Model)
 **Category:** AI
 A deep learning model trained on vast text corpora capable of text generation, reasoning, and task completion; increasingly integrated into IVI systems for natural language voice interfaces, owner's manual querying, and in-vehicle concierge services; introduces new attack surfaces including prompt injection and jailbreaking.
 **Related:** Generative AI, NLP (Natural Language Processing), IVI (In-Vehicle Infotainment), Prompt Injection
+
+### Load Balancer ECU
+**Category:** ECU
+An ECU responsible for distributing processing or communication load.
 
 ### Local Function
 **Category:** Attack
@@ -5254,6 +5304,7 @@ Flaws in system logic leading to unintended behavior.
 ### Long Range Attack
 **Category:** Attack
 Attacks executed from distant network or wireless sources.
+
 ### LSM (Linux Security Module)
 **Category:** Operating System
 A framework in the Linux kernel that provides hooks for security policy enforcement through loadable kernel modules such as SELinux, AppArmor, Smack, and Yama; in automotive IVI and gateway systems, LSM enforces mandatory access control (MAC) between vehicle services, prevents privilege escalation, and constrains untrusted applications within defined security policies.
@@ -5271,12 +5322,17 @@ Disrupting LTE communication signals.
 **Category:** Connectivity
 **Related:** Cellular Communication
 Cellular communication module used in connected vehicles.
+
 ### LVDS (Low-Voltage Differential Signaling)
 **Category:** Vehicle Architecture
 A high-speed, low-power electrical signaling standard that transmits data over a differential pair of wires, providing inherent noise immunity for automotive environments; widely used as the physical layer for high-speed serial links (SerDes) connecting cameras, displays, and sensors to ADAS domain controllers and IVI head units, with data rates reaching multiple Gbps over twisted-pair or coaxial cabling.
 **Related:** SerDes, GMSL (Gigabit Multimedia Serial Link), FPD-Link, MIPI CSI-2, Camera ECU, ADAS Domain Controller
 
 ## M
+
+### MAC (Message Authentication Code)
+**Category:** Cryptography
+A short piece of information used to verify data integrity and authenticity.
 
 ### MAC Spoofing
 **Category:** Attack
@@ -5352,42 +5408,9 @@ Failure to properly isolate memory between processes or domains.
 **Related:** Exploit
 Failure to properly release memory, potentially leading to performance degradation or exploitation.
 
-### Misbehavior Detection (V2X)
-**Category:** Intrusion Detection
-A V2X security mechanism identifying vehicles broadcasting false Basic Safety Messages by analyzing consistency with physical models, plausibility checks, and cooperative detection algorithms.
-**Related:** SCMS, V2X, BSM
-
-### ML-DSA (FIPS 204)
-**Category:** Cryptography
-NIST-standardized post-quantum digital signature algorithm (formerly CRYSTALS-Dilithium), based on lattice cryptography, for secure automotive firmware and software update verification.
-**Related:** PQC, ML-KEM, SLH-DSA, Digital Signature
-
-### ML-KEM (FIPS 203)
-**Category:** Cryptography
-NIST-standardized post-quantum key encapsulation mechanism (formerly CRYSTALS-Kyber), based on Module Learning With Errors, providing IND-CCA2 secure key establishment for automotive communication in the quantum era.
-**Related:** PQC, ML-DSA, SLH-DSA
-
-### MMU (Memory Management Unit)
-**Category:** Vehicle Architecture
-Hardware that maps virtual memory to physical memory.
-
 ### Memory Protection Bypass
 **Category:** Attack
 Circumventing hardware or software memory protection mechanisms.
-
-### Modify Isolated Execution Environment
-**Category:** Attack
-An Auto-ISAC attack technique where an adversary modifies or bypasses isolated execution environments (e.g., TEE, TrustZone, hypervisor partitions, secure enclaves) to access protected assets or execute code in privileged domains.
-**Related:** ARM TrustZone, TEE, Hypervisor, Secure Enclave
-
-### Modify OS Kernel Boot Partition System Partition
-**Category:** Attack
-An Auto-ISAC attack technique where an adversary modifies the OS kernel, boot partition, or system partition on an in-vehicle computing platform to install rootkits, tamper with boot chain integrity, or achieve persistent compromise.
-**Related:** Secure Boot, Kernel Rootkit, Bootloader, Platform Firmware
-
-### MPU (Memory Protection Unit)
-**Category:** Hardware Security
-Hardware component enforcing memory access restrictions.
 
 ### Memory Safety Exploit
 **Category:** Attack
@@ -5401,9 +5424,6 @@ Any violation of safe memory access rules such as buffer overflow or use-after-f
 **Category:** Attack
 Bypassing memory tagging mechanisms used for security.
 
-### MAC (Message Authentication Code)
-**Category:** Cryptography
-A short piece of information used to verify data integrity and authenticity.
 ### Memory Virtualization
 **Category:** Virtualization
 The hypervisor-managed mapping of guest physical addresses to machine physical addresses via stage-2 address translation (ARM VHE / Intel EPT); critical for automotive virtualization to provide strong memory isolation between safety-critical and non-critical VMs with minimal overhead.
@@ -5469,6 +5489,11 @@ Exploitation of vulnerabilities in middleware communication layers.
 A smartphone-to-vehicle connectivity standard developed by the Car Connectivity Consortium (CCC), mirroring smartphone apps onto the vehicle infotainment display via USB or Bluetooth.
 **Related:** CarPlay, Android Auto, CarLife, CCC, SmartDeviceLink
 
+### Misbehavior Detection (V2X)
+**Category:** Intrusion Detection
+A V2X security mechanism identifying vehicles broadcasting false Basic Safety Messages by analyzing consistency with physical models, plausibility checks, and cooperative detection algorithms.
+**Related:** SCMS, V2X, BSM
+
 ### Misconfiguration
 **Category:** Vulnerability
 Incorrect system configuration leading to security exposure.
@@ -5481,6 +5506,7 @@ Exploiting insecure or default configurations in automotive systems.
 **Category:** Standards
 Coding guidelines developed by the Motor Industry Software Reliability Association for C and C++ programming, widely adopted in automotive software development to reduce coding defects and security vulnerabilities.
 **Related:** ASPICE, ISO 21434, AUTOSAR
+
 ### Missing Authentication for Critical Function
 **Category:** Vulnerability
 A vulnerability where sensitive vehicle functions (diagnostic session activation, firmware update, key provisioning, V2X certificate enrollment, remote unlock) are accessible without authentication, allowing attackers to directly manipulate safety-critical or security-critical operations.
@@ -5503,10 +5529,24 @@ Intercepting and modifying communication between ECUs or cloud services.
 The MITRE Corporation maintains cybersecurity knowledge bases including CVE, CWE, CAPEC, and ATT&CK framework, widely used in vulnerability classification and threat modeling.
 **Related:** CVE, CWE, CAPEC, ATT&CK, NVD
 
+### ML-DSA (FIPS 204)
+**Category:** Cryptography
+NIST-standardized post-quantum digital signature algorithm (formerly CRYSTALS-Dilithium), based on lattice cryptography, for secure automotive firmware and software update verification.
+**Related:** PQC, ML-KEM, SLH-DSA, Digital Signature
+
+### ML-KEM (FIPS 203)
+**Category:** Cryptography
+NIST-standardized post-quantum key encapsulation mechanism (formerly CRYSTALS-Kyber), based on Module Learning With Errors, providing IND-CCA2 secure key establishment for automotive communication in the quantum era.
+**Related:** PQC, ML-DSA, SLH-DSA
+
 ### MMS (Multimedia Messaging Service)
 **Category:** Connectivity
 A standard for sending multimedia content (images, audio, video) over cellular networks; in automotive contexts, may be used for telematics notifications or V2X applications, presenting an attack surface for message injection and content-based exploits.
 **Related:** SMS, Cellular Network, Telematics
+
+### MMU (Memory Management Unit)
+**Category:** Vehicle Architecture
+Hardware that maps virtual memory to physical memory.
 
 ### MNC (Mobile Network Code)
 **Category:** IAM
@@ -5524,6 +5564,7 @@ Exploiting smartphone-based digital key systems.
 ### Mobile-to-Vehicle Communication
 **Category:** Connectivity
 Communication between mobile devices and vehicle systems.
+
 ### Model Compression
 **Category:** AI
 Techniques (pruning, quantization, knowledge distillation, weight clustering) that reduce the size and computational requirements of neural networks while preserving accuracy; essential for deploying AI models on automotive ECUs with limited memory, power, and compute resources.
@@ -5558,10 +5599,24 @@ Exploitation of vulnerabilities in baseband processor firmware.
 **Category:** Hardware Security
 Software running on cellular baseband hardware.
 
+### Modify Isolated Execution Environment
+**Category:** Attack
+An Auto-ISAC attack technique where an adversary modifies or bypasses isolated execution environments (e.g., TEE, TrustZone, hypervisor partitions, secure enclaves) to access protected assets or execute code in privileged domains.
+**Related:** ARM TrustZone, TEE, Hypervisor, Secure Enclave
+
+### Modify OS Kernel Boot Partition System Partition
+**Category:** Attack
+An Auto-ISAC attack technique where an adversary modifies the OS kernel, boot partition, or system partition on an in-vehicle computing platform to install rootkits, tamper with boot chain integrity, or achieve persistent compromise.
+**Related:** Secure Boot, Kernel Rootkit, Bootloader, Platform Firmware
+
 ### MOST (Media Oriented Systems Transport)
 **Category:** Network
 A multimedia bus protocol for transmitting audio, video, and data in vehicles, defining all seven OSI layers. Used in infotainment and multimedia systems.
 **Related:** A2B, Automotive Ethernet, CAN
+
+### MPU (Memory Protection Unit)
+**Category:** Hardware Security
+Hardware component enforcing memory access restrictions.
 
 ### MQTT (Message Queuing Telemetry Transport)
 **Category:** Network
@@ -5592,6 +5647,7 @@ The phone number associated with a mobile subscription (E.164 format); used to i
 ### Multi-Processor Communication Exploit
 **Category:** Attack
 Attacking message flows between heterogeneous processors.
+
 ### Mutex
 **Category:** Operating System
 A synchronization primitive that ensures mutually exclusive access to shared resources; in automotive real-time systems, mutexes must support priority inheritance to prevent priority inversion, a key requirement specified by OSEK/ AUTOSAR OS standards.
@@ -5603,6 +5659,15 @@ An ISO 22900 standard defining a modular interface between diagnostic testers an
 **Related:** ISO 22900, UDS, DoIP, OBD-II
 
 ## N
+
+### NAC (Network Access Control)
+**Category:** Network
+Policy-based control over network device access.
+
+### Namespace (Linux)
+**Category:** Operating System
+A Linux kernel feature providing process-level isolation of system resources (PID, network, mount, IPC, UTS, user, cgroup); the foundation for containerization in automotive IVI platforms, enabling application sandboxing and service isolation.
+**Related:** Container, cgroups (Control Groups), Namespace Isolation, Linux, Process Isolation
 
 ### Namespace Escape
 **Category:** Attack
@@ -5637,14 +5702,6 @@ Subsystem responsible for GPS-based route planning and positioning.
 ### Near Field Attack
 **Category:** Attack
 Attacks performed using short-range communication channels like NFC or BLE.
-
-### NAC (Network Access Control)
-**Category:** Network
-Policy-based control over network device access.
-### Namespace (Linux)
-**Category:** Operating System
-A Linux kernel feature providing process-level isolation of system resources (PID, network, mount, IPC, UTS, user, cgroup); the foundation for containerization in automotive IVI platforms, enabling application sandboxing and service isolation.
-**Related:** Container, cgroups (Control Groups), Namespace Isolation, Linux, Process Isolation
 
 ### Network Behavior Profiling
 **Category:** Intrusion Detection
@@ -5711,6 +5768,7 @@ Exploitation of weaknesses in communication protocols.
 ### Network Security Policy
 **Category:** Security Architecture
 Rules defining allowed network communication.
+
 ### Network Segmentation
 **Category:** Security Architecture
 The architectural practice of dividing a vehicle's in-vehicle network into isolated security zones (powertrain, chassis, ADAS, infotainment, telematics) separated by gateway firewalls to contain breaches and enforce least-privilege communication; network segmentation is a core principle of defense-in-depth for automotive E/E architectures and is mandated by ISO/SAE 21434 for domain separation.
@@ -5736,6 +5794,7 @@ The layered set of protocols used for communication in automotive systems, inclu
 ### Network Traffic Analysis
 **Category:** Intrusion Detection
 Analyzing network traffic for anomalies or attacks.
+
 ### Neural Network Quantization
 **Category:** AI
 A model compression technique that reduces the numerical precision of model weights and activations (e.g., FP32 to INT8) to decrease model size, memory bandwidth, and inference latency; critical for deploying high-accuracy ADAS models on embedded automotive hardware.
@@ -5792,15 +5851,15 @@ A U.S. National Institute of Standards and Technology framework (NIST CSF 2.0) f
 A U.S. National Institute of Standards and Technology special publication providing a comprehensive catalog of security and privacy controls for information systems (Rev. 5), organized into 20 control families; used in automotive for evaluating cloud-connected vehicle platforms, telematics backends, and OTA update infrastructure security.
 **Related:** NIST, NIST CSF, Cloud Security, Telematics, Supply Chain Security
 
-### NMEA
-**Category:** Connectivity
-A standard data format for communication between marine electronics and GNSS receivers, widely used in vehicle navigation systems for positioning data output.
-**Related:** GNSS, RTCM, NTRIP
-
 ### Nmap
 **Category:** Security Tool
 An open-source network discovery and security auditing tool that performs port scanning, service identification, OS fingerprinting, and vulnerability scripting via NSE (Nmap Scripting Engine); used in automotive security for discovering vehicle network services, testing telematics systems, and auditing connected vehicle attack surfaces.
 **Related:** Network Service Scanning, Port Scanning, Penetration Testing, Bettercap
+
+### NMEA
+**Category:** Connectivity
+A standard data format for communication between marine electronics and GNSS receivers, widely used in vehicle navigation systems for positioning data output.
+**Related:** GNSS, RTCM, NTRIP
 
 ### Node Authentication
 **Category:** Security
@@ -5848,6 +5907,7 @@ Exploiting reuse of nonces to break encryption or authentication.
 ### Normalization Attack
 **Category:** Attack
 Exploiting data normalization processes to inject or distort information.
+
 ### NPU (Neural Processing Unit)
 **Category:** AI
 A specialized processor designed for neural network inference acceleration; integrated into automotive SoCs (Qualcomm Snapdragon Ride, NVIDIA Orin, Mobileye EyeQ) to enable real-time ADAS perception, sensor fusion, and autonomous driving processing at power-efficient performance levels.
@@ -5857,6 +5917,7 @@ A specialized processor designed for neural network inference acceleration; inte
 **Category:** Connectivity
 Networked Transport of RTCM via Internet Protocol, a protocol for streaming GNSS correction data from reference stations to rovers (e.g., vehicles) for precise positioning.
 **Related:** RTCM, NMEA, GNSS, C-V2X
+
 ### Null Pointer Dereference
 **Category:** Vulnerability
 A vulnerability where code attempts to read from or write to a null (zero) memory address, typically causing a crash, kernel panic, or denial of service; in automotive RTOS and AUTOSAR systems, null pointer dereferences in communication stacks or sensor data processing can halt critical vehicle functions.
@@ -5916,15 +5977,11 @@ Injecting malicious diagnostic commands via the OBD-II interface.
 A protocol for exchanging objects (files, contacts, messages) over Bluetooth, IrDA, or TCP/IP; in automotive contexts, used for Bluetooth file transfer and hands-free profile, and a known attack vector for Bluejacking and Bluesnarfing exploits.
 **Related:** Bluetooth, Bluejacking, Bluesnarfing, Bluetooth Pairing
 
-### OMS (Occupant Monitoring System)
-**Category:** ECU
-An in-cabin sensing system that monitors occupant presence, position, and behavior using cameras, radar, or capacitive sensors; used for seat belt reminders, airbag deployment optimization, child presence detection (CPD), and driver handoff verification in automated driving scenarios. Increasingly mandated by regulation (EU NCAP, NHTSA FMVSS).
-**Related:** DMS, Euro NCAP, In-Cabin Sensing, Child Presence Detection
-
 ### Object Deserialization Attack
 **Category:** Vulnerability
 **Related:** Exploit, Unsafe Deserialization
 Exploiting unsafe deserialization of objects.
+
 ### Object Detection
 **Category:** AI
 A computer vision task identifying and localizing objects (vehicles, pedestrians, cyclists, traffic signs) in camera images or lidar point clouds; a core function of ADAS perception systems using architectures like YOLO, SSD, and Faster R-CNN; subject to adversarial attacks.
@@ -5941,6 +5998,20 @@ Corruption or modification of structured objects in memory or storage.
 ### Object Serialization Exploit
 **Category:** Attack
 Manipulating serialized objects to achieve code execution.
+
+### OBU (On-Board Unit)
+**Category:** Connectivity
+Device used for V2X communication and telematics services.
+
+### ODD (Operational Design Domain)
+**Category:** ADAS
+The specific operating conditions under which an automated driving system (ADS) is designed to function, including environmental, geographical, speed, time-of-day, road-type, and infrastructure constraints; ODD definition is critical for SAE L3-L5 ADS safety validation and vulnerability analysis, as operating outside the ODD is a primary safety and security concern.
+**Related:** SAE J3016, Autonomous Driving, L3, L4, L5, MRC
+
+### Off-by-One Error
+**Category:** Vulnerability
+A boundary condition error where a loop or array index is off by one from the correct value, causing access to adjacent memory; in automotive firmware, off-by-one errors in CAN message buffer indexing, sensor data arrays, or string processing can overwrite critical data structures and allow exploitation.
+**Related:** Buffer Overflow, Out-of-bounds Write, Array Index Out-of-Bounds, Memory Corruption
 
 ### Offline Attack
 **Category:** Attack
@@ -5963,17 +6034,10 @@ Extracting or brute-forcing cryptographic keys without online interaction.
 **Category:** Penetration Testing
 Analyzing firmware or binaries without live system execution.
 
-### OBU (On-Board Unit)
-**Category:** Connectivity
-Device used for V2X communication and telematics services.
-### Off-by-One Error
-**Category:** Vulnerability
-A boundary condition error where a loop or array index is off by one from the correct value, causing access to adjacent memory; in automotive firmware, off-by-one errors in CAN message buffer indexing, sensor data arrays, or string processing can overwrite critical data structures and allow exploitation.
-**Related:** Buffer Overflow, Out-of-bounds Write, Array Index Out-of-Bounds, Memory Corruption
-### ODD (Operational Design Domain)
-**Category:** ADAS
-The specific operating conditions under which an automated driving system (ADS) is designed to function, including environmental, geographical, speed, time-of-day, road-type, and infrastructure constraints; ODD definition is critical for SAE L3-L5 ADS safety validation and vulnerability analysis, as operating outside the ODD is a primary safety and security concern.
-**Related:** SAE J3016, Autonomous Driving, L3, L4, L5, MRC
+### OMS (Occupant Monitoring System)
+**Category:** ECU
+An in-cabin sensing system that monitors occupant presence, position, and behavior using cameras, radar, or capacitive sensors; used for seat belt reminders, airbag deployment optimization, child presence detection (CPD), and driver handoff verification in automated driving scenarios. Increasingly mandated by regulation (EU NCAP, NHTSA FMVSS).
+**Related:** DMS, Euro NCAP, In-Cabin Sensing, Child Presence Detection
 
 ### OnStar
 **Category:** Connectivity
@@ -5997,32 +6061,32 @@ Security risks introduced by open-source software in automotive systems.
 An open-source software implementation of a GSM base transceiver station (BTS) that uses SDR hardware to create private cellular networks; used in automotive security testing to create rogue BTS for TCU attacks.
 **Related:** BTS, Rogue BTS, YateBTS, OsmocomBB, BladeRF, SDR, GSM
 
+### OpenOCD (Open On-Chip Debugger)
+**Category:** Security Tool
+An open-source debugging, programming, and testing tool for embedded devices via JTAG and SWD interfaces, supporting ARM, RISC-V, and MIPS cores; used in automotive security for ECU flash dumping, firmware reprogramming, and hardware-level debugging during penetration testing.
+**Related:** JTAG, SWD, J-Link (SEGGER), Debug Port, Firmware Extraction
+
 ### openXSAM
 **Category:** Security Architecture
 Open XML Security Analysis Model, an open automotive security analysis framework for threat modeling, supporting tools like YAKINDU Security Analyst for structured threat analysis.
 **Related:** TARA, HEAVENS, STRIDE, Attack Tree, Threat Modeling
+
+### Operational Security (OpSec)
+**Category:** Security Architecture
+Practices used to prevent exposure of sensitive information during operations.
 
 ### Optical Fault Injection
 **Category:** Attack
 A physical attack using focused light (laser or flash) to induce transient faults in semiconductor devices via the photoelectric effect, targeting specific circuit regions.
 **Related:** Laser Fault Injection, EMFI, Voltage Fault Injection
 
-### OS (Operating System)
-**Category:** Operating System
-Core software managing hardware and applications in automotive systems.
-
-### OpenOCD (Open On-Chip Debugger)
-**Category:** Security Tool
-An open-source debugging, programming, and testing tool for embedded devices via JTAG and SWD interfaces, supporting ARM, RISC-V, and MIPS cores; used in automotive security for ECU flash dumping, firmware reprogramming, and hardware-level debugging during penetration testing.
-**Related:** JTAG, SWD, J-Link (SEGGER), Debug Port, Firmware Extraction
-
-### Operational Security (OpSec)
-**Category:** Security Architecture
-Practices used to prevent exposure of sensitive information during operations.
-
 ### Orchestration Engine Exploit
 **Category:** Attack
 Exploiting vulnerabilities in orchestration systems managing distributed components.
+
+### OS (Operating System)
+**Category:** Operating System
+Core software managing hardware and applications in automotive systems.
 
 ### OS Command Injection
 **Category:** Attack
@@ -6051,6 +6115,7 @@ Breaking out of restricted execution environments.
 ### OS Scheduler Manipulation
 **Category:** Attack
 Altering task scheduling behavior in operating systems.
+
 ### OSEK/VDX
 **Category:** Operating System
 A standardized real-time operating system specification for automotive ECUs, defining task scheduling, resource management, interrupt handling, and communication protocols; formed the foundation for AUTOSAR OS and is widely used in legacy ECUs.
@@ -6065,6 +6130,7 @@ The collection and analysis of publicly available information (websites, forums,
 **Category:** Security Tool
 An open-source GSM baseband firmware project for mobile phone hardware, used in automotive security research for GSM interception and rogue BTS attacks against vehicle TCUs.
 **Related:** OpenBTS, YateBTS, GSM, BTS, Rogue BTS, SDR
+
 ### OSTree
 **Category:** Operating System
 A Git-like system for versioning and managing bootable Linux filesystem trees; used in automotive OTA update systems (e.g., AGL, Uptane) to enable atomic updates, rollback, and delta updates of IVI and telematics Linux systems.
@@ -6089,6 +6155,7 @@ Cryptographic validation of firmware authenticity in OTA updates.
 ### OTA Update Server
 **Category:** OTA
 Backend system responsible for distributing firmware updates to vehicles.
+
 ### OTA Vulnerability
 **Category:** Vulnerability
 A security weakness in Over-the-Air update mechanisms that can be exploited to install malicious or unauthorized firmware on ECUs; common OTA vulnerabilities include signature verification bypass, rollback attack, insufficient transport security, missing integrity checks, or authentication flaws in the update server and vehicle communication.
@@ -6111,15 +6178,16 @@ Attacks conducted through channels outside the primary communication path.
 ### Out-of-Band Authentication
 **Category:** Security
 Authentication using a separate communication channel.
-### Out-of-bounds Write
-**Category:** Vulnerability
-A vulnerability where a program writes data beyond the allocated boundary of a buffer or array, corrupting adjacent memory and potentially leading to code execution or privilege escalation; a primary class of memory safety vulnerabilities in automotive C/C++ firmware for ECUs, ADAS, and IVI systems.
-**Related:** Buffer Overflow, Memory Corruption, Heap Overflow, Stack Overflow, Off-by-One Error
 
 ### Out-of-bounds Read
 **Category:** Vulnerability
 A vulnerability where a program reads data beyond the allocated boundary of a buffer or array, potentially exposing sensitive memory contents; in automotive systems, out-of-bounds reads in diagnostic responders, CAN message parsers, or infotainment media decoders can leak cryptographic keys or vehicle data.
 **Related:** Buffer Overflow, Memory Disclosure, Information Disclosure, Out-of-bounds Write, Array Index Out-of-Bounds
+
+### Out-of-bounds Write
+**Category:** Vulnerability
+A vulnerability where a program writes data beyond the allocated boundary of a buffer or array, corrupting adjacent memory and potentially leading to code execution or privilege escalation; a primary class of memory safety vulnerabilities in automotive C/C++ firmware for ECUs, ADAS, and IVI systems.
+**Related:** Buffer Overflow, Memory Corruption, Heap Overflow, Stack Overflow, Off-by-One Error
 
 ### Over-the-Top (OTT) Vehicle Services
 **Category:** Vehicle Security
@@ -6155,10 +6223,12 @@ Re-sending captured packets to manipulate system behavior.
 ### Packet Sniffing
 **Category:** Reverse Engineering
 Capturing and analyzing network traffic.
+
 ### Paging
 **Category:** Operating System
 A memory management scheme that maps virtual addresses to physical memory in fixed-size pages; used by automotive Linux and MMU-equipped RTOS for process isolation, virtual address spaces, and demand-paging of large IVI applications.
 **Related:** Virtual Memory, MMU (Memory Management Unit), Context Switch, Process Isolation
+
 ### Para-Virtualization
 **Category:** Virtualization
 A virtualization technique where the guest OS is modified to use hypervisor-provided interfaces (hypercalls) instead of emulated hardware, improving I/O performance; used in automotive for para-virtualized network and storage drivers in IVI VMs.
@@ -6173,6 +6243,7 @@ Flaws in input parsing leading to crashes or code execution.
 **Category:** Threat Modeling
 A seven-stage, risk-centric threat modeling methodology that simulates attacks from an adversary's perspective: defining objectives, technical scope, application decomposition, threat agent identification, vulnerability identification, exploit enumeration, and risk/impact analysis.
 **Related:** STRIDE, TRIKE, VAST, HEAVENS, TARA, DFD
+
 ### Path Traversal (Directory Traversal)
 **Category:** Vulnerability
 A vulnerability where an attacker uses ".." sequences or absolute paths in file system operations to access files outside the intended directory; in automotive IVI systems, path traversal in media player, file browser, or update mechanisms can read sensitive files (credentials, configuration) or write malicious payloads.
@@ -6222,6 +6293,7 @@ A container format that packages multiple ODX files into a single ZIP archive, s
 **Category:** ECU
 A body security system that enables keyless vehicle access and ignition: the vehicle periodically broadcasts LF (low-frequency) wake-up signals, the smart key responds via RF (UHF or BLE), and the system authenticates the key and unlocks the door or authorizes engine start without physical key insertion. Attacks include relay attacks (RollJam, NFC relay) and cryptographic cloning.
 **Related:** RKE (Remote Keyless Entry), Immobilizer, NFC Relay Attack, RollJam Attack, BCM
+
 ### Perception System
 **Category:** AI
 The AI-driven subsystem in ADAS and autonomous driving that processes sensor data (cameras, lidar, radar) to understand the vehicle's environment; encompasses object detection, semantic segmentation, depth estimation, tracking, and sensor fusion.
@@ -6279,6 +6351,7 @@ An identifier used in OBD-II to request and interpret specific diagnostic data v
 **Category:** Standards
 Data that can identify an individual (e.g., name, VIN, location, biometrics); collected by connected vehicles through telematics, cameras, and mobile apps, requiring protection under GDPR, CCPA, and similar privacy regulations.
 **Related:** GDPR, Data Privacy, Data Loss Prevention, Vehicle Data
+
 ### PikeOS
 **Category:** Virtualization
 A safety-critical separation kernel and real-time operating system by SYSGO, certified to Common Criteria EAL5+ and ISO 26262 ASIL D; supports multiple guest OSes (Linux, AUTOSAR, RTOS) via para-virtualization on a single SoC, widely used in automotive domain controllers and cockpit systems.
@@ -6308,15 +6381,6 @@ Exploitation of weaknesses in certificate issuance, validation, or trust chains.
 **Category:** Attack
 Forging or misusing certificates to impersonate trusted entities.
 
-### Process Discovery
-**Category:** Attack
-An Auto-ISAC reconnaissance technique where an adversary enumerates running processes on a compromised vehicle system to identify security software, active services, and potential targets for privilege escalation.
-**Related:** System Information Discovery, Software Discovery, Penetration Testing, Privilege Escalation, Network Information Discovery, Network Service Scanning, System Network Configuration Discovery, System Network Connections Discovery
-
-### PSA (Platform Security Architecture)
-**Category:** Security Architecture
-A security framework defining secure design principles for embedded systems.
-
 ### PLC (Power-Line Communication)
 **Category:** Network
 A technology enabling data transmission over vehicle power lines, used in automotive applications such as battery management in EVs and PLC4TRUCKS (SAE J2497) for commercial vehicle trailer communications; presents an attack surface for power-line injection.
@@ -6333,6 +6397,7 @@ Circumventing security or access control policies.
 ### Policy Enforcement Failure
 **Category:** Vulnerability
 Failure to enforce security policies consistently.
+
 ### POSIX
 **Category:** Operating System
 A family of IEEE standards defining APIs, shell utilities, and thread interfaces for Unix-like operating systems; automotive Linux systems (AGL, Yocto) implement POSIX interfaces for pthreads, signals, IPC, file I/O, and real-time extensions (POSIX.1b).
@@ -6375,6 +6440,11 @@ Separation between different privilege levels in system design.
 **Category:** Attack
 Gaining higher-level permissions than originally assigned.
 
+### Process Discovery
+**Category:** Attack
+An Auto-ISAC reconnaissance technique where an adversary enumerates running processes on a compromised vehicle system to identify security software, active services, and potential targets for privilege escalation.
+**Related:** System Information Discovery, Software Discovery, Penetration Testing, Privilege Escalation, Network Information Discovery, Network Service Scanning, System Network Configuration Discovery, System Network Connections Discovery
+
 ### Process Escape
 **Category:** Attack
 Breaking out of restricted process environments or sandboxes.
@@ -6410,6 +6480,10 @@ Injecting malicious data into protocol communication streams.
 ### Protocol Stack Exploit
 **Category:** Attack
 Exploiting vulnerabilities across multiple layers of communication protocol stacks.
+
+### PSA (Platform Security Architecture)
+**Category:** Security Architecture
+A security framework defining secure design principles for embedded systems.
 
 ### PSA Certified
 **Category:** Security Architecture
@@ -6450,6 +6524,7 @@ A formalized system for managing quality processes across an organization, found
 ### QNX
 **Category:** Operating System
 A Unix-like real-time operating system widely used in automotive infotainment, ADAS, and safety-critical ECUs.
+
 ### QNX Hypervisor
 **Category:** Virtualization
 A Type-1 hypervisor by BlackBerry QNX enabling simultaneous execution of QNX Neutrino RTOS (for safety-critical, ASIL D) and Linux/Android (for IVI) on a single SoC; provides para-virtualized drivers, device passthrough, and inter-VM communication for automotive cockpit domain controllers.
@@ -6539,9 +6614,18 @@ A vulnerability where the timing or interleaving of concurrent operations (multi
 **Category:** ADAS
 Injecting fake radar reflections to mislead detection systems.
 
+### radare2
+**Category:** Security Tool
+An open-source reverse engineering and binary analysis framework supporting dozens of architectures with a command-line interface, visual mode, ESIL emulation, and scripting in Python, Rust, and JavaScript; used in automotive firmware analysis for vulnerability discovery, code patching, and forensic analysis.
+**Related:** Ghidra, IDA Pro, Binary Ninja, Reverse Engineering, Firmware Analysis
+
 ### Radio Protocol Exploit
 **Category:** Attack
 Exploiting vulnerabilities in radio communication protocols.
+
+### RCE (Remote Code Execution)
+**Category:** Attack
+Executing arbitrary code on a target system remotely through a vulnerability.
 
 ### RCM (Restraints Control Module)
 **Category:** ECU
@@ -6556,36 +6640,28 @@ Exploiting vulnerabilities in ROM-based firmware or boot code.
 **Category:** Functional Safety
 Failure to meet timing deadlines in safety-critical systems.
 
-### Recovery Mode
-**Category:** Android
-A minimal runtime environment used for factory reset, OTA installation, and recovery operations.
-
-### Reprogram Co-Located Computing Device
-**Category:** Attack
-An Auto-ISAC attack technique where an adversary reprograms or reflashes firmware on co-located computing devices (e.g., domain controllers, smart sensors, telematics units) to implant malicious functionality or alter operational parameters.
-**Related:** ECU Reprogramming, Firmware Update, Exploit Co-Located Computing Device
-
-### RollJam Attack
-**Category:** Attack
-A wireless attack on rolling-code keyless entry systems that intercepts and jams the key fob RF signal, captures the rolling code, and replays it to unlock the vehicle, defeating code-rolling protections.
-**Related:** Rolling Code, Replay Attack, Keeloq
-
-### RTOS (Real-Time Operating System)
-**Category:** Operating System
-Operating system designed for deterministic timing behavior in embedded systems.
+### Real-Time Virtualization
+**Category:** Virtualization
+Virtualization technologies and scheduling mechanisms that guarantee deterministic timing behavior for real-time VMs in mixed-criticality automotive systems; ensures that safety-critical AUTOSAR or RTOS tasks meet hard deadlines regardless of non-critical VM activity.
+**Related:** Hypervisor, RTOS (Real-Time Operating System), AUTOSAR OS, Mixed-Criticality Virtualization, Hardware-Assisted Virtualization
 
 ### Reconnaissance
 **Category:** Penetration Testing
 The first phase of penetration testing involving information gathering about the target vehicle, including passive (OSINT) and active (network scanning, wireless sniffing) techniques to map the attack surface before exploitation.
 **Related:** OSINT, PTES, Passive Reconnaissance, Active Reconnaissance, Intelligence Gathering
 
+### Recovery Mode
+**Category:** Android
+A minimal runtime environment used for factory reset, OTA installation, and recovery operations.
+
 ### Register Manipulation
 **Category:** Attack
 Direct modification of hardware registers.
 
-### RCE (Remote Code Execution)
-**Category:** Attack
-Executing arbitrary code on a target system remotely through a vulnerability.
+### Reinforcement Learning
+**Category:** AI
+A machine learning paradigm where an agent learns optimal actions through trial-and-error interaction with an environment; applied in autonomous driving for decision-making (lane changing, merging, intersection handling), motion planning, and control policy optimization.
+**Related:** Deep Learning, End-to-End Learning, Behavior Prediction, Autonomous Driving, Imitation Learning
 
 ### Remote Diagnostics Attack
 **Category:** Attack
@@ -6599,6 +6675,11 @@ Gaining remote control over ECU systems via network or wireless channels.
 **Category:** Attack
 Reusing captured communication to deceive systems.
 
+### Reprogram Co-Located Computing Device
+**Category:** Attack
+An Auto-ISAC attack technique where an adversary reprograms or reflashes firmware on co-located computing devices (e.g., domain controllers, smart sensors, telematics units) to implant malicious functionality or alter operational parameters.
+**Related:** ECU Reprogramming, Firmware Update, Exploit Co-Located Computing Device
+
 ### Reset Attack
 **Category:** Attack
 Forcing system resets to manipulate state or bypass checks.
@@ -6606,6 +6687,16 @@ Forcing system resets to manipulate state or bypass checks.
 ### Resource Exhaustion Attack
 **Category:** Attack
 Overloading system resources to degrade performance.
+
+### Resource Leak
+**Category:** Vulnerability
+A vulnerability where a system fails to release finite resources (memory, file descriptors, network sockets, kernel objects) after use, leading to gradual resource exhaustion; in automotive ECUs with long service lifetimes, resource leaks in diagnostic services, CAN message handlers, or telemetry connections can cause system degradation or denial of service.
+**Related:** Memory Leak, Resource Exhaustion, Denial of Service (DoS), Heap Exhaustion
+
+### Return-Oriented Programming (ROP)
+**Category:** Attack
+A code-reuse exploitation technique that chains together small instruction sequences (gadgets) ending in a return instruction to achieve arbitrary computation without injecting code, bypassing NX/DEP protections; in automotive exploitation chains, ROP is used to pivot through ASLR, disable security mitigations, and achieve code execution on ECU firmware, IVI OS, and TEE Trusted Applications.
+**Related:** Code Execution, JOP (Jump-Oriented Programming), ASLR (Address Space Layout Randomization), DEP
 
 ### Reverse Engineering
 **Category:** Penetration Testing
@@ -6649,6 +6740,11 @@ A formal document defining the scope, boundaries, and permitted actions for a pe
 **Category:** Attack
 A fraudulent base transceiver station (BTS) created using SDR hardware (BladeRF, USRP, HackRF) and open-source software (OpenBTS, YateBTS, OsmocomBB) to impersonate a legitimate cellular network, enabling interception of vehicle TCU communications, IMSI capture, and downgrade attacks.
 **Related:** BTS, IMSI Catcher, IMSI, TCU, GSM, OpenBTS, YateBTS, BladeRF, SDR
+
+### RollJam Attack
+**Category:** Attack
+A wireless attack on rolling-code keyless entry systems that intercepts and jams the key fob RF signal, captures the rolling code, and replays it to unlock the vehicle, defeating code-rolling protections.
+**Related:** Rolling Code, Replay Attack, Keeloq
 
 ### Root Access
 **Category:** IAM
@@ -6730,6 +6826,11 @@ A hardware partition in eMMC and UFS storage providing authenticated, replay-pro
 A numerical score (1-1000) used in FMEA to rank risk priority, calculated as Severity x Occurrence x Detectability; in automotive cybersecurity, RPN helps prioritize which threats and vulnerabilities to mitigate first based on their combined risk factors.
 **Related:** FMEA, HARA, ASIL, Risk Assessment, ISO 26262
 
+### RSA (Rivest-Shamir-Adleman)
+**Category:** Cryptography
+A widely used asymmetric public-key cryptosystem based on the computational difficulty of factoring large integers, providing encryption and digital signature capabilities at key sizes of 2048-4096 bits; while still prevalent in PKI infrastructure and TLS certificates, RSA is increasingly being replaced by ECC in automotive systems due to smaller key sizes, and is classified as vulnerable to quantum attacks by PQC standards.
+**Related:** ECC (Elliptic Curve Cryptography), PQC (Post-Quantum Cryptography), PKI (Public Key Infrastructure), Digital Signature, ML-KEM (FIPS 203)
+
 ### RSU (Roadside Unit)
 **Category:** Connectivity
 A roadside communication device in V2X networks that exchanges data with vehicles via DSRC or C-V2X, supporting V2I applications such as traffic signal phase and hazard warnings.
@@ -6739,6 +6840,10 @@ A roadside communication device in V2X networks that exchanges data with vehicle
 **Category:** Connectivity
 Radio Technical Commission for Maritime Services protocol, defining standard format for GNSS differential correction data used in precise vehicle positioning systems.
 **Related:** NMEA, NTRIP, GNSS, C-V2X
+
+### RTOS (Real-Time Operating System)
+**Category:** Operating System
+Operating system designed for deterministic timing behavior in embedded systems.
 
 ### RTOS Kernel Exploit
 **Category:** Attack
@@ -6752,6 +6857,16 @@ Memory corruption in real-time systems affecting deterministic behavior.
 ### RTOS Timing Manipulation
 **Category:** Attack
 Altering timing behavior of real-time systems.
+
+### RTSP (Real-Time Streaming Protocol)
+**Category:** Connectivity
+A network control protocol for establishing and controlling media sessions between streaming servers and clients, supporting play, pause, record, and teardown operations; used in automotive IVI and camera monitoring systems for real-time video streaming from surround-view cameras or digital mirrors, with security implications including session hijacking, unencrypted media streams, and authentication bypass risks.
+**Related:** RTP, IVI (In-Vehicle Infotainment), Camera Monitoring, Media Streaming
+
+### Runlevel
+**Category:** Operating System
+A system state defining which services are operational in a Unix-like OS; in automotive Linux, runlevels (or systemd targets) manage operational modes such as normal driving, parking, manufacturing, diagnostic, and flash programming.
+**Related:** Init Process, systemd, Linux, Boot Sequence
 
 ### Runtime Configuration Manipulation
 **Category:** Attack
@@ -6785,40 +6900,6 @@ Circumventing security policies enforced at runtime.
 **Category:** Attack
 Breaking out of runtime isolation environments.
 
-### radare2
-**Category:** Security Tool
-An open-source reverse engineering and binary analysis framework supporting dozens of architectures with a command-line interface, visual mode, ESIL emulation, and scripting in Python, Rust, and JavaScript; used in automotive firmware analysis for vulnerability discovery, code patching, and forensic analysis.
-**Related:** Ghidra, IDA Pro, Binary Ninja, Reverse Engineering, Firmware Analysis
-### Reinforcement Learning
-**Category:** AI
-A machine learning paradigm where an agent learns optimal actions through trial-and-error interaction with an environment; applied in autonomous driving for decision-making (lane changing, merging, intersection handling), motion planning, and control policy optimization.
-**Related:** Deep Learning, End-to-End Learning, Behavior Prediction, Autonomous Driving, Imitation Learning
-### Runlevel
-**Category:** Operating System
-A system state defining which services are operational in a Unix-like OS; in automotive Linux, runlevels (or systemd targets) manage operational modes such as normal driving, parking, manufacturing, diagnostic, and flash programming.
-**Related:** Init Process, systemd, Linux, Boot Sequence
-### Real-Time Virtualization
-**Category:** Virtualization
-Virtualization technologies and scheduling mechanisms that guarantee deterministic timing behavior for real-time VMs in mixed-criticality automotive systems; ensures that safety-critical AUTOSAR or RTOS tasks meet hard deadlines regardless of non-critical VM activity.
-**Related:** Hypervisor, RTOS (Real-Time Operating System), AUTOSAR OS, Mixed-Criticality Virtualization, Hardware-Assisted Virtualization
-### Resource Leak
-**Category:** Vulnerability
-A vulnerability where a system fails to release finite resources (memory, file descriptors, network sockets, kernel objects) after use, leading to gradual resource exhaustion; in automotive ECUs with long service lifetimes, resource leaks in diagnostic services, CAN message handlers, or telemetry connections can cause system degradation or denial of service.
-**Related:** Memory Leak, Resource Exhaustion, Denial of Service (DoS), Heap Exhaustion
-### RTSP (Real-Time Streaming Protocol)
-**Category:** Connectivity
-A network control protocol for establishing and controlling media sessions between streaming servers and clients, supporting play, pause, record, and teardown operations; used in automotive IVI and camera monitoring systems for real-time video streaming from surround-view cameras or digital mirrors, with security implications including session hijacking, unencrypted media streams, and authentication bypass risks.
-**Related:** RTP, IVI (In-Vehicle Infotainment), Camera Monitoring, Media Streaming
-### RSA (Rivest-Shamir-Adleman)
-**Category:** Cryptography
-A widely used asymmetric public-key cryptosystem based on the computational difficulty of factoring large integers, providing encryption and digital signature capabilities at key sizes of 2048-4096 bits; while still prevalent in PKI infrastructure and TLS certificates, RSA is increasingly being replaced by ECC in automotive systems due to smaller key sizes, and is classified as vulnerable to quantum attacks by PQC standards.
-**Related:** ECC (Elliptic Curve Cryptography), PQC (Post-Quantum Cryptography), PKI (Public Key Infrastructure), Digital Signature, ML-KEM (FIPS 203)
-
-### Return-Oriented Programming (ROP)
-**Category:** Attack
-A code-reuse exploitation technique that chains together small instruction sequences (gadgets) ending in a return instruction to achieve arbitrary computation without injecting code, bypassing NX/DEP protections; in automotive exploitation chains, ROP is used to pivot through ASLR, disable security mitigations, and achieve code execution on ECU firmware, IVI OS, and TEE Trusted Applications.
-**Related:** Code Execution, JOP (Jump-Oriented Programming), ASLR (Address Space Layout Randomization), DEP
-
 ## S
 
 ### SAE J3016
@@ -6849,15 +6930,23 @@ Breaking out of isolated execution environments.
 A testing methodology that analyzes source code or compiled binaries without execution to identify security vulnerabilities such as buffer overflows, injection flaws, and hardcoded credentials; integrated into automotive CI/CD pipelines per ISO 21434 requirements.
 **Related:** DAST, SCA, SDLC, ISO 21434, Code Review
 
+### SavvyCAN
+**Category:** Security Tool
+A GUI-based CAN bus analysis, reverse engineering, and fuzzing tool supporting SocketCAN, CANtact, PCAN, and LAWICEL interfaces; features include CAN signal graphing, traffic replay, fuzzing, and bus load visualization for automotive security testing and protocol analysis.
+**Related:** CAN Bus, SocketCAN, can-utils, SavvyCAN, CAN Fuzzing
+
 ### SBL (Secondary Bootloader)
 **Category:** Boot Security
 The second stage in the boot chain, loaded and verified by the Primary Bootloader (PBL), responsible for further hardware initialization (DDR memory, storage controllers, peripherals), performing integrity verification of the application OS or firmware image, and handing control to the runtime environment. SBL often supports recovery modes, multiple boot sources, firmware update fallback, and may integrate flash programming capabilities for over-the-air (OTA) update scenarios.
 **Related:** PBL, Flash Bootloader, Boot ROM, Secure Boot, OTA, Boot Chain of Trust
 
-### SavvyCAN
-**Category:** Security Tool
-A GUI-based CAN bus analysis, reverse engineering, and fuzzing tool supporting SocketCAN, CANtact, PCAN, and LAWICEL interfaces; features include CAN signal graphing, traffic replay, fuzzing, and bus load visualization for automotive security testing and protocol analysis.
-**Related:** CAN Bus, SocketCAN, can-utils, SavvyCAN, CAN Fuzzing
+### SBOM (Software Bill of Materials)
+**Category:** Supply Chain Security
+A list of components and dependencies used in software systems.
+
+### SCA (Software Composition Analysis)
+**Category:** Supply Chain Security
+Identifying vulnerabilities in third-party dependencies.
 
 ### Scapy
 **Category:** Security Tool
@@ -6899,10 +6988,19 @@ Radio communication systems where signal processing is implemented in software r
 A vehicle architecture where functions traditionally implemented in hardware are realized through software, enabling continuous feature updates, service-oriented functionality, and flexible hardware-software decoupling throughout the vehicle lifecycle.
 **Related:** SOA, OTA, Zonal Architecture, HPC
 
+### SE (Secure Element)
+**Category:** Hardware Security
+A tamper-resistant hardware component used to store cryptographic keys and execute secure operations.
+
 ### Seat Control Module
 **Category:** ECU
 A body ECU that controls power seat adjustments (fore/aft, recline, lumbar, height, tilt) based on switch inputs or memory position recall; may integrate heating, ventilation, and massage functions; communicates via LIN with door switches and the BCM.
 **Related:** BCM, DCU, CCM, LIN Bus, HMI
+
+### seccomp
+**Category:** Operating System
+A Linux kernel security facility that restricts the system calls a process can make; used in automotive Linux to sandbox IVI applications, media codecs, and communication daemons by enforcing a whitelist of permitted syscalls, reducing kernel attack surface.
+**Related:** LSM (Linux Security Module), System Call, Container, Linux, App Sandbox
 
 ### SecOC (Secure Onboard Communication)
 **Category:** AUTOSAR
@@ -6929,10 +7027,6 @@ Encrypted and authenticated communication between system components.
 **Category:** Hardware Security
 Controlled debugging interfaces with authentication.
 
-### SE (Secure Element)
-**Category:** Hardware Security
-A tamper-resistant hardware component used to store cryptographic keys and execute secure operations.
-
 ### Secure Enclave
 **Category:** Hardware Security
 Isolated execution environment for sensitive operations such as key management and biometric processing.
@@ -6957,6 +7051,11 @@ A system ensuring firmware updates are authenticated, verified, and protected ag
 **Category:** Security
 Breaking defined trust or isolation boundaries.
 
+### Security Misconfiguration
+**Category:** Vulnerability
+A vulnerability resulting from insecure default settings, unnecessary enabled services, permissive access controls, or improperly hardened configurations; common in automotive ECUs where debug interfaces remain active in production, diagnostic services run with maximum access, or cloud buckets storing telemetry data are left publicly readable.
+**Related:** Misconfiguration, Open Port Exposure, Overprivileged Service, Default Credentials
+
 ### Security Policy Violation
 **Category:** Security
 Violation of defined security rules or constraints.
@@ -6969,9 +7068,29 @@ A digital token used to verify identity and permissions.
 **Category:** Android
 The mandatory access control framework used by Android to isolate applications and system services.
 
+### Semantic Segmentation
+**Category:** AI
+A computer vision task that assigns a class label to every pixel in an image, creating a dense scene understanding; used in ADAS for free-space detection, drivable area identification, lane marking segmentation, and pedestrian instance separation.
+**Related:** Computer Vision, CNN (Convolutional Neural Network), Object Detection, Perception System, ADAS
+
+### Semaphore
+**Category:** Operating System
+A synchronization primitive controlling access to shared resources through counting or binary signaling; in automotive RTOS, semaphores coordinate ISR-to-task communication, resource pooling, and event-driven activation in OSEK/AUTOSAR-compliant systems.
+**Related:** Mutex, Deadlock, Thread, RTOS (Real-Time Operating System), OSEK/VDX
+
+### Sensitive Data Exposure
+**Category:** Vulnerability
+A vulnerability involving the unintended exposure of sensitive information including personally identifiable data, vehicle location history, cryptographic keys, authentication tokens, or proprietary firmware; in automotive systems, exposure occurs through cleartext storage, insufficient access controls, misconfigured cloud storage, or information leakage in diagnostic responses.
+**Related:** Information Disclosure, Cleartext Storage, Cleartext Transmission, Privacy Data, Overprivileged Service
+
 ### Sensor Calibration Attack
 **Category:** ADAS
 Manipulating sensor calibration to distort perception systems.
+
+### Sensor Fusion (AI-based)
+**Category:** AI
+The use of machine learning (particularly deep neural networks) to integrate heterogeneous sensor data (camera, lidar, radar, ultrasonic) at the feature or object level; improves perception robustness by compensating for individual sensor weaknesses in adverse conditions.
+**Related:** Perception System, Object Detection, Computer Vision, ADAS, Sensor Fusion Attack
 
 ### Sensor Fusion Attack
 **Category:** ADAS
@@ -6989,6 +7108,11 @@ Manipulating sensor inputs to mislead perception systems.
 **Category:** Virtualization
 A minimal hypervisor providing spatial and temporal isolation between partitions through rigorous information flow control, certified to Common Criteria EAL6+ for safety-critical automotive systems.
 **Related:** Hypervisor, Microkernel, PikeOS
+
+### SerDes (Serializer/Deserializer)
+**Category:** Vehicle Architecture
+A high-speed serial data interface that converts parallel video, audio, or control data to a serial stream for transmission over a single coaxial or twisted-pair cable, operating at multiple Gbps; in automotive systems, SerDes links connect cameras (GMSL, FPD-Link, TI DS90UB series) and displays to ADAS domain controllers and IVI SoCs, and present an attack surface for sensor data injection and video stream manipulation.
+**Related:** GMSL (Gigabit Multimedia Serial Link), FPD-Link, LVDS (Low-Voltage Differential Signaling), MIPI CSI-2, Camera ECU
 
 ### Service (Android Component)
 **Category:** Android
@@ -7018,6 +7142,11 @@ Impersonating legitimate system services.
 **Category:** Attack
 Taking over active communication sessions.
 
+### Session Prediction
+**Category:** Vulnerability
+A vulnerability where an attacker can predict or derive valid session tokens by exploiting weak generation algorithms, insufficient entropy, or observable patterns; in automotive telematics and IVI cloud services, session prediction enables account hijacking, vehicle tracking, or unauthorized API access.
+**Related:** Weak Session Token, Weak PRNG, Insufficient Entropy, Broken Authentication
+
 ### SHA-2 (Secure Hash Algorithm 2)
 **Category:** Cryptography
 A family of cryptographic hash functions (SHA-224/256/384/512) standardized by NIST, widely used in automotive firmware integrity verification, certificate chain validation, and digital signatures.
@@ -7027,6 +7156,15 @@ A family of cryptographic hash functions (SHA-224/256/384/512) standardized by N
 **Category:** Cryptography
 The latest NIST-standardized hash function family based on the Keccak sponge construction, offering an alternative to SHA-2 for emerging automotive security applications.
 **Related:** SHA-2, Digital Signature, Integrity
+
+### Shared Memory
+**Category:** Operating System
+An IPC mechanism allowing multiple processes to access the same memory region; used in automotive Linux for high-bandwidth data exchange between IVI services, sensor data pipelines, and inter-ECU communication via POSIX shared memory or DMA buffers.
+**Related:** POSIX, IPC (Inter-Process Communication), Shared Library, Memory Corruption
+
+### SHE (AUTOSAR Secure Hardware Extension)
+**Category:** Hardware Security
+A standardized secure hardware interface supporting secure key storage and cryptographic operations.
 
 ### Side Channel Attack
 **Category:** Attack
@@ -7040,10 +7178,30 @@ Injecting artificial signals into physical or electronic systems.
 **Category:** Attack
 Bypassing firmware signature verification.
 
+### Sim-to-Real
+**Category:** AI
+A transfer learning approach where AI models are trained in simulation and then deployed on real vehicles; addresses the challenge of obtaining sufficient labeled real-world data for autonomous driving; domain randomization and domain adaptation bridge the simulation-reality gap.
+**Related:** Transfer Learning, Domain Adaptation, Data Augmentation, Generative AI, Autonomous Driving
+
 ### SLH-DSA (FIPS 205)
 **Category:** Cryptography
 NIST-standardized post-quantum digital signature algorithm (formerly SPHINCS+), based on stateless hash-based signatures, suitable for long-lived automotive certificate hierarchies.
 **Related:** PQC, ML-DSA, PKI, Certificate, Digital Signature
+
+### SmartDeviceLink
+**Category:** Connectivity
+An open-source smartphone projection standard developed by Ford and Livio, enabling mobile app integration with vehicle infotainment systems across multiple platforms.
+**Related:** CarPlay, Android Auto, MirrorLink
+
+### SMMU (System Memory Management Unit)
+**Category:** Virtualization
+An ARM I/O virtualization component providing DMA remapping and isolation for device passthrough; equivalent to Intel VT-d, enables safe assignment of automotive peripherals (CAN, Ethernet AVB, GPU) to specific VMs in virtualized SoC platforms.
+**Related:** IOMMU (Input/Output Memory Management Unit), Device Passthrough, Memory Virtualization, Hardware Security
+
+### SMP (Symmetric Multiprocessing)
+**Category:** Operating System
+An architecture where two or more identical CPU cores share memory and I/O under a single OS instance; modern automotive SoCs (Qualcomm SA8295, NVIDIA Orin, NXP S32G) use SMP for ADAS, IVI, and domain control with cache-coherent interconnects.
+**Related:** AMP (Asymmetric Multiprocessing), RTOS (Real-Time Operating System), Linux, Thread, Spinlock
 
 ### SOA (Service-Oriented Architecture)
 **Category:** Vehicle Architecture
@@ -7065,81 +7223,6 @@ A set of open-source CAN drivers and a networking stack integrated into the Linu
 An Auto-ISAC reconnaissance technique where an adversary identifies installed software, firmware versions, and application inventories on compromised vehicle systems to target known vulnerabilities.
 **Related:** System Information Discovery, Process Discovery, Vulnerability, Network Information Discovery, Network Service Scanning, System Network Configuration Discovery, System Network Connections Discovery
 
-### SOME/IP-TP (SOME/IP Transport Protocol)
-**Category:** Network
-A transport protocol extension for SOME/IP handling message segmentation and reassembly when payload exceeds MTU, enabling large-service communication over UDP.
-**Related:** SOME/IP, DDS, SOA
-
-### SPA (Simple Power Analysis)
-**Category:** Attack
-Direct observation of power consumption variations to infer operations.
-
-### SmartDeviceLink
-**Category:** Connectivity
-An open-source smartphone projection standard developed by Ford and Livio, enabling mobile app integration with vehicle infotainment systems across multiple platforms.
-**Related:** CarPlay, Android Auto, MirrorLink
-
-### SBOM (Software Bill of Materials)
-**Category:** Supply Chain Security
-A list of components and dependencies used in software systems.
-
-### SCA (Software Composition Analysis)
-**Category:** Supply Chain Security
-Identifying vulnerabilities in third-party dependencies.
-### Sim-to-Real
-**Category:** AI
-A transfer learning approach where AI models are trained in simulation and then deployed on real vehicles; addresses the challenge of obtaining sufficient labeled real-world data for autonomous driving; domain randomization and domain adaptation bridge the simulation-reality gap.
-**Related:** Transfer Learning, Domain Adaptation, Data Augmentation, Generative AI, Autonomous Driving
-### seccomp
-**Category:** Operating System
-A Linux kernel security facility that restricts the system calls a process can make; used in automotive Linux to sandbox IVI applications, media codecs, and communication daemons by enforcing a whitelist of permitted syscalls, reducing kernel attack surface.
-**Related:** LSM (Linux Security Module), System Call, Container, Linux, App Sandbox
-### Security Misconfiguration
-**Category:** Vulnerability
-A vulnerability resulting from insecure default settings, unnecessary enabled services, permissive access controls, or improperly hardened configurations; common in automotive ECUs where debug interfaces remain active in production, diagnostic services run with maximum access, or cloud buckets storing telemetry data are left publicly readable.
-**Related:** Misconfiguration, Open Port Exposure, Overprivileged Service, Default Credentials
-
-### Sensor Fusion (AI-based)
-**Category:** AI
-The use of machine learning (particularly deep neural networks) to integrate heterogeneous sensor data (camera, lidar, radar, ultrasonic) at the feature or object level; improves perception robustness by compensating for individual sensor weaknesses in adverse conditions.
-**Related:** Perception System, Object Detection, Computer Vision, ADAS, Sensor Fusion Attack
-
-### Semantic Segmentation
-**Category:** AI
-A computer vision task that assigns a class label to every pixel in an image, creating a dense scene understanding; used in ADAS for free-space detection, drivable area identification, lane marking segmentation, and pedestrian instance separation.
-**Related:** Computer Vision, CNN (Convolutional Neural Network), Object Detection, Perception System, ADAS
-### SMP (Symmetric Multiprocessing)
-**Category:** Operating System
-An architecture where two or more identical CPU cores share memory and I/O under a single OS instance; modern automotive SoCs (Qualcomm SA8295, NVIDIA Orin, NXP S32G) use SMP for ADAS, IVI, and domain control with cache-coherent interconnects.
-**Related:** AMP (Asymmetric Multiprocessing), RTOS (Real-Time Operating System), Linux, Thread, Spinlock
-
-### Shared Memory
-**Category:** Operating System
-An IPC mechanism allowing multiple processes to access the same memory region; used in automotive Linux for high-bandwidth data exchange between IVI services, sensor data pipelines, and inter-ECU communication via POSIX shared memory or DMA buffers.
-**Related:** POSIX, IPC (Inter-Process Communication), Shared Library, Memory Corruption
-
-### Semaphore
-**Category:** Operating System
-A synchronization primitive controlling access to shared resources through counting or binary signaling; in automotive RTOS, semaphores coordinate ISR-to-task communication, resource pooling, and event-driven activation in OSEK/AUTOSAR-compliant systems.
-**Related:** Mutex, Deadlock, Thread, RTOS (Real-Time Operating System), OSEK/VDX
-### SMMU (System Memory Management Unit)
-**Category:** Virtualization
-An ARM I/O virtualization component providing DMA remapping and isolation for device passthrough; equivalent to Intel VT-d, enables safe assignment of automotive peripherals (CAN, Ethernet AVB, GPU) to specific VMs in virtualized SoC platforms.
-**Related:** IOMMU (Input/Output Memory Management Unit), Device Passthrough, Memory Virtualization, Hardware Security
-### Session Prediction
-**Category:** Vulnerability
-A vulnerability where an attacker can predict or derive valid session tokens by exploiting weak generation algorithms, insufficient entropy, or observable patterns; in automotive telematics and IVI cloud services, session prediction enables account hijacking, vehicle tracking, or unauthorized API access.
-**Related:** Weak Session Token, Weak PRNG, Insufficient Entropy, Broken Authentication
-
-### Sensitive Data Exposure
-**Category:** Vulnerability
-A vulnerability involving the unintended exposure of sensitive information including personally identifiable data, vehicle location history, cryptographic keys, authentication tokens, or proprietary firmware; in automotive systems, exposure occurs through cleartext storage, insufficient access controls, misconfigured cloud storage, or information leakage in diagnostic responses.
-**Related:** Information Disclosure, Cleartext Storage, Cleartext Transmission, Privacy Data, Overprivileged Service
-### SerDes (Serializer/Deserializer)
-**Category:** Vehicle Architecture
-A high-speed serial data interface that converts parallel video, audio, or control data to a serial stream for transmission over a single coaxial or twisted-pair cable, operating at multiple Gbps; in automotive systems, SerDes links connect cameras (GMSL, FPD-Link, TI DS90UB series) and displays to ADAS domain controllers and IVI SoCs, and present an attack surface for sensor data injection and video stream manipulation.
-**Related:** GMSL (Gigabit Multimedia Serial Link), FPD-Link, LVDS (Low-Voltage Differential Signaling), MIPI CSI-2, Camera ECU
-
 ### Software Integrity Verification
 **Category:** Security
 Ensuring software has not been modified or corrupted.
@@ -7158,6 +7241,15 @@ Scalable service-Oriented MiddlewarE over IP, an automotive Ethernet middleware 
 SOME/IP Service Discovery, a protocol for dynamic service discovery and subscription management in automotive Ethernet networks, enabling ECUs to locate and communicate with available service instances.
 **Related:** SOME/IP, Automotive Ethernet, AUTOSAR Service Discovery
 
+### SOME/IP-TP (SOME/IP Transport Protocol)
+**Category:** Network
+A transport protocol extension for SOME/IP handling message segmentation and reassembly when payload exceeds MTU, enabling large-service communication over UDP.
+**Related:** SOME/IP, DDS, SOA
+
+### SPA (Simple Power Analysis)
+**Category:** Attack
+Direct observation of power consumption variations to infer operations.
+
 ### SPDM (Security Protocol and Data Model)
 **Category:** Cryptography
 A DMTF standard (DSP0274) for hardware-attested mutual authentication and secure channel establishment between components, used in automotive SoC architectures to verify component identity and firmware integrity before inter-processor communication.
@@ -7166,41 +7258,46 @@ A DMTF standard (DSP0274) for hardware-attested mutual authentication and secure
 ### Spectre Attack
 **Category:** Attack
 Exploiting speculative execution to leak memory data.
-### Spinlock
-**Category:** Operating System
-A busy-wait synchronization primitive where a thread repeatedly polls a lock variable; used in automotive kernel code and real-time contexts where blocking is unacceptable due to interrupt latency constraints; critical in SMP systems to protect shared data structures.
-**Related:** SMP (Symmetric Multiprocessing), Mutex, Deadlock, Kernel, Interrupt (IRQ)
-### SQL Injection
-**Category:** Vulnerability
-A vulnerability where an attacker injects malicious SQL queries through input fields to manipulate backend databases; in automotive cloud platforms, telematics services, and fleet management systems, SQL injection can expose vehicle location data, user accounts, and fleet configuration or enable remote command injection against connected vehicles.
-**Related:** Command Injection, Injection Attack, Input Validation Failure, Code Execution, Sensitive Data Exposure
-### SSDP (Simple Service Discovery Protocol)
-**Category:** Connectivity
-A UDP-based network protocol forming the discovery foundation of UPnP, allowing devices to advertise their services and discover others on the local network via multicast (239.255.255.250:1900); in automotive IVI systems, SSDP enables automatic discovery of media servers, smart device mirroring, and DLNA sources, but exposes attack surface through unauthenticated service announcements, SSDP amplification DDoS, and multicast information leakage.
-**Related:** UPnP (Universal Plug and Play), DLNA (Digital Living Network Alliance), IVI (In-Vehicle Infotainment), Multicast
+
 ### SPI (Serial Peripheral Interface)
 **Category:** Hardware Security
 A synchronous full-duplex serial communication interface for short-distance data exchange between microcontrollers and peripherals (sensors, flash memory, display controllers, CAN transceivers); in automotive ECUs, SPI is used for inter-chip communication within ECUs, sensor data acquisition, and flash programming, with limited security mechanisms (no inherent authentication or encryption).
 **Related:** I2C (Inter-Integrated Circuit), UART (Universal Asynchronous Receiver-Transmitter), DMA (Direct Memory Access), Flash Memory
 
+### Spinlock
+**Category:** Operating System
+A busy-wait synchronization primitive where a thread repeatedly polls a lock variable; used in automotive kernel code and real-time contexts where blocking is unacceptable due to interrupt latency constraints; critical in SMP systems to protect shared data structures.
+**Related:** SMP (Symmetric Multiprocessing), Mutex, Deadlock, Kernel, Interrupt (IRQ)
+
+### SQL Injection
+**Category:** Vulnerability
+A vulnerability where an attacker injects malicious SQL queries through input fields to manipulate backend databases; in automotive cloud platforms, telematics services, and fleet management systems, SQL injection can expose vehicle location data, user accounts, and fleet configuration or enable remote command injection against connected vehicles.
+**Related:** Command Injection, Injection Attack, Input Validation Failure, Code Execution, Sensitive Data Exposure
+
+### SSDP (Simple Service Discovery Protocol)
+**Category:** Connectivity
+A UDP-based network protocol forming the discovery foundation of UPnP, allowing devices to advertise their services and discover others on the local network via multicast (239.255.255.250:1900); in automotive IVI systems, SSDP enables automatic discovery of media servers, smart device mirroring, and DLNA sources, but exposes attack surface through unauthenticated service announcements, SSDP amplification DDoS, and multicast information leakage.
+**Related:** UPnP (Universal Plug and Play), DLNA (Digital Living Network Alliance), IVI (In-Vehicle Infotainment), Multicast
+
 ### SSH (Secure Shell)
 **Category:** Network
 A cryptographic network protocol for secure remote access and command execution, used in automotive engineering for secure ECU access during development, diagnostics, and maintenance; misconfigured SSH servers on vehicle telematics units or head units present attack surfaces.
 **Related:** TLS, Remote Access, Key Exchange, Telematics
-### Stack Overflow
+
+### SSRF (Server-Side Request Forgery)
 **Category:** Vulnerability
-A buffer overflow in stack-allocated memory, where writing beyond a local variable corrupts the return address, saved frame pointer, or adjacent local variables; in automotive firmware, stack overflows in interrupt handlers, communication callbacks, or protocol parsers can redirect execution flow or crash critical tasks.
-**Related:** Buffer Overflow, Memory Corruption, Code Execution, Heap Overflow, Return-Oriented Programming
+A vulnerability where an attacker can induce a server to make HTTP requests to arbitrary internal or external URLs; in automotive telematics platforms, SSRF can be used to access internal cloud metadata endpoints, probe vehicle-side APIs, or bypass network firewalls to reach restricted vehicle telemetry services.
+**Related:** Injection Attack, Network Isolation Failure, Information Disclosure, Input Validation Failure
 
 ### Stack Exhaustion
 **Category:** Vulnerability
 A denial-of-service vulnerability caused by excessive stack memory consumption, typically from deep recursion or unbounded variable-length arrays, leading to a stack overflow crash; in automotive RTOS and AUTOSAR systems with fixed stack sizes, stack exhaustion in communication protocol handlers or sensor fusion algorithms can cause task failure or system reset.
 **Related:** Resource Exhaustion, Heap Exhaustion, Denial of Service (DoS), Uncontrolled Recursion
 
-### SSRF (Server-Side Request Forgery)
+### Stack Overflow
 **Category:** Vulnerability
-A vulnerability where an attacker can induce a server to make HTTP requests to arbitrary internal or external URLs; in automotive telematics platforms, SSRF can be used to access internal cloud metadata endpoints, probe vehicle-side APIs, or bypass network firewalls to reach restricted vehicle telemetry services.
-**Related:** Injection Attack, Network Isolation Failure, Information Disclosure, Input Validation Failure
+A buffer overflow in stack-allocated memory, where writing beyond a local variable corrupts the return address, saved frame pointer, or adjacent local variables; in automotive firmware, stack overflows in interrupt handlers, communication callbacks, or protocol parsers can redirect execution flow or crash critical tasks.
+**Related:** Buffer Overflow, Memory Corruption, Code Execution, Heap Overflow, Return-Oriented Programming
 
 ### Static Analysis
 **Category:** Penetration Testing
@@ -7214,6 +7311,7 @@ Analyzing compiled binaries without source code.
 **Category:** AUTOSAR
 An AUTOSAR Basic Software module providing global time synchronization across ECUs using gPTP (IEEE 802.1AS), essential for SecOC freshness value verification and coordinated event timestamping.
 **Related:** gPTP (IEEE 802.1AS), AUTOSAR SecOC, Ethernet TSN
+
 ### Steer-by-Wire
 **Category:** Vehicle Architecture
 A vehicle technology that replaces the mechanical steering column with electronic control, transmitting driver steering inputs via redundant network paths to electromechanical steering actuators without physical linkage; steer-by-wire enables advanced ADAS features and autonomous driving but requires tamper-proof communication, ASIL D integrity, and protection against steering command injection.
@@ -7237,6 +7335,7 @@ A management system defined by UN R156 requiring vehicle manufacturers to establ
 **Category:** ECU
 A body ECU controlling power sunroof/moonroof open/close, tilt, and anti-pinch functions; typically a LIN slave node responding to overhead console switch inputs or rain sensor auto-close commands.
 **Related:** BCM, CCM, LIN Bus, DCU, Seat Control Module
+
 ### Supervised Learning
 **Category:** AI
 A machine learning paradigm where models are trained on labeled data (input-output pairs); the most common approach in automotive AI for object detection, semantic segmentation, and behavior prediction; requires large annotated datasets, raising data collection and privacy concerns.
@@ -7249,6 +7348,7 @@ Compromising hardware or software during manufacturing or distribution.
 ### Supply Chain Backdoor
 **Category:** Attack
 Hidden malicious functionality introduced during production.
+
 ### Supply Chain Security
 **Category:** Supply Chain Security
 The protection of the automotive cybersecurity supply chain against risks introduced through third-party components, software dependencies, manufacturing processes, and service providers; includes SBOM management, secure software supply chain (CI/CD), component authentication, counterfeit detection, and supplier cybersecurity assessments as required by ISO/SAE 21434 and UN R155.
@@ -7257,6 +7357,7 @@ The protection of the automotive cybersecurity supply chain against risks introd
 ### Supply Chain Verification
 **Category:** Security Architecture
 Ensuring integrity of hardware and software supply chain.
+
 ### SWD (Serial Wire Debug)
 **Category:** Hardware Security
 A two-pin ARM debug interface (SWDIO/SWCLK) providing a low-pin-count alternative to JTAG for programming and debugging ARM Cortex-M/R/A microcontrollers; in automotive ECUs, SWD is the primary debug and flash programming interface, and unprotected SWD ports on production ECUs allow firmware extraction, debug authentication bypass, and permanent compromise - making SWD lock-down a critical security requirement.
@@ -7273,6 +7374,7 @@ Analyzing program paths using symbolic inputs to discover vulnerabilities.
 ### Syscall Hooking
 **Category:** Attack
 Intercepting system calls to modify behavior.
+
 ### System Call
 **Category:** Operating System
 The programmatic interface through which user-space processes request kernel services; in automotive Linux, syscalls for CAN socket access (AF_CAN), GPIO control, real-time scheduling, and secure storage must be carefully audited to prevent privilege escalation.
@@ -7304,12 +7406,22 @@ An Auto-ISAC reconnaissance technique where an adversary lists active network co
 ### System Trace Logging
 **Category:** Intrusion Detection
 Recording detailed execution traces for debugging or forensic analysis.
+
 ### systemd
 **Category:** Operating System
 A system and service manager for Linux used as the init system (PID 1) in modern automotive Linux platforms; manages service dependencies, socket activation, timer-based scheduling, journal logging, and cgroup-based resource control for IVI and telematics systems.
 **Related:** Init Process, Linux, cgroups (Control Groups), AGL (Automotive Grade Linux), Yocto Project
 
 ## T
+
+### T-Box (Telematics Box)
+**Category:** ECU
+An in-vehicle connectivity ECU that provides cellular (4G/5G), Wi-Fi, Bluetooth, GNSS, and eCall capabilities; acts as the primary communication gateway between the vehicle and cloud backend for telematics, OTA updates, remote diagnostics, and emergency call services. Increasingly integrated with the head unit or CGW.
+**Related:** TCU (Telematics Control Unit), CGW, OTA, eCall System, V2X (Vehicle-to-Everything)
+
+### TA (Trusted Application)
+**Category:** Hardware Security
+Secure application running inside trusted execution environment.
 
 ### TA Exploit
 **Category:** Attack
@@ -7332,6 +7444,10 @@ Exploitation of vulnerabilities in TCP/IP implementations.
 **Category:** AUTOSAR
 An AUTOSAR Basic Software module implementing TCP, UDP, IPv4/IPv6, ICMP, and ARP protocols for Ethernet-based in-vehicle communication, with security considerations for network segmentation and firewall integration.
 **Related:** SoAd, AUTOSAR EthIf, Automotive Ethernet, Firewall
+
+### TCU (Telematics Control Unit)
+**Category:** ECU
+ECU responsible for cellular communication and vehicle-cloud interaction.
 
 ### TCU Firmware Exploit
 **Category:** Attack
@@ -7358,10 +7474,6 @@ Breaking isolation boundaries between secure and normal world execution.
 **Category:** Connectivity
 Systems that transmit vehicle data to external servers for monitoring, diagnostics, or services.
 
-### TCU (Telematics Control Unit)
-**Category:** ECU
-ECU responsible for cellular communication and vehicle-cloud interaction.
-
 ### Telemetry Authentication Bypass
 **Category:** Attack
 Bypassing authentication mechanisms in telemetry systems.
@@ -7377,6 +7489,16 @@ Faking vehicle data such as speed, location, or sensor values.
 ### Telemetry Tampering
 **Category:** Attack
 Modifying telemetry data before it reaches backend systems.
+
+### Thread
+**Category:** Operating System
+The smallest unit of CPU execution within a process, sharing the process address space; automotive embedded systems use threads for concurrent tasks such as CAN message handling, sensor polling, control loops, and communication stack processing.
+**Related:** Process, Mutex, Semaphore, Context Switch, RTOS (Real-Time Operating System)
+
+### ThreadX
+**Category:** Operating System
+A high-performance real-time operating system developed by Express Logic (now Microsoft Azure RTOS), offering deterministic scheduling, fast context switching, and a small memory footprint; used in some automotive ECUs for safety-critical and real-time control tasks.
+**Related:** RTOS (Real-Time Operating System), FreeRTOS, OSEK/VDX, ECU
 
 ### Threat Actor Modeling
 **Category:** Threat Modeling
@@ -7439,6 +7561,11 @@ Forging or misusing TLS certificates to impersonate trusted endpoints.
 **Category:** Attack
 Intercepting TLS-encrypted communication via man-in-the-middle techniques.
 
+### TOCTOU (Time-of-Check Time-of-Use)
+**Category:** Vulnerability
+A race condition vulnerability where the state of a resource (file, socket, memory) changes between a security check and the subsequent use of that resource; in automotive file-based update mechanisms, shared memory between sandboxed processes, or diagnostic session management, TOCTOU can bypass authorization checks.
+**Related:** Race Condition, Logic Vulnerability, Privilege Escalation, Secure Boot
+
 ### Token Forgery
 **Category:** Attack
 Creating fake authentication tokens.
@@ -7446,6 +7573,11 @@ Creating fake authentication tokens.
 ### Tokenization
 **Category:** Security
 Replacing sensitive data with non-sensitive tokens for protection.
+
+### TPM (Trusted Platform Module)
+**Category:** Hardware Security
+**Related:** Attestation
+A hardware chip used to securely store cryptographic keys and perform attestation.
 
 ### TPM Attack
 **Category:** Attack
@@ -7472,6 +7604,11 @@ Analyzing execution traces to identify vulnerabilities or behavior patterns.
 **Category:** Attack
 Intercepting execution traces for manipulation or analysis.
 
+### Transfer Learning
+**Category:** AI
+A machine learning technique where a model pre-trained on one task is fine-tuned for a related target task; widely used in automotive AI to adapt base perception models to specific vehicle platforms, sensor configurations, or driving domains with limited labeled data.
+**Related:** Deep Learning, Supervised Learning, Domain Adaptation, Sim-to-Real, Object Detection
+
 ### Transport Encryption Failure
 **Category:** Vulnerability
 Failure in encrypting communication at transport layer.
@@ -7495,28 +7632,6 @@ A hardware random number generator producing entropy from physical phenomena (th
 A logical or physical boundary across which data trust levels change (e.g., between in-vehicle network and external network, or between privileged and unprivileged processes); threats are identified by analyzing data crossing trust boundaries in DFDs.
 **Related:** DFD, STRIDE, TRIKE, Threat Modeling, TARA
 
-### T-Box (Telematics Box)
-**Category:** ECU
-An in-vehicle connectivity ECU that provides cellular (4G/5G), Wi-Fi, Bluetooth, GNSS, and eCall capabilities; acts as the primary communication gateway between the vehicle and cloud backend for telematics, OTA updates, remote diagnostics, and emergency call services. Increasingly integrated with the head unit or CGW.
-**Related:** TCU (Telematics Control Unit), CGW, OTA, eCall System, V2X (Vehicle-to-Everything)
-
-### TA (Trusted Application)
-**Category:** Hardware Security
-Secure application running inside trusted execution environment.
-### ThreadX
-**Category:** Operating System
-A high-performance real-time operating system developed by Express Logic (now Microsoft Azure RTOS), offering deterministic scheduling, fast context switching, and a small memory footprint; used in some automotive ECUs for safety-critical and real-time control tasks.
-**Related:** RTOS (Real-Time Operating System), FreeRTOS, OSEK/VDX, ECU
-
-### Thread
-**Category:** Operating System
-The smallest unit of CPU execution within a process, sharing the process address space; automotive embedded systems use threads for concurrent tasks such as CAN message handling, sensor polling, control loops, and communication stack processing.
-**Related:** Process, Mutex, Semaphore, Context Switch, RTOS (Real-Time Operating System)
-### TOCTOU (Time-of-Check Time-of-Use)
-**Category:** Vulnerability
-A race condition vulnerability where the state of a resource (file, socket, memory) changes between a security check and the subsequent use of that resource; in automotive file-based update mechanisms, shared memory between sandboxed processes, or diagnostic session management, TOCTOU can bypass authorization checks.
-**Related:** Race Condition, Logic Vulnerability, Privilege Escalation, Secure Boot
-
 ### Trusted Boot Bypass
 **Category:** Attack
 Circumventing trusted boot mechanisms.
@@ -7537,15 +7652,6 @@ Defined secure execution flow within a system.
 **Category:** Security
 Firmware responsible for establishing system trust during boot.
 
-### TPM (Trusted Platform Module)
-**Category:** Hardware Security
-**Related:** Attestation
-A hardware chip used to securely store cryptographic keys and perform attestation.
-### Transfer Learning
-**Category:** AI
-A machine learning technique where a model pre-trained on one task is fine-tuned for a related target task; widely used in automotive AI to adapt base perception models to specific vehicle platforms, sensor configurations, or driving domains with limited labeled data.
-**Related:** Deep Learning, Supervised Learning, Domain Adaptation, Sim-to-Real, Object Detection
-
 ### Trusted Service
 **Category:** Security Architecture
 Secure system service running within trusted execution environments.
@@ -7554,10 +7660,21 @@ Secure system service running within trusted execution environments.
 **Category:** Security Architecture
 An open-source framework for securing software update systems, using role-based metadata signing and key management to protect against compromise of update repositories.
 **Related:** Uptane, OTA, ISO 24089
+
 ### Type Confusion
 **Category:** Vulnerability
 A memory safety vulnerability where a program accesses an object through a type that is incompatible with its actual type, leading to memory corruption; in automotive C++ code (IVI middleware, ADAS perception stacks), type confusion in object serialization, message dispatch, or plugin architectures can enable code execution.
 **Related:** Memory Corruption, Uninitialized Memory Access, Object Deserialization Attack, Code Execution
+
+### Type-1 Hypervisor
+**Category:** Virtualization
+A bare-metal hypervisor running directly on hardware without a host OS, used in automotive domain controllers for mixed-criticality workload isolation (e.g., ACRN, PikeOS).
+**Related:** Hypervisor, ACRN, PikeOS
+
+### Type-2 Hypervisor
+**Category:** Virtualization
+A hosted hypervisor running on top of a host OS, used in automotive development for ECU virtualization with lower isolation than Type-1 hypervisors.
+**Related:** Hypervisor, Type-1 Hypervisor
 
 ## U
 
@@ -7662,6 +7779,7 @@ Gaining control over ECUs without authorization.
 ### Underflow Vulnerability
 **Category:** Hardware Security
 Arithmetic underflow leading to unexpected behavior or memory corruption.
+
 ### Uninitialized Memory Access
 **Category:** Vulnerability
 A vulnerability where a program reads from uninitialized memory (stack or heap), obtaining stale data from previous function calls or allocations; in automotive firmware, uninitialized memory access can leak sensitive kernel data, reveal cryptographic material, or cause unpredictable behavior in safety-critical functions.
@@ -7690,6 +7808,7 @@ Improper memory copying leading to overflow or corruption.
 **Category:** Vulnerability
 An Auto-ISAC attack technique where an adversary discovers hardcoded or weakly protected credentials in vehicle firmware, diagnostic tools, or cloud interfaces, enabling unauthorized access to ECUs and backend services.
 **Related:** Hardcoded Credentials, Credential Access, Diagnostic Security Access
+
 ### Unsupervised Learning
 **Category:** AI
 A machine learning paradigm where models discover patterns in unlabeled data without explicit supervision; used in automotive AI for anomaly detection (identifying unusual driving scenarios), clustering similar driving behaviors, and pretraining representations for downstream tasks.
@@ -7706,6 +7825,7 @@ Impersonating firmware update servers to distribute malicious updates.
 ### Update Signature Bypass
 **Category:** Attack
 Bypassing cryptographic verification of update packages.
+
 ### UPnP (Universal Plug and Play)
 **Category:** Connectivity
 A set of networking protocols enabling seamless device discovery, service advertisement, and zero-configuration communication between devices on an IP network; in automotive IVI systems, UPnP facilitates automatic detection of smartphones, media servers, and smart devices for media playback and screen mirroring, but presents security risks including unauthenticated control actions, buffer overflow in service description parsing, and exposure of IVI network services to adjacent Wi-Fi devices.
@@ -7745,6 +7865,7 @@ Exploiting USB device mode interfaces to inject or extract data.
 ### USB HID Attack
 **Category:** Attack
 Using Human Interface Device emulation for malicious input injection.
+
 ### Use-After-Free
 **Category:** Vulnerability
 A critical memory safety vulnerability where a program dereferences a pointer after the memory has been freed, causing the heap allocator to reuse the memory for other objects; in automotive C/C++ firmware, use-after-free in IVI browser engines, CAN message handlers, or diagnostic services can lead to arbitrary code execution with kernel or system privileges.
@@ -7777,31 +7898,6 @@ A family of SDR hardware platforms by Ettus Research (now NI) providing wideband
 
 ## V
 
-### Functional Domain Architecture
-**Category:** Vehicle Architecture
-The classic domain-based E/E architecture that groups vehicle functions into domains (powertrain, chassis, body, infotainment, ADAS/autonomous driving), each with dedicated ECUs or domain controllers communicating via domain-specific gateways; the dominant architecture before the shift to zonal and centralized paradigms.
-**Related:** Domain Centralized Architecture, E/E Architecture, Distributed ECU Architecture, Central Computing Architecture, Domain Controller ECU
-
-### Domain Centralized Architecture
-**Category:** Vehicle Architecture
-An E/E architecture where ECUs are grouped by functional domains (powertrain, chassis, body, infotainment, ADAS), each managed by a domain controller that consolidates processing and provides service-oriented interfaces; a transitional step from distributed ECU architectures toward zonal and central computing architectures.
-**Related:** Domain Controller ECU, E/E Architecture, Functional Domain Architecture, Central Computing Architecture, Distributed ECU Architecture
-
-### Cross-Domain Fusion Architecture
-**Category:** Vehicle Architecture
-An evolution of domain-centralized architecture where traditionally separate functional domains (ADAS, autonomous driving, cockpit, body) are merged onto shared high-performance computing platforms; enables advanced functions requiring cross-domain data fusion (e.g., ADAS + map data for personalized driving), but introduces stronger isolation and mixed-criticality requirements.
-**Related:** Domain Centralized Architecture, HPC (High-Performance Computer), E/E Architecture, Hypervisor, SDV (Software-Defined Vehicle)
-
-### Central Computing Architecture
-**Category:** Vehicle Architecture
-An E/E architecture paradigm where one or a few high-performance central computers consolidate processing from multiple ECUs, reducing the number of distributed controllers; central computers run multiple virtualized OS instances for mixed-criticality workloads (ADAS, cockpit, gateway), enabled by high-bandwidth in-vehicle networks.
-**Related:** HPC (High-Performance Computer), Domain Controller ECU, SDV (Software-Defined Vehicle), E/E Architecture, Vehicle Central Computer (VCC)
-
-### Central + Zone Hybrid Architecture
-**Category:** Vehicle Architecture
-A next-generation E/E architecture combining centralized vehicle computers with zonal gateways; central computers handle domain functions (ADAS, cockpit, body) via high-performance SoCs, while zonal gateways consolidate I/O, power distribution, and network routing for physical zones, reducing wiring complexity and enabling SDV capabilities.
-**Related:** Zonal Gateway, HPC (High-Performance Computer), SDV (Software-Defined Vehicle), Domain Controller ECU, Zone-Based ECU Architecture (Zonal Architecture), E/E Architecture
-
 ### V2I (Vehicle-to-Infrastructure)
 **Category:** Connectivity
 Communication between vehicles and roadside infrastructure.
@@ -7826,6 +7922,7 @@ A communication system enabling vehicles to interact with other vehicles, infras
 ### V2X Message Spoofing
 **Category:** Attack
 Forging vehicle-to-everything communication messages.
+
 ### V2X Vulnerability
 **Category:** Vulnerability
 A security weakness in Vehicle-to-Everything communication protocols (DSRC, C-V2X, IEEE 802.11p, NR-V2X), including message spoofing, certificate manipulation, privacy leakage from pseudonym tracking, denial of service via channel jamming, or misbehavior detection bypass; V2X vulnerabilities can compromise cooperative safety applications and traffic efficiency.
@@ -7845,6 +7942,7 @@ A self-organizing wireless network formed by moving vehicles and roadside infras
 **Category:** Threat Modeling
 A threat modeling methodology emphasizing visual, agile, and simple threat representation using process flow diagrams and threat targeting, designed for integration into agile development workflows.
 **Related:** STRIDE, PASTA, TRIKE, HEAVENS, TARA, DFD
+
 ### vCPU (Virtual CPU)
 **Category:** Virtualization
 A virtual processor core presented to a guest operating system by the hypervisor, mapped to one or more physical CPU cores; in automotive systems, vCPU pinning and scheduling guarantees ensure deterministic execution of safety-critical AUTOSAR and RTOS tasks alongside non-critical VMs.
@@ -7864,6 +7962,7 @@ Verband der Automobilindustrie (German Association of the Automotive Industry), 
 **Category:** IAM
 Vehicle Emission Control Information label, a standardized label under the hood specifying emission system configuration and OBD-II certification status.
 **Related:** OBD-II, VIN, EPA
+
 ### Vehicle Central Computer (VCC)
 **Category:** Vehicle Architecture
 A high-performance central compute platform consolidating multiple vehicle functions (ADAS, autonomous driving, cockpit, body control, gateway) into a single ECU or a small cluster of central computers; runs multiple virtualized OS instances and service-oriented middleware, serving as the core of next-generation SDV and zonal architectures.
@@ -7906,6 +8005,7 @@ A hardware abstraction layer providing vehicle property access for Android Autom
 **Category:** IAM
 A unique 17-character code assigned to every vehicle, encoding manufacturer, country, model year, and serial number. Used for vehicle tracking, theft prevention, and fleet management.
 **Related:** WMI, VDS, VIS, PDSN
+
 ### VirtIO
 **Category:** Virtualization
 A standardized para-virtualization I/O framework providing efficient virtual block, network, and serial devices for VMs; used in automotive virtualization to achieve near-native storage and network performance for IVI and telemetry VMs while maintaining strong isolation.
@@ -7914,14 +8014,16 @@ A standardized para-virtualization I/O framework providing efficient virtual blo
 ### Virtual ECU
 **Category:** ECU
 Software-defined ECU running in virtualized environment.
-### Virtual Memory
-**Category:** Operating System
-A memory management technique that provides each process with an isolated virtual address space mapped to physical memory via an MMU; essential for process isolation, memory protection, and large-address-space support in automotive Linux and RTOS systems.
-**Related:** Paging, MMU (Memory Management Unit), Process Isolation, Kernel, Context Switch
+
 ### Virtual Machine (VM)
 **Category:** Virtualization
 A software-based emulation of a physical computer that runs an operating system and applications in isolation from other VMs on the same hardware; in automotive, VMs consolidate mixed-criticality workloads (AUTOSAR, Android, Linux) on domain controllers and central computers.
 **Related:** Hypervisor, Guest OS (IVI Virtualization), Virtual ECU, vCPU (Virtual CPU), Hardware-Assisted Virtualization
+
+### Virtual Memory
+**Category:** Operating System
+A memory management technique that provides each process with an isolated virtual address space mapped to physical memory via an MMU; essential for process isolation, memory protection, and large-address-space support in automotive Linux and RTOS systems.
+**Related:** Paging, MMU (Memory Management Unit), Process Isolation, Kernel, Context Switch
 
 ### Virtualization Escape
 **Category:** Attack
@@ -7970,24 +8072,26 @@ A hardware timer that resets the system if software becomes unresponsive.
 **Category:** Connectivity
 A suite of IEEE standards (IEEE 1609 family and IEEE 802.11p) defining the communication stack for vehicular networking, including security services (IEEE 1609.2), resource management (IEEE 1609.4), and network services (IEEE 1609.3); the protocol stack for DSRC-based V2X communication.
 **Related:** DSRC, IEEE 802.11p, V2X, VANET, ITS
-### Weston
-**Category:** Operating System
-The reference compositor implementing the Wayland display protocol; provides hardware-accelerated graphics composition, input event routing, and multi-surface management for automotive IVI clusters and infotainment systems.
-**Related:** Wayland, AGL (Automotive Grade Linux), IVI (In-Vehicle Infotainment), Linux
 
 ### Wayland
 **Category:** Operating System
 A display server protocol for Linux providing efficient, secure window composition; adopted as the default display system in AGL and other automotive IVI platforms, replacing X11, with Weston as the reference compositor implementation.
 **Related:** Weston, AGL (Automotive Grade Linux), IVI (In-Vehicle Infotainment), Linux
-### Weak Session Token
-**Category:** Vulnerability
-A vulnerability where session identification tokens are predictable, low-entropy, non-random, or transmitted without adequate protection; in automotive cloud APIs, telematics web portals, and IVI remote access features, weak session tokens enable session hijacking, replay attacks, and impersonation of legitimate vehicle or user sessions.
-**Related:** Session Prediction, Broken Authentication, Weak PRNG, Insufficient Entropy, Information Leakage
 
 ### Weak PRNG (Weak Pseudo-Random Number Generator)
 **Category:** Vulnerability
 A vulnerability where a pseudo-random number generator produces predictable sequences, enabling attackers to guess generated values; in automotive systems, weak PRNGs affect key generation for secure communication, session token creation, challenge-response authentication, and V2X pseudonym certificate provisioning.
 **Related:** Insufficient Entropy, Predictable Random Number Generator, Weak Cryptographic Key, Hardware Security
+
+### Weak Session Token
+**Category:** Vulnerability
+A vulnerability where session identification tokens are predictable, low-entropy, non-random, or transmitted without adequate protection; in automotive cloud APIs, telematics web portals, and IVI remote access features, weak session tokens enable session hijacking, replay attacks, and impersonation of legitimate vehicle or user sessions.
+**Related:** Session Prediction, Broken Authentication, Weak PRNG, Insufficient Entropy, Information Leakage
+
+### Weston
+**Category:** Operating System
+The reference compositor implementing the Wayland display protocol; provides hardware-accelerated graphics composition, input event routing, and multi-surface management for automotive IVI clusters and infotainment systems.
+**Related:** Wayland, AGL (Automotive Grade Linux), IVI (In-Vehicle Infotainment), Linux
 
 ### Wi-Fi Attack
 **Category:** Attack
@@ -8046,6 +8150,7 @@ Protocol used for ECU calibration and measurement over CAN/Ethernet.
 ### XCP Injection
 **Category:** Attack
 Injecting malicious calibration commands into ECU systems.
+
 ### Xen Project
 **Category:** Virtualization
 An open-source Type-1 hypervisor supporting para-virtualization and hardware-assisted virtualization; used in some automotive and embedded systems for consolidating real-time and general-purpose workloads, offering strong isolation and driver domain architecture.
@@ -8054,6 +8159,10 @@ An open-source Type-1 hypervisor supporting para-virtualization and hardware-ass
 ### XML Injection
 **Category:** Attack
 Injecting malicious XML payloads into parsers.
+
+### XSS (Cross-Site Scripting)
+**Category:** Network
+Injection of malicious scripts into web applications.
 
 ### XSS (Cross-Site Scripting)
 **Category:** Attack
@@ -8079,6 +8188,7 @@ Injecting malicious payloads into YAML parsers.
 **Category:** Security Tool
 An open-source software implementation of a GSM base transceiver station that runs on Linux with SDR hardware (BladeRF, USRP); used in automotive security testing to create rogue BTS for attacking vehicle TCU cellular connectivity.
 **Related:** BTS, Rogue BTS, OpenBTS, OsmocomBB, BladeRF, SDR, GSM
+
 ### Yocto Project
 **Category:** Operating System
 An open-source build system for creating custom embedded Linux distributions; the de facto standard for automotive Linux platform development (used by AGL, Tesla, and many OEMs), providing bitbake recipes, layer management, and cross-compilation toolchains.
@@ -8090,6 +8200,7 @@ An open-source build system for creating custom embedded Linux distributions; th
 **Category:** Network
 An open-source middleware protocol designed for efficient data exchange across constrained networks, offering pub-sub, RPC, and storage capabilities with low latency and minimal overhead, emerging as a DDS alternative in automotive SOA.
 **Related:** DDS, SOME/IP, SOA
+
 ### Zephyr
 **Category:** Operating System
 An open-source real-time operating system by the Linux Foundation, designed for resource-constrained embedded devices; gaining adoption in automotive for sensor nodes, body control modules, and V2X communication due to its modular architecture and security features.
@@ -8127,3 +8238,4 @@ A logical or physical grouping of ECUs and vehicle functions organized by locati
 ### Zone-Based ECU Architecture (Zonal Architecture)
 **Category:** Vehicle Architecture
 Modern vehicle design dividing ECUs into functional zones instead of domain-based architecture.
+
