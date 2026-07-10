@@ -288,7 +288,7 @@ function showRelationGraph(term) {
       symbolSize: isCenterCat ? 24 : 18,
       symbol: 'roundRect',
       category: 1,
-      label: { show: false }
+      label: { show: true }
     });
   });
 
@@ -406,7 +406,7 @@ function showCategoryGraph(catName) {
     symbolSize: 30,
     symbol: 'roundRect',
     category: 1,
-    label: { show: false }
+    label: { show: true }
   });
   nodeMap[catName] = 0;
 
@@ -605,7 +605,26 @@ function selectCategory(catName) {
 function renderContent() {
   if (!GLOSSARY_DATA) return;
   var container = document.getElementById('contentBody');
-  var searchText = document.getElementById('contentSearchInput').value.toLowerCase().trim();
+  var rawInput = document.getElementById('contentSearchInput').value.trim();
+
+  // Parse Google Dorking-style prefixes: A: (all fields), D: (description)
+  // Default (no prefix): term only
+  var scope = 'term';   // 'term' | 'all' | 'desc'
+  var query = rawInput;
+  if (/^A:\s*/i.test(query)) {
+    scope = 'all';
+    query = query.replace(/^A:\s*/i, '');
+  } else if (/^D:\s*/i.test(query)) {
+    scope = 'desc';
+    query = query.replace(/^D:\s*/i, '');
+  } else if (/^A\s+/i.test(query)) {
+    scope = 'all';
+    query = query.replace(/^A\s+/i, '');
+  } else if (/^D\s+/i.test(query)) {
+    scope = 'desc';
+    query = query.replace(/^D\s+/i, '');
+  }
+  var searchText = query.toLowerCase().trim();
 
   var entries;
   if (currentCat) {
@@ -628,9 +647,16 @@ function renderContent() {
   var matched = entries;
   if (searchText) {
     matched = entries.filter(function(e) {
-      return (e.term || '').toLowerCase().indexOf(searchText) !== -1 ||
-             (e.description || '').toLowerCase().indexOf(searchText) !== -1 ||
-             (e.full_name || '').toLowerCase().indexOf(searchText) !== -1;
+      if (scope === 'desc') {
+        return (e.description || '').toLowerCase().indexOf(searchText) !== -1;
+      } else if (scope === 'all') {
+        return (e.term || '').toLowerCase().indexOf(searchText) !== -1 ||
+               (e.description || '').toLowerCase().indexOf(searchText) !== -1 ||
+               (e.full_name || '').toLowerCase().indexOf(searchText) !== -1;
+      } else {
+        // Default: term only
+        return (e.term || '').toLowerCase().indexOf(searchText) !== -1;
+      }
     });
   }
 
@@ -638,7 +664,10 @@ function renderContent() {
   if (currentCat && GLOSSARY_DATA.fullCategories[currentCat]) {
     meta = 'Showing ' + matched.length + ' of ' + entries.length + ' entries';
   }
-  if (searchText) meta += ' matching &quot;' + escHtml(searchText) + '&quot;';
+  if (searchText) {
+    var scopeLabel = (scope === 'desc') ? ' [description]' : (scope === 'all') ? ' [all fields]' : ' [term]';
+    meta += ' matching &quot;' + escHtml(searchText) + '&quot;' + scopeLabel;
+  }
   document.getElementById('contentMeta').innerHTML = meta;
 
   var html = '';
@@ -765,7 +794,7 @@ loadData();
 var _hmt = _hmt || [];
 (function() {
   var hm = document.createElement("script");
-  hm.src = "https://hm.baidu.com/hm.js?76cb8459f9d288c68e62678e492fe3ba";
+  hm.src = "https://hm.baidu.com/hm.js?ac13cdc4658b85224a344b0e187b0bf9";
   var s = document.getElementsByTagName("script")[0];
   s.parentNode.insertBefore(hm, s);
 })();

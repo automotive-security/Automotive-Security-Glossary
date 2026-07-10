@@ -141,7 +141,7 @@ body {
 }
 .entry-item:hover { border-color: #c5cae9; box-shadow: 0 2px 8px rgba(26,35,126,0.06); }
 .entry-item .term { font-weight: 600; color: #1a237e; font-size: 15px; }
-.entry-item .fullname { color: #888; font-size: 12px; margin-left: 8px; }
+.entry-item .fullname { color: #888; font-size: 12px;}
 .entry-item .desc { color: #555; font-size: 13px; line-height: 1.6; margin-top: 8px; display: none; }
 .entry-item .desc.show { display: block; }
 .entry-item .meta { font-size: 11px; color: #999; margin-top: 6px; }
