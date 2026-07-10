@@ -765,7 +765,7 @@ loadData();
 var _hmt = _hmt || [];
 (function() {
   var hm = document.createElement("script");
-  hm.src = "https://hm.baidu.com/hm.js?76cb8459f9d288c68e62678e492fe3ba";
+  hm.src = "https://hm.baidu.com/hm.js?ac13cdc4658b85224a344b0e187b0bf9";
   var s = document.getElementsByTagName("script")[0];
   s.parentNode.insertBefore(hm, s);
 })();
