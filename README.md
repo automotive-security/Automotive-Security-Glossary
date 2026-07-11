@@ -28,9 +28,13 @@ An advanced automotive radar technology that measures range, azimuth (horizontal
 
 ### 9008 EDL Mode
 
-**Category:** Reverse Engineering
+**Full Name:** Emergency Download Mode
 
-Qualcomm Emergency Download Mode used for low-level firmware flashing and recovery.
+**Category:** Hardware Security
+
+A Qualcomm-specific emergency recovery mode that provides low-level access to a device over USB (typically enumerating as Qualcomm HS-USB QDLoader 9008). After a Firehose programmer is loaded via the Sahara protocol, firmware can be read, written, or recovered from eMMC/UFS storage. If exposed on production automotive ECUs or TCUs, EDL mode may allow firmware extraction, persistent modification, or other hardware-level attacks unless protected by secure boot and authentication mechanisms.
+
+**Related:** Sahara Protocol, Firehose Protocol, Secure Boot, Firmware Extraction, JTAG, SWD
 
 ## A
 
@@ -162,7 +166,7 @@ An Auto-ISAC attack technique where an adversary exploits or abuses the elevatio
 
 ### Abuse Standard Diagnostic Protocol
 
-**Category:** Diagnostics
+**Category:** Attack
 
 An Auto-ISAC attack technique where an adversary abuses standard automotive diagnostic protocols (e.g., UDS, KWP2000) to execute unauthorized diagnostic sessions, read/write memory, or perform security access operations on ECUs.
 
@@ -1395,6 +1399,10 @@ A possible sequence of vulnerabilities or weaknesses leading to successful compr
 **Category:** Threat Modeling
 
 A reusable description of techniques commonly employed by attackers.
+### Attack Potential
+**Category:** Threat Modeling
+A measure of the effort and resources required for an adversary to successfully execute an attack, assessed during ISO 21434 TARA using five factors: elapsed time, specialist expertise, knowledge of the TOE, window of opportunity, and equipment. Attack potential ratings (Basic, Enhanced-Basic, Moderate, High, Beyond-High) determine whether a threat scenario is relevant for risk treatment.
+**Related:** TARA, Risk Assessment, ISO 21434, Attack Feasibility, Threat Scenario, Elapsed Time
 
 ### Attack Prerequisite
 
@@ -4207,6 +4215,10 @@ Continuous observation of systems for security events.
 **Category:** Security Architecture
 
 Rules defining security requirements and enforcement mechanisms.
+### Cybersecurity Property
+**Category:** Threat Modeling
+A security attribute of an asset that must be protected, defined in ISO 21434 as confidentiality, integrity, or availability (CIA). Each threat scenario in TARA is associated with the compromise of one or more cybersecurity properties of a specific asset, forming the basis for damage scenario evaluation and security need derivation.
+**Related:** CIA Triad, Confidentiality, Integrity, Availability, Security Asset, ISO 21434, TARA
 
 ### Cybersecurity Validation
 
@@ -4223,6 +4235,10 @@ Testing process ensuring security requirements are met.
 An inter-process communication system used in Linux-based automotive systems such as IVI and infotainment platforms.
 
 **Related:** Binder, IPC
+### Damage Scenario
+**Category:** Threat Modeling
+A description of the adverse consequences that result from successful exploitation of a threat, evaluated during TARA according to ISO 21434. Damage scenarios assess the impact on road users, vehicle functions, and other affected parties across four impact categories: safety (S), financial (F), operational (O), and privacy (P), used to determine the severity and associated risk level.
+**Related:** TARA, Threat Scenario, Risk, Impact Assessment, ISO 21434, Safety
 
 ### Dangling Pointer
 
@@ -5692,7 +5708,7 @@ E-safety Vehicle Intrusion Protected Applications, a project defining HSM securi
 
 **Full Name:** Electric Vehicle Supply Equipment
 
-**Category:** Standards
+**Category:** Vehicle Architecture
 
 The charging station infrastructure for electric vehicles, communicating with the vehicle via protocols like ISO 15118; presents an attack surface for grid-to-vehicle communication, payment, and charging control.
 
@@ -5790,7 +5806,7 @@ An Auto-ISAC attack technique where an adversary uses removable media (e.g., USB
 
 ### Exposed Debug Interface
 
-**Category:** Vulnerability
+**Category:** Hardware Security
 
 A vulnerability where hardware debug interfaces (JTAG, SWD, UART debug ports, Nexus, Aurora) are left accessible on production ECUs, allowing attackers to read memory, extract firmware, modify execution flow, and bypass security mechanisms; a primary vector for physical automotive attacks.
 
@@ -6488,7 +6504,7 @@ Chinese recommended national standard defining the communication protocol betwee
 
 ### GB/T 32960
 
-**Category:** Connectivity
+**Category:** Standards, Connectivity
 
 Chinese recommended national standard for electric vehicle remote service and management systems, defining data collection, transmission, and management requirements for EV monitoring.
 
@@ -7402,7 +7418,7 @@ An international series of standards (ISA/IEC 62443) for industrial communicatio
 
 **Full Name:** AVTP
 
-**Category:** Network
+**Category:** Standards
 
 IEEE standard for the Audio Video Transport Protocol over IEEE 802 networks, used in automotive Ethernet AVB/TSN for infotainment and camera data streaming.
 
@@ -7410,7 +7426,7 @@ IEEE standard for the Audio Video Transport Protocol over IEEE 802 networks, use
 
 ### IEEE 802.11p
 
-**Category:** Connectivity
+**Category:** Standards, Connectivity
 
 An amendment to the IEEE 802.11 standard for WAVE (Wireless Access in Vehicular Environments), operating on the 5.9 GHz band with up to 1000 m range; the physical layer for DSRC-based V2X communication.
 
@@ -9387,6 +9403,10 @@ Coding guidelines developed by the Motor Industry Software Reliability Associati
 A vulnerability where sensitive vehicle functions (diagnostic session activation, firmware update, key provisioning, V2X certificate enrollment, remote unlock) are accessible without authentication, allowing attackers to directly manipulate safety-critical or security-critical operations.
 
 **Related:** Broken Access Control, Authentication Bypass, Diagnostic Vulnerability, UDS Service Bypass
+### Misuse Case
+**Category:** Threat Modeling
+A use case describing how a system or feature could be intentionally misused or abused by an adversary to cause harm, violate security properties, or bypass safety mechanisms. In automotive TARA, misuse cases capture attacker goals, actions, and preconditions, complementing normal use cases to identify security requirements during early design phases.
+**Related:** TARA, Use Case, Abuse Case, Threat Scenario, Attack Scenario, STRIDE
 
 ### Misuse Case Modeling
 
@@ -11416,7 +11436,7 @@ The first phase of penetration testing involving information gathering about the
 
 ### Recovery Mode
 
-**Category:** Android
+**Category:** Hardware Security
 
 A minimal runtime environment used for factory reset, OTA installation, and recovery operations.
 
@@ -11541,6 +11561,10 @@ Transmitting fake RF signals to mislead receivers.
 **Category:** Attack
 
 Exploiting RFID systems used in vehicle access or immobilizers.
+### Risk
+**Category:** Threat Modeling
+The combination of the probability of a threat scenario occurring and its potential adverse consequences (damage scenario impact), as defined in ISO 21434. Automotive cybersecurity risk is calculated by combining attack feasibility (attack potential rating) with impact severity, resulting in risk values (e.g., 1-5) that determine whether risk treatment, reduction, retention, or avoidance is required.
+**Related:** TARA, Risk Assessment, Risk Treatment, Risk Management, ISO 21434, Damage Scenario, Attack Potential
 
 ### Risk Assessment
 
@@ -12143,6 +12167,10 @@ Encrypted and protected storage for sensitive data such as keys and credentials.
 **Category:** OTA
 
 A system ensuring firmware updates are authenticated, verified, and protected against tampering.
+### Security Asset
+**Category:** Threat Modeling
+Any tangible or intangible element within a vehicle system that has value and requires protection from cybersecurity threats, as defined in ISO 21434. Assets can include ECUs, communication channels, cryptographic keys, sensor data, firmware, configuration parameters, driver personal data, and vehicle functions, each with associated cybersecurity properties (confidentiality, integrity, availability) whose compromise constitutes a damage scenario.
+**Related:** CIA Triad, TARA, Asset Identification, Damage Scenario, Cybersecurity Property, ISO 21434
 
 ### Security Boundary Violation
 
@@ -12157,6 +12185,10 @@ Breaking defined trust or isolation boundaries.
 A vulnerability resulting from insecure default settings, unnecessary enabled services, permissive access controls, or improperly hardened configurations; common in automotive ECUs where debug interfaces remain active in production, diagnostic services run with maximum access, or cloud buckets storing telemetry data are left publicly readable.
 
 **Related:** Misconfiguration, Open Port Exposure, Overprivileged Service, Default Credentials
+### Security Need
+**Category:** Threat Modeling
+A cybersecurity requirement derived from the TARA process (ISO 21434) that specifies what protection must be applied to a security asset or system to reduce identified risks to an acceptable level. Security needs are the output of risk determination and feed directly into the cybersecurity concept, specifying functional and technical controls required to mitigate damage scenarios.
+**Related:** TARA, Cybersecurity Concept, Risk Treatment, ISO 21434, Security Requirement, Security Control
 
 ### Security Policy Violation
 
@@ -12971,6 +13003,10 @@ The smallest unit of CPU execution within a process, sharing the process address
 A high-performance real-time operating system developed by Express Logic (now Microsoft Azure RTOS), offering deterministic scheduling, fast context switching, and a small memory footprint; used in some automotive ECUs for safety-critical and real-time control tasks.
 
 **Related:** RTOS, FreeRTOS, OSEK/VDX, ECU
+### Threat
+**Category:** Threat Modeling
+A potential cause of an unwanted incident that may result in harm to a system, vehicle, or road user, as defined in ISO 21434. In automotive cybersecurity, a threat is associated with a specific asset and a cybersecurity property (confidentiality, integrity, or availability) that could be compromised, forming the basis for identifying threat scenarios during TARA.
+**Related:** TARA, Threat Scenario, Vulnerability, Risk, ISO 21434, CIA Triad
 
 ### Threat Actor Modeling
 
@@ -13079,6 +13115,11 @@ Intercepting TLS-encrypted communication via man-in-the-middle techniques.
 A race condition vulnerability where the state of a resource (file, socket, memory) changes between a security check and the subsequent use of that resource; in automotive file-based update mechanisms, shared memory between sandboxed processes, or diagnostic session management, TOCTOU can bypass authorization checks.
 
 **Related:** Race Condition, Logic Vulnerability, Privilege Escalation, Secure Boot
+### TOE
+**Full Name:** Target of Evaluation
+**Category:** Threat Modeling
+The specific system, component, or item being evaluated during a cybersecurity assessment or TARA, as defined in ISO 21434. The TOE defines the scope and boundary of the security analysis, including hardware, software, interfaces, and operational environment, against which threats, vulnerabilities, and attack paths are identified.
+**Related:** TARA, ISO 21434, Asset Identification, Attack Surface, Damage Scenario
 
 ### Token Forgery
 

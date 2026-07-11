@@ -99,10 +99,13 @@ function parseReadme(md) {
   var catCounts = {};
   var catEntries = {};  // category -> entries mapping
   entries.forEach(function(e) {
-    var cat = e.category;
-    catCounts[cat] = (catCounts[cat] || 0) + 1;
-    if (!catEntries[cat]) catEntries[cat] = [];
-    catEntries[cat].push(e);
+    var cats = (e.category || '').split(/,\s*/).filter(Boolean);
+    e.categories = cats;  // store parsed categories on entry
+    cats.forEach(function(cat) {
+      catCounts[cat] = (catCounts[cat] || 0) + 1;
+      if (!catEntries[cat]) catEntries[cat] = [];
+      catEntries[cat].push(e);
+    });
   });
 
   var catStats = Object.keys(catCounts).map(function(cat) {
@@ -198,15 +201,24 @@ function buildRelationMaps() {
   if (!GLOSSARY_DATA) return null;
   var forward = {};
   var allTerms = {};
-  var termToCat = {};
+  var termToCats = {};  // term → [cat1, cat2, ...]
+  var termToFullName = {};  // term → full_name
   var allEntries = [];
+  var seen = {};
 
   Object.keys(GLOSSARY_DATA.fullCategories).forEach(function(cat) {
     GLOSSARY_DATA.fullCategories[cat].forEach(function(e) {
-      allEntries.push(e);
-      forward[e.term] = (e.related || []).slice();
-      allTerms[e.term] = true;
-      termToCat[e.term] = cat;
+      if (!seen[e.term]) {
+        seen[e.term] = true;
+        allEntries.push(e);
+        forward[e.term] = (e.related || []).slice();
+        allTerms[e.term] = true;
+        termToCats[e.term] = [];
+        if (e.full_name) termToFullName[e.term] = e.full_name;
+      }
+      if (termToCats[e.term].indexOf(cat) === -1) {
+        termToCats[e.term].push(cat);
+      }
     });
   });
 
@@ -219,7 +231,7 @@ function buildRelationMaps() {
     });
   });
 
-  return { forward: forward, inverse: inverse, allTerms: allTerms, termToCat: termToCat };
+  return { forward: forward, inverse: inverse, allTerms: allTerms, termToCats: termToCats, termToFullName: termToFullName };
 }
 
 function showRelationGraph(term) {
@@ -227,9 +239,10 @@ function showRelationGraph(term) {
   var forward = RELATION_MAP.forward[term] || [];
   var inverse = RELATION_MAP.inverse[term] || [];
   var allTerms = RELATION_MAP.allTerms;
-  var termToCat = RELATION_MAP.termToCat || {};
+  var termToCats = RELATION_MAP.termToCats || {};
 
-  var centerCat = termToCat[term] || null;
+  var centerCats = termToCats[term] || [];
+  var centerCat = centerCats[0] || null;
 
   // Collect unique related terms (center + direct neighbors)
   var relatedMap = {};
@@ -239,10 +252,10 @@ function showRelationGraph(term) {
 
   // Collect categories of all involved terms
   var catNames = {};
-  if (centerCat) catNames[centerCat] = true;
+  centerCats.forEach(function(c) { catNames[c] = true; });
   Object.keys(relatedMap).forEach(function(t) {
-    var c = termToCat[t];
-    if (c) catNames[c] = true;
+    var cats = termToCats[t] || [];
+    cats.forEach(function(c) { catNames[c] = true; });
   });
 
   // Build node list — terms first, then categories
@@ -274,9 +287,10 @@ function showRelationGraph(term) {
   });
   offset = nodes.length;
 
-  // Category nodes
+  // Category nodes (skip if name collides with a term node)
   var catToIdx = {};
   catList.forEach(function(c, idx) {
+    if (relatedMap[c]) return; // skip: a term with same name already exists
     var gIdx = offset + idx;
     catToIdx[c] = gIdx;
     var isCenterCat = c === centerCat;
@@ -297,30 +311,32 @@ function showRelationGraph(term) {
   // Term-to-term edges
   forward.forEach(function(rel) {
     if (termToIdx[rel] !== undefined && rel !== term) {
-      edges.push({ source: term, target: rel, lineStyle: { color: '#c5cae9', width: 1.5 } });
+      edges.push({ source: term, target: rel, lineStyle: { color: '#9fa8da', width: 1.5 } });
     }
   });
   inverse.forEach(function(src) {
     if (termToIdx[src] !== undefined && src !== term) {
-      edges.push({ source: src, target: term, lineStyle: { color: '#c5cae9', width: 1.5 } });
+      edges.push({ source: src, target: term, lineStyle: { color: '#9fa8da', width: 1.5 } });
     }
   });
 
-  // Term-to-category edges
+  // Term-to-category edges (one per category the term belongs to)
   nodeList.forEach(function(t) {
-    var c = termToCat[t];
-    if (c && catToIdx[c] !== undefined) {
-      var isCtr = t === term;
-      edges.push({
-        source: t,
-        target: c,
-        lineStyle: {
-          color: isCtr ? '#ff8f00' : '#ffe0b2',
-          width: isCtr ? 2 : 1,
-          type: 'dashed'
-        }
-      });
-    }
+    var cats = termToCats[t] || [];
+    cats.forEach(function(c) {
+      if (catToIdx[c] !== undefined) {
+        var isCtr = t === term && c === centerCat;
+        edges.push({
+          source: t,
+          target: c,
+          lineStyle: {
+            color: isCtr ? '#ff8f00' : '#e65100',
+            width: isCtr ? 2 : 1,
+            type: 'dashed'
+          }
+        });
+      }
+    });
   });
 
   // Render
@@ -328,7 +344,7 @@ function showRelationGraph(term) {
   if (graphChart) graphChart.dispose();
   graphChart = echarts.init(dom);
   graphChart.setOption({
-    tooltip: { trigger: 'item', formatter: '{b}' },
+    tooltip: { trigger: 'item', formatter: function(p) { var fn = RELATION_MAP.termToFullName[p.name]; return fn ? p.name + '<br/><small>' + fn + '</small>' : p.name; } },
     series: [{
       type: 'graph',
       layout: 'force',
@@ -400,19 +416,21 @@ function showCategoryGraph(catName) {
   var nodeMap = {};
 
   // Center: the category node
+  var catNodeName = catName;
   nodes.push({
-    name: catName,
+    name: catNodeName,
     itemStyle: { color: '#ff8f00' },
     symbolSize: 30,
     symbol: 'roundRect',
     category: 1,
     label: { show: true }
   });
-  nodeMap[catName] = 0;
+  nodeMap[catNodeName] = 0;
 
   // Terms in this category
   entries.forEach(function(e, idx) {
     var t = e.term;
+    if (t === catName) return; // skip if term name collides with category node
     var gIdx = idx + 1;
     nodeMap[t] = gIdx;
     nodes.push({
@@ -422,7 +440,7 @@ function showCategoryGraph(catName) {
       category: 0,
       label: { show: true, fontSize: 11 }
     });
-    edges.push({ source: catName, target: t, lineStyle: { color: '#ffe0b2', width: 1.5, type: 'dashed' } });
+    edges.push({ source: catNodeName, target: t, lineStyle: { color: '#e65100', width: 1.5, type: 'dashed' } });
   });
 
   // Term-to-term edges within this category (from Related: field)
@@ -433,7 +451,7 @@ function showCategoryGraph(catName) {
     if (e.related) {
       e.related.forEach(function(rel) {
         if (termNames[rel] && nodeMap[rel] !== undefined && nodeMap[e.term] !== undefined && rel !== e.term) {
-          edges.push({ source: e.term, target: rel, lineStyle: { color: '#c5cae9', width: 1 } });
+          edges.push({ source: e.term, target: rel, lineStyle: { color: '#9fa8da', width: 1 } });
         }
       });
     }
@@ -444,7 +462,7 @@ function showCategoryGraph(catName) {
   if (graphChart) graphChart.dispose();
   graphChart = echarts.init(dom);
   graphChart.setOption({
-    tooltip: { trigger: 'item', formatter: '{b}' },
+    tooltip: { trigger: 'item', formatter: function(p) { var fn = RELATION_MAP.termToFullName[p.name]; return fn ? p.name + '<br/><small>' + fn + '</small>' : p.name; } },
     series: [{
       type: 'graph',
       layout: 'force',
@@ -476,7 +494,7 @@ function showCategoryGraph(catName) {
   graphChart.on('click', function(params) {
     if (params.dataType === 'node') {
       var name = params.name;
-      if (name === catName) return;
+      if (name === catNodeName) return;
       if (allTerms[name]) {
         showRelationGraph(name);
       }
@@ -632,10 +650,14 @@ function renderContent() {
     document.getElementById('contentTitle').textContent = currentCat;
   } else {
     entries = [];
+    var seen = {};
     var cats = Object.keys(GLOSSARY_DATA.fullCategories);
     cats.forEach(function(cat) {
       var catEntries = GLOSSARY_DATA.fullCategories[cat];
-      catEntries.forEach(function(e) { entries.push(e); });
+      catEntries.forEach(function(e) {
+        var key = e.term + '|' + (e.full_name || '');
+        if (!seen[key]) { seen[key] = true; entries.push(e); }
+      });
     });
     // Sort alphabetically
     entries.sort(function(a, b) {
